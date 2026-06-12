@@ -192,6 +192,7 @@ public class PlayerListener implements Listener {
     }
 
     private boolean isWorldRestricted(Player player) {
+        if (player.hasPermission("reminions.bypass.world")) return false;
         Config config = this.plugin.getConfig0();
         return config.getBoolean("settings.world_whitelist.enabled")
                 && !config.getStringList("settings.world_whitelist.worlds")

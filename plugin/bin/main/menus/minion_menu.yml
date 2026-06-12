@@ -1,0 +1,141 @@
+title: "%minion_name%"
+rows: 6
+decorations:
+  crystals_fill:
+    material: BLACK_STAINED_GLASS_PANE
+    name: ""
+    slot: fill
+items:
+  upgrade_menu:
+    material: GOLD_INGOT
+    name: "#FFD700⛏ Next Tier Upgrade"
+    lore:
+      - "#AAAAAAUpgrade your minion to unlock"
+      - "#AAAAAAbetter efficiency and storage."
+      - ""
+      - "#55FFFF⚡ Time Between Actions: #FFFFFF%upgrade_production_speed%"
+      - "#55FFFF📦 Max Storage: #FFFFFF%upgrade_max_storage%"
+      - ""
+      - "#55FF55✔ Click to view details"
+    data:
+      - "action:upgrade_menu"
+    slot: 5
+  minion_head:
+    data:
+      - "action:minion_head"
+    slot: 4
+  minion_layout:
+    material: BOOK
+    name: "#55FFFF📐 Minion Layout"
+    lore:
+      - "#AAAAAAOpen the layout configuration menu"
+      - "#AAAAAAto customize how your minion works."
+      - ""
+      - "&eClick to view layout"
+    data:
+      - "action:layout_menu"
+    slot: 3
+
+  # The slot you put here will be used to save
+  # the modifier's position in the menu.
+  minion_skin_slot:
+    material: LIME_STAINED_GLASS_PANE
+    name: "#00FF00Minion Skin Slot"
+    lore:
+      - "#AAAAAAYou can insert a Minion Skin here to"
+      - "#AAAAAAchange the appearance of your"
+      - "#AAAAAAminion."
+    data:
+      - "modifier_category_accept:SKIN"
+    slot: 10
+
+  minion_fuel_slot:
+    material: ORANGE_STAINED_GLASS_PANE
+    name: "#FFA500Fuel"
+    lore:
+      - "#AAAAAAInsert fuel here to keep your"
+      - "#AAAAAAminion working continuously."
+    data:
+      - "modifier_category_accept:FUEL"
+    slot: 19
+
+  minion_sell_slot:
+    material: BLUE_STAINED_GLASS_PANE
+    name: "#00BFFFAutomated Shipping"
+    lore:
+      - "#AAAAAAPlace items here to automatically"
+      - "#AAAAAAsell them without manual collection."
+    data:
+      - "modifier_category_accept:SELL"
+    slot: 28
+
+  minion_upgrade_slot_1:
+    material: YELLOW_STAINED_GLASS_PANE
+    name: "#FFFF00Upgrade Slot #1"
+    lore:
+      - "#AAAAAAInsert upgrades here to enhance"
+      - "#AAAAAAyour minion's efficiency or capacity."
+    data:
+      - "modifier_category_accept:UPGRADE"
+    slot: 37
+
+  minion_upgrade_slot_2:
+    material: YELLOW_STAINED_GLASS_PANE
+    name: "#FFFF00Upgrade Slot #2"
+    lore:
+      - "#AAAAAAInsert additional upgrades to further"
+      - "#AAAAAAimprove your minion's performance."
+    data:
+      - "modifier_category_accept:UPGRADE"
+    slot: 46
+  collect_all:
+    material: CHEST
+    name: "#FFD700Collect All"
+    lore:
+      - "#AAAAAAClick to collect all stored items"
+      - "#AAAAAAfrom your minion's inventory."
+      - ""
+      - "#55FF55✔ Instantly transfers items to you"
+      - "#FF5555✖ Does not collect coins automatically"
+    data:
+      - "action:collect_all"
+    slot: 48
+  close:
+    material: BARRIER
+    name: "&cClose"
+    data:
+      - "action:close"
+    slot: 49
+  quick_upgrade:
+    material: DIAMOND
+    name: "#00FF00⏫ Quick Upgrade Minion"
+    lore:
+      - "#AAAAAAClick here to instantly upgrade"
+      - "#AAAAAAyour minion to the next tier."
+      - ""
+      - "#55FFFF⚡ Time Between Actions: #FFFFFF%upgrade_production_speed%"
+      - "#55FFFF📦 Max Storage: #FFFFFF%upgrade_max_storage%"
+      - ""
+      - "#AAAAAA▶ Upgrade requirements:"
+      - "%upgrade_requirements%"
+      - ""
+      - "&eClick to quick upgrade"
+    data:
+      - "action:quick_upgrade"
+    slot: 50
+  pickup_minion:
+    material: BEDROCK
+    name: "#FF5555⬆ Pickup Minion"
+    lore:
+      - "#AAAAAASafely remove your minion and return"
+      - "#AAAAAAit to your inventory."
+      - ""
+      - "#55FFFF⚡ Current Tier: #FFFFFF%roman_level%"
+      - "#55FFFF📦 Stored Items: #FFFFFF%collected%"
+      - ""
+      - "#FF5555✖ Minion will stop working once picked up"
+      - ""
+      - "&eClick to pickup your minion!"
+    data:
+      - "action:pickup_minion"
+    slot: 53

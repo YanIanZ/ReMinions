@@ -1,0 +1,26 @@
+title: "%storage_name%"
+rows: 5
+decorations:
+  crystals_fill:
+    material: BLACK_STAINED_GLASS_PANE
+    name: ""
+    slot: fill
+items:
+  collect_all:
+    material: CHEST
+    name: "#FFD700Collect All"
+    lore:
+      - "#AAAAAAClick to collect every item"
+      - "#AAAAAAstored in this storage."
+      - ""
+      - "#55FF55✔ Transfers items safely"
+      - "#FF5555✖ Stops if your inventory is full"
+    data:
+      - "action:collect_all"
+    slot: 40
+  close:
+    material: BARRIER
+    name: "&cClose"
+    data:
+      - "action:close"
+    slot: 44

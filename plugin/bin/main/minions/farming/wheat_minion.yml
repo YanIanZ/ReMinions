@@ -1,0 +1,199 @@
+name: "&eWheat Minion &7%roman_level%"
+item:
+  name: "&eWheat Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7farming wheat automatically."
+    - "&7This minion produces in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8🌾 &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FARMER
+category_skin: "wheat_farming"
+properties:
+  base_radius: 2
+  block_check_around: "DIRT;GRASS_BLOCK;FARMLAND;DIRT_PATH;COARSE_DIRT"
+  animations:
+    # For farming type minions
+    crop: WHEAT
+    crop_particle: HAPPY_VILLAGER
+
+skin_levels:
+  1:
+    path: "wheat_level_1"
+  2:
+    path: "wheat_level_2"
+  3:
+    path: "wheat_level_3"
+  4:
+    path: "wheat_level_4"
+  5:
+    path: "wheat_level_5"
+  6:
+    path: "wheat_level_6"
+
+products:
+  wheat:
+    type: vanilla
+    material: WHEAT
+    chance: 1.0
+    amount: 1-3
+  wheat_seeds:
+    type: vanilla
+    material: WHEAT_SEEDS
+    chance: 0.8
+    amount: 1-2
+  hay_block:
+    type: vanilla
+    material: HAY_BLOCK
+    chance: 0.3
+    amount: 1-2
+  bread:
+    type: vanilla
+    material: BREAD
+    chance: 0.2
+    amount: 1-4
+
+upgrades:
+  1:
+    production_speed: 20
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 10
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 18
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 8
+      shape:
+        - "000"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 16
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 16
+      shape:
+        - "010"
+        - "0?0"
+        - "010"
+
+  4:
+    production_speed: 14
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 4
+        2:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 32
+      shape:
+        - "010"
+        - "2?0"
+        - "010"
+
+  5:
+    production_speed: 12
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 8
+        1:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 4
+      shape:
+        - "101"
+        - "0?0"
+        - "101"
+
+  6:
+    production_speed: 10
+    max_storage: 15
+    requirement:
+      items:
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 16
+        2:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 8
+        3:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 64
+      shape:
+        - "123"
+        - "2?3"
+        - "111"

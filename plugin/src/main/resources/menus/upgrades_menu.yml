@@ -1,0 +1,32 @@
+title: "%minion_name% Recipes"
+rows: 6
+slots_recipes:
+  - 11-15
+  - 21-23
+  - 30-32
+decorations:
+  crystals_fill:
+    material: BLACK_STAINED_GLASS_PANE
+    name: ""
+    slot: fill
+items:
+  close:
+    material: BARRIER
+    name: "&cClose"
+    data:
+      - "action:close"
+    slot: 49
+
+  back:
+    material: ARROW
+    name: "&eBack"
+    data:
+      - "action:back"
+    slot: 48
+  minion_head:
+    lore:
+      - ""
+      - "&eClick to view recipes!"
+    data:
+      - "action:minion_head"
+    slot: 4

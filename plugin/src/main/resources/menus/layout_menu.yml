@@ -1,0 +1,21 @@
+title: "&8Layout Minion"
+rows: 6
+decorations:
+  crystals_fill:
+    material: BLACK_STAINED_GLASS_PANE
+    name: ""
+    slot: fill
+items:
+  close:
+    material: BARRIER
+    name: "&cClose"
+    data:
+      - "action:close"
+    slot: 49
+
+  back:
+    material: ARROW
+    name: "&eBack"
+    data:
+      - "action:minion_menu"
+    slot: 48

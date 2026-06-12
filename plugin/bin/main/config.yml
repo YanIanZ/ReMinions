@@ -1,0 +1,165 @@
+file_version: 6
+settings:
+  # Enables or disables debug messages in console.
+  # When true, the plugin will print extra logs (useful for developers or troubleshooting).
+  debug_enabled: false
+
+  # Allows minions to keep working while the player is offline.
+  # If true → minions continue producing items when the owner disconnects.
+  # If false → minions pause when the player leaves the server.
+  minions_offline_mode: true
+  minions_offline_time_limit: 2 # In days
+
+  # If enabled, only players with a specific permission can have minions working while offline.
+  # (Only applies if "minions_offline_mode" is true)
+  # Permission: beeminions.offline
+  required_permission_offline_mode: false
+
+  # Sets the default maximum number of minions each player can have.
+  # Players can increase this through upgrades, progress, or permissions.
+  default_max_minions: 5
+
+  # If true, players gain experience when a minion *produces* an item automatically.
+  products_add_exp_produce: false
+
+  # If true, players gain experience when they *manually collect* items from a minion.
+  products_add_exp_take_item: true
+
+
+  # Controls in which worlds minions are allowed to work.
+  world_whitelist:
+    # If false, minions can work in any world.
+    # If true, only the worlds listed below are allowed.
+    enabled: true
+
+    # List of allowed worlds where minions can spawn and operate.
+    # You can add or remove worlds depending on your server setup.
+    worlds:
+      - world
+      - world_nether
+      - world_the_end
+
+  minions_recipes: true
+
+database:
+  # Database type: choose one of the following
+  # - sqlite → local .db file (default, no external setup required)
+  # - mysql  → remote or local SQL server
+  # - redis  → cache or memory database (requires Redis server)
+  type: sqlite
+
+  # Only used for SQLite mode:
+  # This will create a file inside the plugin folder, e.g. "plugins/BeeMinions/players.db"
+  path: players
+
+  # MySQL settings:
+  host: localhost
+  port: 3306
+  user: root
+  password: ""
+  database: beeminions
+
+  # Redis settings (only used if type = redis)
+  redis:
+    host: localhost
+    port: 6379
+    password: ""
+
+tags:
+  new_upgrade_values: "&8%upgrade_old_value% &8&l→ &a%upgrade_new_value%"
+  upgrade_requirement: "&7• &f%upgrade_item_display% &7x%upgrade_item_amount%"
+  upgrade_unlocked: "&a&l✔&r &aTier %level%"
+  upgrade_locked: "&c&l✘&r &cTier %level%"
+  recipe_book_display_amount_required: "#FFAA00⚠ &eRequired amount: &f%x_amount% &7📘"
+messages:
+  command_not_exists: "#FF5555✖ &cThe command '&f%command.name%&c' does not exist! &7(Type &e/help&7 if you're lost)"
+  command_not_has_permission: "#FFA500🔒 &cYou don't have permission to use this command. &7(Nice try tho 👀)"
+  command_not_equals_length: "#FFCC00📏 &eIncorrect usage! &7Please check the command arguments carefully. &fUsage: &e%command.usage%"
+  command_only_player: "#FF5555✖ &cThis command can only be used by a player."
+  command_player_not_found: "#FF5555✖ &cThe player '&f%player%&c' was not found! &7(Check the spelling or if they are online)"
+  minion_id_not_found: "#FF5555✖ &cThe minion with ID '&f%minion_id%&c' does not exist! &7(Check the ID or if it's active)"
+  inventory_full: "#FF5555✖ &cYour inventory is full! &7Please free up some space before continuing. 📦"
+  minion_placed: "#55FF55✔ &aYou placed a minion: &f%minion_name% &7(&e%current_minions%&7/&e%max_minions%&7)"
+  received_minion: "#55FF55✔ &aYou received &ex%amount% &fminion(s) &7(ID: &f%minion_id%&7, Level: &e%roman_level%&7) 🐝"
+  invalid_number: "#FF5555✖ &cThe amount or level you entered is not a valid number! &7Please enter a positive integer."
+  received_modifier: "#55FF55✔ &aYou received a modifier: &f%modifier_name% &7(Category: &e%modifier_category%&7, Duration: &e%duration%&7) ✨"
+  invalid_modifier_category: "#FF5555✖ &cThat modifier cannot be placed here! &7(Category mismatch)"
+  modifier_id_not_found: "#FF5555✖ &cThe modifier with ID '&f%modifier_id%&c' does not exist! &7(Check the ID or if it's active)"
+  skin_id_not_found: "#FF5555✖ &cThe skin with ID '&f%skin_id%&c' does not exist! &7(Check the ID or if it's active)"
+  received_skin: "#55FF55✔ &aYou received a skin: &f%skin_name% ✨"
+  collected_all_items: "#55FF55✔ &aYou collected &ex%collected_amount% &aitems from your minion! 🎒"
+  storage_collected_all_items: "#55FF55✔ &aYou collected &ex%collected_amount% &aitems from this storage! 🗃"
+  invalid_skin_level_minion: "#FF5555✖ &cThe skin level &e%level% &cfor minion '&f%minion_id%&c' is invalid! &7(Check if the skin supports this level)"
+  invalid_level_upgrade_minion: "#FF5555✖ &cThe upgrade level &e%level% &cfor minion '&f%minion_id%&c' is invalid! &7(Check if the level exists or is available)"
+  pickup_success: "#55FF55✔ &aYou picked up your minion: &f%minion_name%. &aAll items and modifiers were returned to your inventory! 🐝"
+  storage_id_not_found: "#FF5555✖ &cThe storage with ID '&f%storage_id%&c' does not exist! &7(Check the ID or if it's active)"
+  minion_too_close: "#FF5555✖ &cThis minion is too close! &7(Protected radius: &e%required_distance% blocks&7)"
+  received_storage: "#55FF55✔ &aYou received &ex%amount% &fstorage(s) &7(ID: &f%storage_id%&7, Name: &f%storage_name%&7) 🗃"
+  storage_not_owner: "#FF5555✖ &cYou cannot break this storage! &7(It belongs to another player) 🔒"
+  storage_removed: "#55FF55✔ &aYou removed the storage successfully. All stored items were returned. 🗃"
+  storage_break_inventory_full: "#FF5555✖ &cYour inventory does not have enough space to remove this storage safely. &7Free up space first. 📦"
+  storage_no_minion_near: "#FF5555✖ &cYou must place the storage next to your minion! 🐝"
+  upgrade_missing_items: "#FF5555✖ &cYou don’t have all the required items to upgrade your minion! &7(Check the recipe) 🔨"
+  upgrade_success: "#55FF55✔ &aYour minion &f%minion_name% &ahas been successfully upgraded to &eLevel %roman_level%! 🐝"
+  click_spam: "#FF5555✖ &cPlease wait before clicking again! &7(Anti-spam protection) 🕒"
+  minion_category_not_match: "#FF5555✖ &cThat item cannot be used on this minion!"
+  minions_unique_unlocked: "#55FF55✔ &aYou unlocked a new minion slot! &7New Max minions: &e%new_max_minions%"
+  minions_max_unique_reached: "#55FF55✔ &aYou have unlocked all possible minion slots! &7(No more rewards available) 🏆"
+  minions_unique_required_next: "#FFAA00⚠ &e%current_minions% unique minions &7(&f%max_minions% slots&7). &eI need &f%required_minions_next_reward% &emore! 🚀"
+  collected_money_auto_sell: "#55FF55✔ &aYour minion automatically sold items for &e$%money_earned%! 💰"
+  reload_all_success: "#55FF55✔ &aAll configurations, minions, skins, and modifiers have been successfully reloaded! 🔄"
+  reload_minions_success: "#55FF55✔ &aAll minions have been successfully reloaded! 🐝"
+  reload_config_success: "#55FF55✔ &aThe configuration file has been successfully reloaded! ⚙"
+  reload_skins_success: "#55FF55✔ &aAll minion skins have been successfully reloaded! 🎨"
+  reload_modifiers_success: "#55FF55✔ &aAll modifiers have been successfully reloaded! ✨"
+  reload_storages_success: "#55FF55✔ &aAll storages have been successfully reloaded! ✨"
+  reload_invalid_type: "#FF5555✖ &cInvalid reload type: &f%type% &7(Use: &eall, minions, config, skins, modifiers, storages&7)"
+  import_minions_success: "#55FF55✔ &aAll minions have been successfully imported! 🐝"
+  import_skins_success: "#55FF55✔ &aAll minion skins have been successfully imported! 🎨"
+  import_modifiers_success: "#55FF55✔ &aAll modifiers have been successfully imported! ✨"
+  import_players_success: "#55FF55✔ &aAll player data has been successfully imported! 👤"
+  world_not_place_minion: "#FF5555✖ &cYou cannot place a minion in this world! 🌍"
+  minion_deleted: "#55FF55✔ &aThe minion &f%minion_name% &7(ID: &f%minion_id%&7) &ahas been successfully deleted! 🗑"
+  reset_unique_success_admin: "#55FF55✔ &aYou have successfully reset the unique minions of &f%player%&a. &7(Max minions reset to &e%max_minions%&7) 🔄"
+  reset_unique_success_player: "#FFCC00⚠ &eYour unique minions progress has been reset by an admin. &7(Max minions: &f%max_minions%&7) 🐝"
+  all_unique_minions_reset_success: "#55FF55✔ &aAll players' unique minions have been reset successfully! &7(%count% players updated, default max: &e%default_max%&7) 🐝"
+  minion_place_limit_reached: "#FF5555✖ &cYou've reached your limit of %limit% placed minions."
+  command_help:
+    - "#E8D91D&lBeeMinions #E8701DBy Leo_S2"
+    - "&7"
+    - "#D0D5F0Thanks for using my plugin!"
+    - "#D0D5F0For support or questions join my Discord:"
+    - "&7"
+    - "#E8701D&ohttps://discord.gg/Bhmx2DfJg9"
+    - "&7"
+    - "#E8D91D/minions #D0D5F0- #E8701DShow plugin information."
+    - "#E8D91D/minions delete #D0D5F0- #E8701DDelete a minion from a player."
+    - "#E8D91D/minions get #D0D5F0- #E8701DGive a minion to a player."
+    - "#E8D91D/minions modifier #D0D5F0- #E8701DGive a modifier to a player."
+    - "#E8D91D/minions skin #D0D5F0- #E8701DGive a skin to a player."
+    - "#E8D91D/minions storage #D0D5F0- #E8701DGive a storage upgrade to a player."
+    - "#E8D91D/minions import #D0D5F0- #E8701DImport minion data (types: config/json/etc)."
+    - "#E8D91D/minions reload #D0D5F0- #E8701DReload a configuration type."
+    - "#E8D91D/minions reset_unique_all #D0D5F0- #E8701DReset all unique minions for all players."
+    - "#E8D91D/minions reset_unique #D0D5F0- #E8701DReset unique minions for a specific player."
+    - "&7"
+    - "#D0D5F0Available command usages:"
+    - "#E8D91D/minions delete &f<player_name> <minion_id>"
+    - "#E8D91D/minions get &f<player_name> <minion_id> <amount> <level> <notify>"
+    - "#E8D91D/minions modifier &f<player_name> <modifier_id> <amount> <notify>"
+    - "#E8D91D/minions skin &f<player_name> <skin_id> <notify>"
+    - "#E8D91D/minions storage &f<player_name> <storage_id> <amount> <notify>"
+    - "#E8D91D/minions import &f<type>"
+    - "#E8D91D/minions reload &f<type>"
+    - "#E8D91D/minions reset_unique_all"
+    - "#E8D91D/minions reset_unique &f<player_name>"
+minions_unlocked:
+  1:
+    required_unique_minions: 5
+    new_max_minions: 7
+  2:
+    required_unique_minions: 7
+    new_max_minions: 10
+  3:
+    required_unique_minions: 10
+    new_max_minions: 15

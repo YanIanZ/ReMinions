@@ -1,0 +1,18 @@
+category: SELL
+type: AUTO_SELL
+duration: -1
+unbreakable: true
+
+item:
+  material: HOPPER
+  name: "&8⚙ &7Auto-Sell Upgrade"
+  lore:
+    - "&7Automatically sells the items"
+    - "&7your minion collects."
+    - ""
+    - "&8✦ &7Sells items directly to the server"
+    - "&8✦ &7Earnings go to your balance"
+    - "&8(Place inside the minion)"
+    - ""
+    - "&8📦 &7Total Items Sold: &a%items_sold%"
+    - "&8💰 &7Total Money Earned: &6$%money_earned%"

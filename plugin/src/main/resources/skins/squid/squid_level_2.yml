@@ -1,0 +1,31 @@
+category: "squid_fisherman"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The squid is calmly floating..."
+  WORKING_PLACE:
+    - "&b🦑 &aSquid is searching the waters..."
+  WORKING_BREAK:
+    - "&b💦 &aSquid is splashing around..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion must be placed in water"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNWZkYWMwNGUxN2ZkNzYyMjA0ZjM0YWQ4ZmI1YjhjOTJmYmZiYWFiYTU4NGIwZThiNjIwOWViNDA1ZWRkY2VjNCJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#1a5d89"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#143f5c"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#1a5d89"
+  HAND:
+    material: "FISHING_ROD"

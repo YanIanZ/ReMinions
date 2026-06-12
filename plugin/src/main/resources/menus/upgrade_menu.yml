@@ -1,0 +1,44 @@
+title: "%minion_name% Recipe"
+rows: 6
+decorations:
+  crystals_fill:
+    material: BLACK_STAINED_GLASS_PANE
+    name: ""
+    slot: fill
+  crafting_table:
+    material: CRAFTING_TABLE
+    name: "&eCrafting Recipe"
+    lore:
+      - "&7Here you can view the recipe"
+      - "&7to craft your minion."
+      - ""
+      - "&ePlace the items in the layout"
+      - "&eand confirm to craft."
+    slot: 23
+items:
+  close:
+    material: BARRIER
+    name: "&cClose"
+    data:
+      - "action:close"
+    slot: 49
+
+  back:
+    material: ARROW
+    name: "&eBack"
+    data:
+      - "action:minion_menu"
+    slot: 48
+  minion_upgrades:
+    name: "%minion_name%"
+    lore:
+      - "%minion_upgrades%"
+      - ""
+      - "&eClick to view recipes!"
+    data:
+      - "action:minion_upgrades"
+    slot: 50
+  upgrade_accept:
+    data:
+      - "action:upgrade_accept"
+    slot: 25

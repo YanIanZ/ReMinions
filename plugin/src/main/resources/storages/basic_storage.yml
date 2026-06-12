@@ -1,0 +1,26 @@
+name: "#8B4513Basic Storage"
+block_skin: "BARREL"
+item:
+  material: "BARREL"
+  name: "#D4AF37&lBasic Storage"
+  lore:
+    - ""
+    - "#AAAAAAThis simple storage helps your"
+    - "#AAAAAAall collected items safe."
+    - ""
+    - "#8B4513📦 &7Max Storage: &a%storage%"
+    - "#228B22🪓 &7Skin: &e%block_skin%"
+    - "#1E90FF⚡ &7Works automatically!"
+    - ""
+    - "#555555Place it to expand your minion capacity."
+max_storage: 8
+rows: 5
+pattern:
+  - 11
+  - 12
+  - 13
+  - 14
+  - 15
+  - 21
+  - 22
+  - 23

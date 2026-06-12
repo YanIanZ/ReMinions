@@ -7,7 +7,7 @@ import org.bukkit.NamespacedKey;
 import org.bukkit.Registry;
 import org.bukkit.enchantments.Enchantment;
 
-public class ItemBrigde_v1_21_11 implements ItemBridge {
+public class ItemBridge_v1_21_11 implements ItemBridge {
    private static final Registry<Enchantment> ENCHANTMENT_REGISTRY = RegistryAccess.registryAccess().getRegistry(RegistryKey.ENCHANTMENT);
 
    @Override

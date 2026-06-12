@@ -46,7 +46,7 @@ public class Config extends FileHandler {
                 this.set("database.port", 3306);
                 this.set("database.user", "root");
                 this.set("database.password", "");
-                this.set("database.database", "beeminions");
+                this.set("database.database", "reminions");
                 this.set("database.redis.host", "localhost");
                 this.set("database.redis.port", 6379);
                 this.set("database.redis.password", "");

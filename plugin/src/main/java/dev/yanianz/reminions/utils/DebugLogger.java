@@ -10,23 +10,23 @@ public class DebugLogger {
     public static void debug(String message) {
         if (enabled) {
             CONSOLE.sendMessage(Text.parseComponent(
-                    "#00FFFF🐞 #55FFFF[BeeMinions] #AAAAAA→ #00AAFF[Debug] #FFFFFF" + message));
+                    "#00FFFF🐞 #55FFFF[ReMinions] #AAAAAA→ #00AAFF[Debug] #FFFFFF" + message));
         }
     }
 
     public static void warn(String message) {
         CONSOLE.sendMessage(Text.parseComponent(
-                "#FFAA00⚠ #FFCC00[BeeMinions] #AAAAAA→ #FF9900[Warn] #FFFFFF" + message));
+                "#FFAA00⚠ #FFCC00[ReMinions] #AAAAAA→ #FF9900[Warn] #FFFFFF" + message));
     }
 
     public static void error(String message) {
         CONSOLE.sendMessage(Text.parseComponent(
-                "#FF5555❌ #FF6666[BeeMinions] #AAAAAA→ #FF0000[Error] #FFFFFF" + message));
+                "#FF5555❌ #FF6666[ReMinions] #AAAAAA→ #FF0000[Error] #FFFFFF" + message));
     }
 
     public static void info(String message) {
         CONSOLE.sendMessage(Text.parseComponent(
-                "#00FFFF✨ #55FFFF[BeeMinions] #AAAAAA→ #00FF00[Info] #FFFFFF" + message));
+                "#00FFFF✨ #55FFFF[ReMinions] #AAAAAA→ #00FF00[Info] #FFFFFF" + message));
     }
 
     public static void setEnabled(boolean value) {

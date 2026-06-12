@@ -18,7 +18,7 @@ import redis.clients.jedis.resps.ScanResult;
 public class RedisDatabase extends Database {
     private JedisPool jedisPool;
 
-    private static final String KEY_PREFIX = "beeminions:player:";
+    private static final String KEY_PREFIX = "reminions:player:";
     private static final int TTL_SECONDS   = 600;
 
     @Override

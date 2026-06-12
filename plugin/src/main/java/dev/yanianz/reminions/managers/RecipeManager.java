@@ -29,7 +29,7 @@ public class RecipeManager {
                 removed++;
             }
         }
-        DebugLogger.debug("Removed " + removed + " old BeeMinions recipes.");
+        DebugLogger.debug("Removed " + removed + " old ReMinions recipes.");
         registeredRecipes.clear();
     }
 

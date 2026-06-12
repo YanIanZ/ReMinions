@@ -12,7 +12,7 @@ settings:
 
   # If enabled, only players with a specific permission can have minions working while offline.
   # (Only applies if "minions_offline_mode" is true)
-  # Permission: beeminions.offline
+  # Permission: reminions.offline
   required_permission_offline_mode: false
 
   # Sets the default maximum number of minions each player can have.
@@ -49,7 +49,7 @@ database:
   type: sqlite
 
   # Only used for SQLite mode:
-  # This will create a file inside the plugin folder, e.g. "plugins/BeeMinions/players.db"
+  # This will create a file inside the plugin folder, e.g. "plugins/ReMinions/players.db"
   path: players
 
   # MySQL settings:
@@ -57,7 +57,7 @@ database:
   port: 3306
   user: root
   password: ""
-  database: beeminions
+  database: reminions
 
   # Redis settings (only used if type = redis)
   redis:
@@ -125,7 +125,7 @@ messages:
   all_unique_minions_reset_success: "#55FF55✔ &aAll players' unique minions have been reset successfully! &7(%count% players updated, default max: &e%default_max%&7) 🐝"
   minion_place_limit_reached: "#FF5555✖ &cYou've reached your limit of %limit% placed minions."
   command_help:
-    - "#E8D91D&lBeeMinions #E8701DBy Leo_S2"
+    - "#E8D91D&lReMinions #E8701DBy YanIanZ"
     - "&7"
     - "#D0D5F0Thanks for using my plugin!"
     - "#D0D5F0For support or questions join my Discord:"

@@ -61,7 +61,7 @@ public class PlayerListener implements Listener {
     private static final double VERTICAL_STACK_THRESHOLD = 2.0;
 
     private static final int DEFAULT_MAX_MINIONS_FALLBACK = 5;
-    private static final String LUCKPERMS_LIMIT_PREFIX = "beeminions.place.limit.";
+    private static final String LUCKPERMS_LIMIT_PREFIX = "reminions.place.limit.";
 
     private final ReMinions plugin;
 
@@ -104,7 +104,7 @@ public class PlayerListener implements Listener {
         if (!config.getBoolean("settings.required_permission_offline_mode")) {
             return true;
         }
-        return player.hasPermission("beeminions.offlinemode.produce");
+        return player.hasPermission("reminions.offlinemode.produce");
     }
 
     @EventHandler

@@ -75,7 +75,7 @@ public class ItemBuilder {
     /** Sentinel used by the YAML loader for "no custom-model-data". */
     private static final int CUSTOM_MODEL_DATA_UNSET = -1;
 
-    private static final String SKULL_PROFILE_NAME = "Leo_S2";
+    private static final String SKULL_PROFILE_NAME = "YanIanZ";
 
     // ─────────────────────────────────────────────────────────────────────────────
     // Mutable state

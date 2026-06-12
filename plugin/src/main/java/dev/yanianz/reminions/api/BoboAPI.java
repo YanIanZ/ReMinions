@@ -17,13 +17,13 @@ import dev.yanianz.reminions.managers.SkinManager;
 import dev.yanianz.reminions.utils.Location3f;
 import org.bukkit.Location;
 
-public class BeeAPI {
+public class BoboAPI {
     private final Config config;
     private final PlayerManager playerManager;
     private final MinionManager minionManager;
     private final SkinManager skinManager;
 
-    public BeeAPI(Config config, PlayerManager playerManager, MinionManager minionManager, SkinManager skinManager) {
+    public BoboAPI(Config config, PlayerManager playerManager, MinionManager minionManager, SkinManager skinManager) {
         this.config = config;
         this.playerManager = playerManager;
         this.minionManager = minionManager;

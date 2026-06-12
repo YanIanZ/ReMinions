@@ -3,7 +3,7 @@ package dev.yanianz.reminions;
 import dev.aurelium.auraskills.api.AuraSkillsApi;
 import java.io.File;
 import java.util.Objects;
-import dev.yanianz.reminions.api.BeeAPI;
+import dev.yanianz.reminions.api.BoboAPI;
 import dev.yanianz.reminions.command.CommandManager;
 import dev.yanianz.reminions.command.impl.DeleteMinionCommand;
 import dev.yanianz.reminions.command.impl.GetMinionCommand;
@@ -63,7 +63,7 @@ public final class ReMinions extends JavaPlugin {
     private MinionThreadTask minionThreadTask;
     private Economy economy;
     private LuckPerms luckPerms;
-    private BeeAPI api;
+    private BoboAPI api;
 
     @Override
     public void onEnable() {
@@ -93,7 +93,7 @@ public final class ReMinions extends JavaPlugin {
                 this.playerManager, this.minionManager, this.modifierManager, this.skinManager);
         this.minionThreadTask.runTaskTimer(this, 0L, 1L);
 
-        this.api = new BeeAPI(this.config0, this.playerManager, this.minionManager, this.skinManager);
+        this.api = new BoboAPI(this.config0, this.playerManager, this.minionManager, this.skinManager);
 
         loadVault();
         loadLuckperms();
@@ -252,7 +252,7 @@ public final class ReMinions extends JavaPlugin {
     public MinionThreadTask getMinionThreadTask() { return this.minionThreadTask; }
     public Economy getEconomy()              { return this.economy; }
     public LuckPerms getLuckPerms()          { return this.luckPerms; }
-    public BeeAPI getApi()                   { return this.api; }
+    public BoboAPI getApi()                   { return this.api; }
 
     public boolean isMMOItemsInstalled() {
         return plugin.getServer().getPluginManager().getPlugin("MMOItems") != null;

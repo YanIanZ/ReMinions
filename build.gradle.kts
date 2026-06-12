@@ -1,13 +1,12 @@
 plugins {
-    `java-library`
-    id("io.papermc.paperweight.userdev") version "2.0.0-beta.21" apply false
-    id("com.gradleup.shadow") version "8.3.5" apply false
+    alias(libs.plugins.paperweight) apply false
+    alias(libs.plugins.shadow)      apply false
 }
 
-allprojects {
+subprojects {
     apply(plugin = "java-library")
 
-    group = rootProject.group
+    group   = rootProject.group
     version = rootProject.version
 
     extensions.configure<JavaPluginExtension> {

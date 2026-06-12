@@ -1,0 +1,59 @@
+[versions]
+java              = "21"
+paper             = "1.21.11-R0.1-SNAPSHOT"
+paperweight       = "2.0.0-beta.21"
+shadow            = "8.3.5"
+
+# Core deps (provided by server runtime)
+hikari            = "5.0.1"
+jedis             = "5.1.3"
+gson              = "2.10.1"
+
+# Soft dependencies
+luckperms         = "5.4"
+vault             = "1.7.1"
+placeholderapi    = "2.11.6"
+auraskills        = "2.3.12"
+mmoitems          = "6.10.1-SNAPSHOT"
+mythiclib         = "1.7.1-SNAPSHOT"
+eco               = "7.6.5"
+libreforge        = "5.7.0"
+ecoitems          = "6.8.0"
+ecoskills         = "4.9.0"
+itemsadder        = "3.6.1"
+craftengine       = "0.0.62"
+
+# Tooling
+jetbrains         = "24.1.0"
+
+[libraries]
+# Paper
+paper-api         = { module = "io.papermc.paper:paper-api",             version.ref = "paper" }
+
+# Core
+hikari            = { module = "com.zaxxer:HikariCP",                    version.ref = "hikari" }
+jedis             = { module = "redis.clients:jedis",                    version.ref = "jedis" }
+gson              = { module = "com.google.code.gson:gson",              version.ref = "gson" }
+
+# Soft deps
+luckperms         = { module = "net.luckperms:api",                      version.ref = "luckperms" }
+vault             = { module = "com.github.MilkBowl:VaultAPI",           version.ref = "vault" }
+placeholderapi    = { module = "me.clip:placeholderapi",                 version.ref = "placeholderapi" }
+auraskills        = { module = "dev.aurelium:auraskills-api-bukkit",     version.ref = "auraskills" }
+mmoitems          = { module = "net.Indyuce:MMOItems-API",               version.ref = "mmoitems" }
+mythiclib         = { module = "io.lumine:MythicLib-dist",               version.ref = "mythiclib" }
+eco               = { module = "com.willfp:eco",                         version.ref = "eco" }
+libreforge        = { module = "com.willfp:libreforge",                  version.ref = "libreforge" }
+libreforge-loader = { module = "com.willfp:libreforge-loader",           version.ref = "libreforge" }
+ecoitems          = { module = "com.willfp:EcoItems",                    version.ref = "ecoitems" }
+ecoskills         = { module = "com.willfp:EcoSkills",                   version.ref = "ecoskills" }
+itemsadder        = { module = "com.github.LoneDev6:api-itemsadder",     version.ref = "itemsadder" }
+craftengine-core  = { module = "net.momirealms:craft-engine-core",       version.ref = "craftengine" }
+craftengine-bukkit= { module = "net.momirealms:craft-engine-bukkit",     version.ref = "craftengine" }
+
+# Tooling
+jetbrains         = { module = "org.jetbrains:annotations",              version.ref = "jetbrains" }
+
+[plugins]
+paperweight       = { id = "io.papermc.paperweight.userdev",             version.ref = "paperweight" }
+shadow            = { id = "com.gradleup.shadow",                        version.ref = "shadow" }

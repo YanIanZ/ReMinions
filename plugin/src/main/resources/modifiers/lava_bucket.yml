@@ -1,0 +1,16 @@
+category: FUEL
+type: SPEED
+duration: 3600
+multiplier: 0.1
+unbreakable: false
+
+item:
+  material: LAVA_BUCKET
+  name: "&c🔥 &6Lava Bucket"
+  lore:
+    - "&7A bucket of lava that provides"
+    - "&7basic fuel for your minion."
+    - ""
+    - "&6✦ &e+10% Speed"
+    - "&7Duration: &e1 hour"
+    - "&8(Right-click on minion to activate)"

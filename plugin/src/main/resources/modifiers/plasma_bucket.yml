@@ -1,0 +1,17 @@
+category: FUEL
+type: SPEED
+duration: 10800
+multiplier: 0.5
+unbreakable: false
+
+item:
+  material: BUCKET
+  name: "&b⚡ &3Plasma Bucket"
+  lore:
+    - "&7An experimental plasma container"
+    - "&7that massively accelerates your minion."
+    - ""
+    - "&b✦ &3+50% Speed"
+    - "&7Duration: &b3 hours"
+    - "&8(Right-click on minion to activate)"
+  custom_model_data: 10501

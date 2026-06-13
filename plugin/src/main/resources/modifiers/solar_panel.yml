@@ -1,0 +1,16 @@
+category: FUEL
+type: SPEED
+duration: -1
+multiplier: 0.15
+unbreakable: true
+
+item:
+  material: DAYLIGHT_DETECTOR
+  name: "&e☀ &aSolar Panel"
+  lore:
+    - "&7Harnesses sunlight to permanently"
+    - "&7boost your minion's speed."
+    - ""
+    - "&a✦ &e+15% Speed"
+    - "&7Duration: &aPermanent"
+    - "&8(Place inside the minion)"

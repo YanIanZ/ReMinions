@@ -1,14 +1,19 @@
 category: FUEL
 type: SPEED
-duration: 600 # 10 minutes
-multiplier: 0.3 # 30% faster
+duration: 7200
+multiplier: 0.3
 unbreakable: false
+
 item:
   material: LAVA_BUCKET
-  name: "&6⚡ &eBlazing Speed"
+  name: "&6⚡ &eEnchanted Lava Bucket"
   lore:
-    - "&7Unleash your burning energy"
-    - "&7for &e%duration%&7 of speed."
+    - "&7A supercharged lava bucket that"
+    - "&7turbochages your minion for &e%duration%&7."
     - ""
-    - "&6✦ &e+30% Faster"
-    - "&8(Right-click to activate)"
+    - "&6✦ &e+30% Speed"
+    - "&7Duration: &e2 hours"
+    - "&8(Right-click on minion to activate)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:1"

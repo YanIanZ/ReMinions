@@ -28,7 +28,19 @@ public abstract class Product {
     }
 
     public int getAmount() {
-        if (this.chance < 1.0 && this.random.nextDouble() > this.chance) return 0;
+        return this.getAmount(0.0);
+    }
+
+    /**
+     * Like {@link #getAmount()} but with a LUCK multiplier baked into the chance roll.
+     * A {@code luckMultiplier} of {@code 0.5} treats this drop as 1.5× more likely
+     * (effective chance = {@code chance * (1 + luck)}, clamped to {@code [0, 1]}).
+     * Negative values are clamped to {@code 0}.
+     */
+    public int getAmount(double luckMultiplier) {
+        double effChance = this.chance * (1.0 + Math.max(0.0, luckMultiplier));
+        if (effChance > 1.0) effChance = 1.0;
+        if (effChance < 1.0 && this.random.nextDouble() > effChance) return 0;
         return this.random.nextInt(this.amountEnd - this.amountStart + 1) + this.amountStart;
     }
 

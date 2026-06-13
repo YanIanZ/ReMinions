@@ -26,6 +26,7 @@ import dev.yanianz.reminions.core.minion.MinionMeta;
 import dev.yanianz.reminions.core.minion.MinionModifierData;
 import dev.yanianz.reminions.core.minion.MinionType;
 import dev.yanianz.reminions.core.minion.MinionUpgrade;
+import dev.yanianz.reminions.booster.BoostKind;
 import dev.yanianz.reminions.core.modifier.ModifierType;
 import dev.yanianz.reminions.core.player.PlayerMinions;
 import dev.yanianz.reminions.core.product.Product;
@@ -532,14 +533,35 @@ public record MinionConfig(
     }
 
     /** Produces every base product (no required input). Anything that didn't fit is buffered. */
+    /** Sum of LUCK modifier values on the minion (no external booster source — BoosterService has no LUCK kind). */
+    private static double luckOf(Minion minion) {
+        return ReMinions.getPlugin().getModifierManager()
+                .getModifierNumber(minion, ModifierType.LUCK);
+    }
+
+    /** Final multiplier for output amount: {@code (1 + PRODUCTION_BOOST modifier) × external PRODUCTION booster}. */
+    private static double productionMultiplierOf(Minion minion) {
+        double mod = ReMinions.getPlugin().getModifierManager()
+                .getModifierNumber(minion, ModifierType.PRODUCTION_BOOST);
+        double ext = ReMinions.getPlugin().getBoosterService()
+                .multiplier(minion.getOwner(), BoostKind.PRODUCTION);
+        return (1.0 + mod) * ext;
+    }
+
+    private static int applyProductionBoost(int amount, Minion minion) {
+        if (amount <= 0) return 0;
+        return (int) Math.round(amount * productionMultiplierOf(minion));
+    }
+
     private boolean applyBaseProducts(Minion minion, MinionModifierData autoSellMod,
                                       MinionInventory storageInv, boolean useAutoSellTarget,
                                       Map<String, Integer> buffered) {
         boolean produced = false;
+        double luck = luckOf(minion);
         for (Product base : this.products) {
             if (base.getRequiredProduct() != null) continue;
             ItemStack item = base.buildItem();
-            int amount = base.getAmount();
+            int amount = applyProductionBoost(base.getAmount(luck), minion);
             int inserted = this.tryInsert(minion, item, amount, minion.getInventory(), storageInv,
                     useAutoSellTarget, autoSellMod, base);
             if (inserted > 0) produced = true;
@@ -592,12 +614,14 @@ public record MinionConfig(
                 produced |= this.autoSellUpgrade(minion, autoSellMod, upgrade, multiplier);
             }
         }
-        // Bonus-drop path: upgrade_products with no required_product — Product.getAmount() handles the chance roll internally.
+        // Bonus-drop path: upgrade_products with no required_product — Product.getAmount(luck) handles the chance roll internally.
+        double luck = luckOf(minion);
         for (Product upgrade : new ArrayList<>(productMap.values())) {
             if (upgrade.getRequiredProduct() != null) continue;
             if (upgrade.getChance() <= 0.0) continue;
             ItemStack item = upgrade.buildItem();
-            int inserted = this.tryInsert(minion, item, upgrade.getAmount(), minion.getInventory(), storageInv,
+            int amount = applyProductionBoost(upgrade.getAmount(luck), minion);
+            int inserted = this.tryInsert(minion, item, amount, minion.getInventory(), storageInv,
                     useAutoSellTarget, autoSellMod, upgrade);
             if (inserted > 0) produced = true;
         }
@@ -620,7 +644,7 @@ public record MinionConfig(
             buffered.put(requiredId, buffered.getOrDefault(requiredId, 0) - needFromBuffer);
         }
 
-        int outputTotal = multiplier * upgrade.getAmount();
+        int outputTotal = applyProductionBoost(multiplier * upgrade.getAmount(), minion);
         int inserted = this.tryInsert(minion, upgrade.buildItem(), outputTotal,
                 minion.getInventory(), storageInv, false, autoSellMod, upgrade);
         if (inserted > 0) produced = true;
@@ -635,7 +659,7 @@ public record MinionConfig(
 
     private boolean autoSellUpgrade(Minion minion, MinionModifierData autoSellMod,
                                     Product upgrade, int multiplier) {
-        int amount = multiplier * upgrade.getAmount();
+        int amount = applyProductionBoost(multiplier * upgrade.getAmount(), minion);
         if (autoSellMod != null) {
             double sellBoost = ReMinions.getPlugin().getBoosterService()
                     .multiplier(minion.getOwner(), dev.yanianz.reminions.booster.BoostKind.SELL_PRICE);
@@ -737,8 +761,14 @@ public record MinionConfig(
      * folding in the previous fractional remainder so the rate stays exact across runs.
      */
     private int calculateDeterministicAmount(Minion minion, Product product, long elapsedMillis) {
+        // LUCK shifts the effective chance up; PRODUCTION_BOOST and the external Booster
+        // service multiply the final per-tick output. Applied here so offline catch-up
+        // matches online output exactly.
+        double luckBoost = 1.0 + Math.max(0.0, luckOf(minion));
+        double prodMult = productionMultiplierOf(minion);
+        double expectedRate = product.getExpectedAmount() * luckBoost * prodMult;
         double total = minion.getProductionRemainder(product.getId())
-                + product.getExpectedAmount() * elapsedMillis;
+                + expectedRate * elapsedMillis;
         if (total <= 0.0) {
             minion.setProductionRemainder(product.getId(), 0.0);
             return 0;

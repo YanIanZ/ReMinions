@@ -2,6 +2,9 @@ package dev.yanianz.reminions.listener;
 
 import java.util.ArrayList;
 import java.util.UUID;
+import com.bgsoftware.superiorskyblock.api.SuperiorSkyblockAPI;
+import com.bgsoftware.superiorskyblock.api.island.Island;
+import com.bgsoftware.superiorskyblock.api.wrappers.SuperiorPlayer;
 import dev.yanianz.reminions.ReMinions;
 import dev.yanianz.reminions.api.events.MinionPlaceEvent;
 import dev.yanianz.reminions.config.Config;
@@ -176,6 +179,21 @@ public class PlayerListener implements Listener {
 
         Location placeLoc = placedBlock.getLocation().add(0.5, 0.0, 0.5);
         int baseRadius = config.baseRadius();
+
+        // SSB2 island ownership guard
+        if (this.plugin.isSuperiorSkyblockEnabled()
+                && this.plugin.getConfig0().getBoolean("settings.superiorskyblock_integration", true)) {
+            Island island = SuperiorSkyblockAPI.getIslandAt(placeLoc);
+            if (island == null) {
+                this.plugin.getConfig0().sendMessage(player, "ssb2_not_your_island");
+                return;
+            }
+            SuperiorPlayer superiorPlayer = SuperiorSkyblockAPI.getPlayer(player.getUniqueId());
+            if (!island.isMember(superiorPlayer)) {
+                this.plugin.getConfig0().sendMessage(player, "ssb2_not_your_island");
+                return;
+            }
+        }
 
         if (this.tooCloseToAnotherMinion(placeLoc, baseRadius, player)) {
             return;

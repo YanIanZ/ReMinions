@@ -41,6 +41,8 @@ settings:
 
   minions_recipes: true
 
+  superiorskyblock_integration: true
+
 database:
   # Database type: choose one of the following
   # - sqlite → local .db file (default, no external setup required)
@@ -119,40 +121,24 @@ messages:
   import_modifiers_success: "#55FF55✔ &aAll modifiers have been successfully imported! ✨"
   import_players_success: "#55FF55✔ &aAll player data has been successfully imported! 👤"
   world_not_place_minion: "#FF5555✖ &cYou cannot place a minion in this world! 🌍"
+  ssb2_not_your_island: "&cYou can only place minions on your own island."
   minion_deleted: "#55FF55✔ &aThe minion &f%minion_name% &7(ID: &f%minion_id%&7) &ahas been successfully deleted! 🗑"
   reset_unique_success_admin: "#55FF55✔ &aYou have successfully reset the unique minions of &f%player%&a. &7(Max minions reset to &e%max_minions%&7) 🔄"
   reset_unique_success_player: "#FFCC00⚠ &eYour unique minions progress has been reset by an admin. &7(Max minions: &f%max_minions%&7) 🐝"
   all_unique_minions_reset_success: "#55FF55✔ &aAll players' unique minions have been reset successfully! &7(%count% players updated, default max: &e%default_max%&7) 🐝"
   minion_place_limit_reached: "#FF5555✖ &cYou've reached your limit of %limit% placed minions."
   command_help:
-    - "#E8D91D&lReMinions #E8701DBy YanIanZ"
-    - "&7"
-    - "#D0D5F0Thanks for using my plugin!"
-    - "#D0D5F0For support or questions join my Discord:"
-    - "&7"
-    - "#E8701D&ohttps://discord.gg/Bhmx2DfJg9"
-    - "&7"
-    - "#E8D91D/minions #D0D5F0- #E8701DShow plugin information."
-    - "#E8D91D/minions delete #D0D5F0- #E8701DDelete a minion from a player."
-    - "#E8D91D/minions get #D0D5F0- #E8701DGive a minion to a player."
-    - "#E8D91D/minions modifier #D0D5F0- #E8701DGive a modifier to a player."
-    - "#E8D91D/minions skin #D0D5F0- #E8701DGive a skin to a player."
-    - "#E8D91D/minions storage #D0D5F0- #E8701DGive a storage upgrade to a player."
-    - "#E8D91D/minions import #D0D5F0- #E8701DImport minion data (types: config/json/etc)."
-    - "#E8D91D/minions reload #D0D5F0- #E8701DReload a configuration type."
-    - "#E8D91D/minions reset_unique_all #D0D5F0- #E8701DReset all unique minions for all players."
-    - "#E8D91D/minions reset_unique #D0D5F0- #E8701DReset unique minions for a specific player."
-    - "&7"
-    - "#D0D5F0Available command usages:"
-    - "#E8D91D/minions delete &f<player_name> <minion_id>"
-    - "#E8D91D/minions get &f<player_name> <minion_id> <amount> <level> <notify>"
-    - "#E8D91D/minions modifier &f<player_name> <modifier_id> <amount> <notify>"
-    - "#E8D91D/minions skin &f<player_name> <skin_id> <notify>"
-    - "#E8D91D/minions storage &f<player_name> <storage_id> <amount> <notify>"
-    - "#E8D91D/minions import &f<type>"
-    - "#E8D91D/minions reload &f<type>"
-    - "#E8D91D/minions reset_unique_all"
-    - "#E8D91D/minions reset_unique &f<player_name>"
+    - "#E8D91D&lReMinions &8| #E8701DYanIanZ"
+    - "&8&m                                        "
+    - "#E8D91D/minions &8» #D0D5FShow plugin information"
+    - "#E8D91D/minions get &f<player> <id> <amount> <level> <notify>"
+    - "#E8D91D/minions delete &f<player> <minion_id>"
+    - "#E8D91D/minions modifier &f<player> <id> <amount> <notify>"
+    - "#E8D91D/minions skin &f<player> <id> <notify>"
+    - "#E8D91D/minions storage &f<player> <id> <amount> <notify>"
+    - "#E8D91D/minions import &f<type> &8| #E8D91D/minions reload &f<type>"
+    - "#E8D91D/minions reset_unique &f<player> &8| #E8D91D/minions reset_unique_all"
+    - "&8&m                                        "
 minions_unlocked:
   1:
     required_unique_minions: 5

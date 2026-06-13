@@ -28,6 +28,7 @@ import dev.yanianz.reminions.listener.PlayerListener;
 import dev.yanianz.reminions.listener.RecipeBookListener;
 import dev.yanianz.reminions.listener.RecipeListener;
 import dev.yanianz.reminions.listener.StorageListener;
+import dev.yanianz.reminions.listener.SuperiorSkyblockListener;
 import dev.yanianz.reminions.managers.MenuManager;
 import dev.yanianz.reminions.managers.MinionManager;
 import dev.yanianz.reminions.managers.ModifierManager;
@@ -62,6 +63,7 @@ public final class ReMinions extends JavaPlugin {
     private Economy economy;
     private LuckPerms luckPerms;
     private BoboAPI api;
+    private boolean superiorSkyblockEnabled = false;
 
     @Override
     public void onEnable() {
@@ -96,6 +98,7 @@ public final class ReMinions extends JavaPlugin {
         loadVault();
         loadLuckperms();
         loadEcoSkills();
+        loadSuperiorSkyblock();
         loadPlaceholderAPI();
 
         CommandManager commandManager = new CommandManager(this);
@@ -186,6 +189,17 @@ public final class ReMinions extends JavaPlugin {
         DebugLogger.info("EcoSkills successfully hooked.");
     }
 
+    private void loadSuperiorSkyblock() {
+        if (this.getServer().getPluginManager().getPlugin("SuperiorSkyblock2") == null) {
+            DebugLogger.info("SuperiorSkyblock2 not found, skipping integration.");
+            return;
+        }
+        this.superiorSkyblockEnabled = true;
+        this.getServer().getPluginManager()
+                .registerEvents(new SuperiorSkyblockListener(this.playerManager), this);
+        DebugLogger.info("SuperiorSkyblock2 successfully hooked.");
+    }
+
     private void loadPlaceholderAPI() {
         if (this.getServer().getPluginManager().getPlugin("PlaceholderAPI") == null) {
             DebugLogger.info("PlaceholderAPI not found, skipping integration.");
@@ -238,6 +252,10 @@ public final class ReMinions extends JavaPlugin {
 
     public boolean isLuckPermsInstalled() {
         return plugin.getServer().getPluginManager().getPlugin("LuckPerms") != null;
+    }
+
+    public boolean isSuperiorSkyblockEnabled() {
+        return this.superiorSkyblockEnabled;
     }
 
     public static ReMinions getPlugin() { return plugin; }

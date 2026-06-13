@@ -1,0 +1,30 @@
+category: "flower_farming"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The farmer is resting..."
+  WORKING_PLACE:
+    - "&e🌱 &aPlanting flowers..."
+  WORKING_BREAK:
+    - "&e🌸 &aHarvesting flowers..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7Minion needs grass or dirt nearby"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYjA4N2IyZmQ0OTg1ZjE3YTNlNzdlMjJhMTc3NTQyYWU5YjQxYjU2MmIwNDQ2MWRlZDkxOTU4MWQwODdmZWQ1ZSJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#d050a0"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#d050a0"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#d050a0"
+  HAND:
+    material: "GOLDEN_HOE"

@@ -1,0 +1,30 @@
+category: "cave_spider_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The cave spider is resting..."
+  WORKING_PLACE:
+    - "&e🗡 &aCave Spider hunting..."
+  WORKING_BREAK:
+    - "&e⚔ &aCave Spider fighting..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDE4NDA5N2FhM2ExZTJhMzU2ODA1MmE3ZjYyMjFhNTFkY2NiMWI4ZGE5N2ZhZTA1NTBlN2U3MTBkMGEyNzFhMyJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#1a0a1a"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#1a0a1a"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#1a0a1a"
+  HAND:
+    material: "GOLDEN_SWORD"

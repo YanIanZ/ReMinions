@@ -1,0 +1,30 @@
+category: "cherry_lumberjack"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The lumberjack is resting..."
+  WORKING_PLACE:
+    - "&e🌱 &aPlanting sapling..."
+  WORKING_BREAK:
+    - "&e🪓 &aChopping cherry tree..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion needs grass or dirt nearby"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZWI3NDEwOWRiYjg4MTc4YWZiN2E5ODc0YWZjNjgyOTA0Y2VkYjNkZjc1OTc4YTUxZjdiZWViMjhmOTI0MjUxIn19fQ=="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#f0a0c0"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#f0a0c0"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#f0a0c0"
+  HAND:
+    material: "STONE_AXE"

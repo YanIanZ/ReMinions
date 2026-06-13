@@ -16,7 +16,7 @@ holograms:
 slots:
   HEAD:
     material: PLAYER_HEAD
-    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDI1YjhkMmVhOTY1Yzc4MDY1MmQyOWMyNmIxNTcyNjg2ZmQ3NGY2ZmU2NDAzYjVhMzgwMDk1OWZlYjJhZDkzNSJ9fX0="
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNzdkY2E2MmFlMjBiMmJiZGY5NmFjMzRiMjllNDEwNWNiM2MzNzJhOTAxMWI2ZmNlY2JjY2I4ZTRmZjM3YWU2NCJ9fX0="
   CHEST:
     material: LEATHER_CHESTPLATE
     rgb: "#1c1c1c"

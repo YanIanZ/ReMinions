@@ -1,0 +1,351 @@
+name: "&5Enderman Minion &7%roman_level%"
+item:
+  name: "&5Enderman Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating enderman drops."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: KILLER
+category_skin: "enderman_combat"
+properties:
+  base_radius: 3
+  block_check_around: "GRASS_BLOCK"
+  bypass_location_check: true
+  animations:
+    entity: ENDERMAN
+    entity_particle: PORTAL
+
+skin_levels:
+  1:
+    path: "enderman_level_1"
+  2:
+    path: "enderman_level_2"
+  3:
+    path: "enderman_level_3"
+  4:
+    path: "enderman_level_4"
+  5:
+    path: "enderman_level_5"
+  6:
+    path: "enderman_level_6"
+  7:
+    path: "enderman_level_7"
+  8:
+    path: "enderman_level_8"
+  9:
+    path: "enderman_level_9"
+  10:
+    path: "enderman_level_10"
+  11:
+    path: "enderman_level_11"
+  12:
+    path: "enderman_level_12"
+
+products:
+  ender_pearl:
+    type: vanilla
+    material: ENDER_PEARL
+    chance: 1.0
+    amount: 1
+    price: 3.0
+    source_exp:
+      skill: COMBAT
+      exp: 3.0
+  ender_eye:
+    type: vanilla
+    material: ENDER_EYE
+    chance: 0.05
+    amount: 1
+    price: 8.0
+  chorus_fruit:
+    type: vanilla
+    material: CHORUS_FRUIT
+    chance: 0.1
+    amount: 1
+    price: 1.0
+
+upgrades:
+  1:
+    production_speed: 25
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 8
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 22
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 16
+        1:
+          product:
+            type: vanilla
+            material: CHORUS_FRUIT
+          display: "&dChorus Fruit"
+          amount: 2
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 20
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: CHORUS_FRUIT
+          display: "&dChorus Fruit"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 18
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: CHORUS_FRUIT
+          display: "&dChorus Fruit"
+          amount: 8
+        2:
+          product:
+            type: vanilla
+            material: ENDER_EYE
+          display: "&aEye of Ender"
+          amount: 1
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  5:
+    production_speed: 16
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: CHORUS_FRUIT
+          display: "&dChorus Fruit"
+          amount: 16
+        2:
+          product:
+            type: vanilla
+            material: ENDER_EYE
+          display: "&aEye of Ender"
+          amount: 2
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  6:
+    production_speed: 14
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: ENDER_EYE
+          display: "&aEye of Ender"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 12
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: ENDER_EYE
+          display: "&aEye of Ender"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 11
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  9:
+    production_speed: 10
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  10:
+    production_speed: 9
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  11:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 48
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  12:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ENDER_PEARL
+          display: "&5Ender Pearl"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+

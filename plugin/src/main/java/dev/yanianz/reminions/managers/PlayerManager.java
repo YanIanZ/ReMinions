@@ -22,8 +22,9 @@ public class PlayerManager {
 
     public void add(UUID playerId, PlayerMinions playerMinions) {
         this.cache.put(playerId, playerMinions);
-        this.allMinionsCache.addAll(playerMinions.getMinions());
         for (Minion minion : playerMinions.getMinions()) {
+            if (minion == null) continue;
+            this.allMinionsCache.add(minion);
             this.minionById.put(minion.getId(), minion);
             this.spatial.add(minion);
             this.indexStorage(minion);

@@ -1,0 +1,417 @@
+name: "&eOak Minion &7%roman_level%"
+item:
+  name: "&eOak Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7cutting down oak trees."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8🪓 &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: LUMBERJACK
+category_skin: "oak_lumberjack"
+properties:
+  base_radius: 3
+  block_check_around: "GRASS_BLOCK;DIRT"
+  animations:
+    before_place_tree: OAK_SAPLING
+    leave_tree: OAK_LEAVES
+    log_tree: OAK_LOG
+    log_tree_height: 4
+
+skin_levels:
+  1:
+    path: "oak_level_1"
+  2:
+    path: "oak_level_2"
+  3:
+    path: "oak_level_3"
+  4:
+    path: "oak_level_4"
+  5:
+    path: "oak_level_5"
+  6:
+    path: "oak_level_6"
+  7:
+    path: "oak_level_7"
+  8:
+    path: "oak_level_8"
+  9:
+    path: "oak_level_9"
+  10:
+    path: "oak_level_10"
+  11:
+    path: "oak_level_11"
+  12:
+    path: "oak_level_12"
+
+products:
+  oak_log:
+    type: vanilla
+    material: OAK_LOG
+    chance: 1.0
+    amount: 16-24
+    price: 0.5
+    source_exp:
+      skill: FORAGING
+      exp: 1.5
+  oak_sapling:
+    type: vanilla
+    material: OAK_SAPLING
+    chance: 0.3
+    amount: 1-2
+    price: 0.2
+  apple:
+    type: vanilla
+    material: APPLE
+    chance: 0.1
+    amount: 1
+    price: 0.5
+
+upgrades:
+  1:
+    production_speed: 30
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 27
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 8
+      shape:
+        - "010"
+        - "0?0"
+        - "000"
+
+  3:
+    production_speed: 24
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 22
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: APPLE
+          display: "&cApple"
+          amount: 4
+      shape:
+        - "010"
+        - "1?2"
+        - "000"
+
+  5:
+    production_speed: 20
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: APPLE
+          display: "&cApple"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "111"
+
+  6:
+    production_speed: 18
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: APPLE
+          display: "&cApple"
+          amount: 16
+      shape:
+        - "010"
+        - "2?0"
+        - "010"
+
+  7:
+    production_speed: 16
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: APPLE
+          display: "&cApple"
+          amount: 16
+        3:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "2?3"
+        - "010"
+
+  8:
+    production_speed: 14
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 96
+        2:
+          product:
+            type: vanilla
+            material: APPLE
+          display: "&cApple"
+          amount: 24
+        3:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "030"
+        - "1?2"
+        - "030"
+
+  9:
+    production_speed: 12
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "020"
+        - "1?2"
+        - "020"
+
+  10:
+    production_speed: 10
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 160
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 4
+      shape:
+        - "020"
+        - "2?3"
+        - "020"
+
+  11:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 192
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "020"
+        - "2?3"
+        - "030"
+
+  12:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: OAK_LOG
+          display: "&eOak Log"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: OAK_SAPLING
+          display: "&aOak Sapling"
+          amount: 224
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 48
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 16
+      shape:
+        - "030"
+        - "2?3"
+        - "030"

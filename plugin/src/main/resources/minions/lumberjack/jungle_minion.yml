@@ -38,6 +38,18 @@ skin_levels:
     path: "jungle_level_5"
   6:
     path: "jungle_level_6"
+  7:
+    path: "jungle_level_7"
+  8:
+    path: "jungle_level_8"
+  9:
+    path: "jungle_level_9"
+  10:
+    path: "jungle_level_10"
+  11:
+    path: "jungle_level_11"
+  12:
+    path: "jungle_level_12"
 
 products:
   jungle_log:
@@ -200,3 +212,177 @@ upgrades:
         - "010"
         - "2?0"
         - "010"
+
+  7:
+    production_speed: 10
+    max_storage: 17
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 96
+        2:
+          product:
+            type: vanilla
+            material: STICK
+          display: "&fStick"
+          amount: 160
+      shape:
+        - "010"
+        - "2?1"
+        - "010"
+
+  8:
+    production_speed: 9
+    max_storage: 19
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: STICK
+          display: "&fStick"
+          amount: 192
+      shape:
+        - "010"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 8
+    max_storage: 21
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 160
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "1?2"
+        - "020"
+
+  10:
+    production_speed: 7
+    max_storage: 23
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 192
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "020"
+        - "1?2"
+        - "020"
+
+  11:
+    production_speed: 6
+    max_storage: 25
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 224
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "020"
+        - "2?2"
+        - "020"
+
+  12:
+    production_speed: 5
+    max_storage: 28
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: JUNGLE_LOG
+          display: "&2Jungle Log"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: COCOA_BEANS
+          display: "&6Cocoa Beans"
+          amount: 256
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "023"
+        - "2?3"
+        - "020"

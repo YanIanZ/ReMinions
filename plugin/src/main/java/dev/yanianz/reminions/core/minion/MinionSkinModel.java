@@ -32,7 +32,9 @@ public class MinionSkinModel {
         this.stand.setSmall(true);
         this.stand.setBasePlate(false);
         this.stand.setPersistent(false);
-        this.stand.setDisabledSlots(EquipmentSlot.values());
+        this.stand.setDisabledSlots(
+                EquipmentSlot.HEAD, EquipmentSlot.CHEST, EquipmentSlot.LEGS,
+                EquipmentSlot.FEET, EquipmentSlot.HAND, EquipmentSlot.OFF_HAND);
         this.stand.getPersistentDataContainer().set(
                 dev.yanianz.reminions.Keys.MINION_ARMORSTAND, PersistentDataType.STRING, minionId.toString());
         this.stand.setCustomNameVisible(false);

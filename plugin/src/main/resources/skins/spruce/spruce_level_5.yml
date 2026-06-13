@@ -1,0 +1,31 @@
+category: "spruce_lumberjack"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The lumberjack is resting..."
+  WORKING_PLACE:
+    - "&e🌱 &aPlanting sapling..."
+  WORKING_BREAK:
+    - "&e🪓 &aChopping spruce tree..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion needs grass or dirt nearby"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvN2JhMDRiZmU1MTY5NTVmZDQzOTMyZGNiMzNiZDVlYWMyMGIzOGEyMzFkOWZhODQxNWIzZmIzMDFmNjBmNzM2MyJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#4a3520"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#4a3520"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#4a3520"
+  HAND:
+    material: "IRON_AXE"

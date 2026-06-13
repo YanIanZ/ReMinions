@@ -34,6 +34,18 @@ skin_levels:
     path: "cobblestone_level_5"
   6:
     path: "cobblestone_level_6"
+  7:
+    path: "cobblestone_level_7"
+  8:
+    path: "cobblestone_level_8"
+  9:
+    path: "cobblestone_level_9"
+  10:
+    path: "cobblestone_level_10"
+  11:
+    path: "cobblestone_level_11"
+  12:
+    path: "cobblestone_level_12"
 
 products:
   cobblestone:
@@ -223,3 +235,183 @@ upgrades:
         - "010"
         - "2?3"
         - "010"
+
+  7:
+    production_speed: 16
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&fIron Ingot"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: COAL
+          display: "&0Coal"
+          amount: 64
+      shape:
+        - "120"
+        - "0?1"
+        - "021"
+
+  8:
+    production_speed: 14
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 768
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 4
+        2:
+          product:
+            type: vanilla
+            material: COAL
+          display: "&0Coal"
+          amount: 128
+      shape:
+        - "020"
+        - "2?1"
+        - "121"
+
+  9:
+    production_speed: 12
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 896
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 8
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "1?2"
+        - "121"
+
+  10:
+    production_speed: 10
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 1024
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 16
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "212"
+        - "1?1"
+        - "212"
+
+  11:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 1024
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "121"
+        - "3?3"
+        - "121"
+
+  12:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: COBBLESTONE
+          display: "&8Cobblestone"
+          amount: 1024
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 16
+      shape:
+        - "232"
+        - "1?1"
+        - "232"

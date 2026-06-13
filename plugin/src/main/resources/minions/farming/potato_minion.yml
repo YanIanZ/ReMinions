@@ -1,0 +1,373 @@
+name: "&ePotatoMinion &7%roman_level%"
+item:
+  name: "&ePotatoMinion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7farming potatoes automatically."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8🌾 &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FARMER
+category_skin: "potato_farming"
+properties:
+  base_radius: 2
+  block_check_around: "DIRT;GRASS_BLOCK;FARMLAND;DIRT_PATH;COARSE_DIRT"
+  animations:
+    crop: POTATOES
+    crop_particle: HAPPY_VILLAGER
+
+skin_levels:
+  1:
+    path: "potato_level_1"
+  2:
+    path: "potato_level_2"
+  3:
+    path: "potato_level_3"
+  4:
+    path: "potato_level_4"
+  5:
+    path: "potato_level_5"
+  6:
+    path: "potato_level_6"
+  7:
+    path: "potato_level_7"
+  8:
+    path: "potato_level_8"
+  9:
+    path: "potato_level_9"
+  10:
+    path: "potato_level_10"
+  11:
+    path: "potato_level_11"
+  12:
+    path: "potato_level_12"
+
+products:
+  potato:
+    type: vanilla
+    material: POTATO
+    chance: 1.0
+    amount: 2-4
+    price: 0.5
+    source_exp:
+      skill: FARMING
+      exp: 0.8
+  baked_potato:
+    type: vanilla
+    material: BAKED_POTATO
+    chance: 0.2
+    amount: 1-2
+    price: 0.6
+  poisonous_potato:
+    type: vanilla
+    material: POISONOUS_POTATO
+    chance: 0.02
+    amount: 1
+    price: 0.1
+
+upgrades:
+  1:
+    production_speed: 20
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 18
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  3:
+    production_speed: 16
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 8
+      shape:
+        - "010"
+        - "0?0"
+        - "010"
+
+  4:
+    production_speed: 14
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 16
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  5:
+    production_speed: 12
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: POISONOUS_POTATO
+          display: "&2Poisonous Potato"
+          amount: 2
+      shape:
+        - "010"
+        - "1?2"
+        - "010"
+
+  6:
+    production_speed: 10
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 64
+      shape:
+        - "010"
+        - "1?1"
+        - "010"
+
+  7:
+    production_speed: 9
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "012"
+        - "1?1"
+        - "012"
+
+  8:
+    production_speed: 8
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?1"
+        - "012"
+
+  9:
+    production_speed: 7
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  10:
+    production_speed: 6
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  11:
+    production_speed: 5
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 48
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  12:
+    production_speed: 4
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: POTATO
+          display: "&ePotato"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: BAKED_POTATO
+          display: "&eBaked Potato"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "3?3"
+        - "012"

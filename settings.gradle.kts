@@ -8,12 +8,6 @@ pluginManagement {
 }
 
 dependencyResolutionManagement {
-    versionCatalogs {
-        create("libs") {
-            from(files("gradle/libs.versions.toml"))
-        }
-    }
-
     repositories {
         mavenCentral()
         maven("https://repo.papermc.io/repository/maven-public/")

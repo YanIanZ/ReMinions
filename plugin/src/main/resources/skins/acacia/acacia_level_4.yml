@@ -1,0 +1,31 @@
+category: "acacia_lumberjack"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The lumberjack is resting..."
+  WORKING_PLACE:
+    - "&e🌱 &aPlanting sapling..."
+  WORKING_BREAK:
+    - "&e🪓 &aChopping acacia tree..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion needs grass or dirt nearby"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNDIxODNlYWY1YjEzM2I4MzhkYjEzZDE0NTI0N2UzODlhYjRiNGYzM2M2Nzg0NjM2Mzc5MmRjM2Q4MmI1MjRjMCJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#b85820"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#b85820"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#b85820"
+  HAND:
+    material: "STONE_AXE"

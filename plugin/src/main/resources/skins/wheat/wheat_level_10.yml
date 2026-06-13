@@ -1,0 +1,31 @@
+category: "wheat_farming"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for crops..."
+    - "&7Plant wheat nearby to start"
+  WORKING_PLACE:
+    - "&e🌱 &aPlanting seeds..."
+  WORKING_BREAK:
+    - "&e🌾 &aHarvesting wheat..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvYmJjNTcxYzU1MjczMzYzNTJlMmZlZTJiNDBhOWVkZmEyZTgwOWY2NDIzMDc3OWFhMDEyNTNjNmFhNTM1ODgxYiJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#d4c232"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#d4c232"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#d4c232"
+  HAND:
+    material: "DIAMOND_HOE"

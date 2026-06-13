@@ -1,0 +1,330 @@
+name: "&7Iron Minion &7%roman_level%"
+item:
+  name: "&7Iron Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating iron."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: MINER
+category_skin: "iron_mining"
+properties:
+  base_radius: 2
+  block_check_around: "STONE;IRON_ORE;DEEPSLATE_IRON_ORE"
+  animations:
+    block: IRON_ORE
+
+skin_levels:
+  1:
+    path: "iron_level_1"
+  2:
+    path: "iron_level_2"
+  3:
+    path: "iron_level_3"
+  4:
+    path: "iron_level_4"
+  5:
+    path: "iron_level_5"
+  6:
+    path: "iron_level_6"
+  7:
+    path: "iron_level_7"
+  8:
+    path: "iron_level_8"
+  9:
+    path: "iron_level_9"
+  10:
+    path: "iron_level_10"
+  11:
+    path: "iron_level_11"
+  12:
+    path: "iron_level_12"
+
+products:
+  iron_ingot:
+    type: vanilla
+    material: IRON_INGOT
+    chance: 1.0
+    amount: 1-2
+    price: 2.0
+    source_exp:
+      skill: MINING
+      exp: 2.0
+  iron_nugget:
+    type: vanilla
+    material: IRON_NUGGET
+    chance: 0.5
+    amount: 2-4
+    price: 0.5
+  flint:
+    type: vanilla
+    material: FLINT
+    chance: 0.1
+    amount: 1
+    price: 0.3
+
+upgrades:
+  1:
+    production_speed: 30
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 27
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: FLINT
+          display: "&8Flint"
+          amount: 8
+      shape:
+        - "010"
+        - "0?0"
+        - "000"
+
+  3:
+    production_speed: 24
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: FLINT
+          display: "&8Flint"
+          amount: 16
+      shape:
+        - "010"
+        - "0?0"
+        - "010"
+
+  4:
+    production_speed: 22
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "010"
+
+  5:
+    production_speed: 20
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 8
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  6:
+    production_speed: 18
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: FLINT
+          display: "&8Flint"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 16
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  7:
+    production_speed: 16
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  8:
+    production_speed: 14
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "010"
+
+  9:
+    production_speed: 12
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 48
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  10:
+    production_speed: 10
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "101"
+        - "0?0"
+        - "101"
+
+  11:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+      shape:
+        - "101"
+        - "0?0"
+        - "101"
+
+  12:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 16
+      shape:
+        - "121"
+        - "0?0"
+        - "121"

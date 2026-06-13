@@ -35,6 +35,18 @@ skin_levels:
     path: "zombie_level_5"
   6:
     path: "zombie_level_6"
+  7:
+    path: "zombie_level_7"
+  8:
+    path: "zombie_level_8"
+  9:
+    path: "zombie_level_9"
+  10:
+    path: "zombie_level_10"
+  11:
+    path: "zombie_level_11"
+  12:
+    path: "zombie_level_12"
 
 products:
   rotten_flesh:
@@ -207,3 +219,177 @@ upgrades:
         - "010"
         - "2?3"
         - "010"
+
+  7:
+    production_speed: 10
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: IRON_INGOT
+          display: "&7Iron Ingot"
+          amount: 48
+        2:
+          product:
+            type: vanilla
+            material: CARROT
+          display: "&6Carrot"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  8:
+    production_speed: 9
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 4
+        2:
+          product:
+            type: vanilla
+            material: CARROT
+          display: "&6Carrot"
+          amount: 48
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 8
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 7
+    max_storage: 22
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 16
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 28
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ROTTEN_FLESH
+          display: "&fRotten Flesh"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: IRON_BLOCK
+          display: "&7Iron Block"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"

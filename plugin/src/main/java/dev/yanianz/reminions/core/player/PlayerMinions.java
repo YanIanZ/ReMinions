@@ -31,7 +31,10 @@ public class PlayerMinions {
     }
 
     public void addMinions(Collection<Minion> collection) {
-        if (collection != null && !collection.isEmpty()) this.minions.addAll(collection);
+        if (collection == null || collection.isEmpty()) return;
+        for (Minion m : collection) {
+            if (m != null) this.minions.add(m);
+        }
     }
 
     public boolean removeMinionById(UUID id) {

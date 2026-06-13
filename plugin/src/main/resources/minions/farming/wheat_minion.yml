@@ -36,6 +36,18 @@ skin_levels:
     path: "wheat_level_5"
   6:
     path: "wheat_level_6"
+  7:
+    path: "wheat_level_7"
+  8:
+    path: "wheat_level_8"
+  9:
+    path: "wheat_level_9"
+  10:
+    path: "wheat_level_10"
+  11:
+    path: "wheat_level_11"
+  12:
+    path: "wheat_level_12"
 
 products:
   wheat:
@@ -197,3 +209,201 @@ upgrades:
         - "123"
         - "2?3"
         - "111"
+
+  7:
+    production_speed: 9
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 16
+      shape:
+        - "010"
+        - "1?2"
+        - "010"
+
+  8:
+    production_speed: 8
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 48
+        2:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 24
+        3:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 128
+      shape:
+        - "123"
+        - "1?3"
+        - "123"
+
+  9:
+    production_speed: 7
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 32
+        3:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "012"
+        - "0?3"
+        - "012"
+
+  10:
+    production_speed: 6
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: WHEAT
+          display: "&eWheat"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 64
+        3:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "3?3"
+        - "012"
+
+  11:
+    production_speed: 5
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: WHEAT_SEEDS
+          display: "&aWheat Seeds"
+          amount: 256
+        3:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "123"
+        - "3?3"
+        - "123"
+
+  12:
+    production_speed: 4
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: HAY_BLOCK
+          display: "&6Hay Bale"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: BREAD
+          display: "&6Bread"
+          amount: 128
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "3?3"
+        - "012"

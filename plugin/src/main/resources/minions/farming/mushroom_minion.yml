@@ -1,0 +1,358 @@
+name: "&4Mushroom Minion &7%roman_level%"
+item:
+  name: "&4Mushroom Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7farming mushrooms automatically."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8🌾 &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FARMER
+category_skin: "mushroom_farming"
+properties:
+  base_radius: 2
+  block_check_around: "MYCELIUM;GRASS_BLOCK;DIRT;NETHERRACK"
+  animations:
+    crop: RED_MUSHROOM
+    crop_particle: HAPPY_VILLAGER
+
+skin_levels:
+  1:
+    path: "mushroom_level_1"
+  2:
+    path: "mushroom_level_2"
+  3:
+    path: "mushroom_level_3"
+  4:
+    path: "mushroom_level_4"
+  5:
+    path: "mushroom_level_5"
+  6:
+    path: "mushroom_level_6"
+  7:
+    path: "mushroom_level_7"
+  8:
+    path: "mushroom_level_8"
+  9:
+    path: "mushroom_level_9"
+  10:
+    path: "mushroom_level_10"
+  11:
+    path: "mushroom_level_11"
+  12:
+    path: "mushroom_level_12"
+
+products:
+  red_mushroom:
+    type: vanilla
+    material: RED_MUSHROOM
+    chance: 0.5
+    amount: 1-2
+    price: 0.8
+    source_exp:
+      skill: FARMING
+      exp: 1.0
+  brown_mushroom:
+    type: vanilla
+    material: BROWN_MUSHROOM
+    chance: 0.5
+    amount: 1-2
+    price: 0.6
+    source_exp:
+      skill: FARMING
+      exp: 1.0
+  mushroom_stew:
+    type: vanilla
+    material: MUSHROOM_STEW
+    chance: 0.2
+    amount: 1
+    price: 1.5
+
+upgrades:
+  1:
+    production_speed: 20
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 18
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  3:
+    production_speed: 16
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 64
+      shape:
+        - "010"
+        - "0?0"
+        - "010"
+
+  4:
+    production_speed: 14
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: BROWN_MUSHROOM
+          display: "&6Brown Mushroom"
+          amount: 128
+      shape:
+        - "010"
+        - "1?1"
+        - "010"
+
+  5:
+    production_speed: 12
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 4
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  6:
+    production_speed: 10
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: BROWN_MUSHROOM
+          display: "&6Brown Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 8
+      shape:
+        - "010"
+        - "1?0"
+        - "010"
+
+  7:
+    production_speed: 9
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 16
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "012"
+        - "1?1"
+        - "012"
+
+  8:
+    production_speed: 8
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: BROWN_MUSHROOM
+          display: "&6Brown Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 24
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  9:
+    production_speed: 7
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  10:
+    production_speed: 6
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: BROWN_MUSHROOM
+          display: "&6Brown Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 48
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  11:
+    production_speed: 5
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: RED_MUSHROOM
+          display: "&cRed Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "2?2"
+        - "012"
+
+  12:
+    production_speed: 4
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: BROWN_MUSHROOM
+          display: "&6Brown Mushroom"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MUSHROOM_STEW
+          display: "&6Mushroom Stew"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 48
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "3?3"
+        - "012"

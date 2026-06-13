@@ -1,0 +1,331 @@
+name: "&fQuartz Minion &7%roman_level%"
+item:
+  name: "&fQuartz Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating nether quartz."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: MINER
+category_skin: "quartz_mining"
+properties:
+  base_radius: 2
+  block_check_around: "NETHERRACK;NETHER_QUARTZ_ORE"
+  animations:
+    block: NETHER_QUARTZ_ORE
+
+skin_levels:
+  1:
+    path: "quartz_level_1"
+  2:
+    path: "quartz_level_2"
+  3:
+    path: "quartz_level_3"
+  4:
+    path: "quartz_level_4"
+  5:
+    path: "quartz_level_5"
+  6:
+    path: "quartz_level_6"
+  7:
+    path: "quartz_level_7"
+  8:
+    path: "quartz_level_8"
+  9:
+    path: "quartz_level_9"
+  10:
+    path: "quartz_level_10"
+  11:
+    path: "quartz_level_11"
+  12:
+    path: "quartz_level_12"
+
+products:
+  quartz:
+    type: vanilla
+    material: QUARTZ
+    chance: 1.0
+    amount: 2-4
+    price: 0.8
+    source_exp:
+      skill: MINING
+      exp: 2.0
+  netherrack:
+    type: vanilla
+    material: NETHERRACK
+    chance: 0.1
+    amount: 2-4
+    price: 0.1
+  quartz_block:
+    type: vanilla
+    material: QUARTZ_BLOCK
+    chance: 0.01
+    amount: 1
+    price: 7
+
+upgrades:
+  1:
+    production_speed: 30
+    max_storage: 5
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 32
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 27
+    max_storage: 6
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: NETHERRACK
+          display: "&4Netherrack"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 24
+    max_storage: 7
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: NETHERRACK
+          display: "&4Netherrack"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 22
+    max_storage: 8
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 20
+    max_storage: 9
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 18
+    max_storage: 10
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 16
+        1:
+          product:
+            type: vanilla
+            material: QUARTZ
+          display: "&fNether Quartz"
+          amount: 64
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 16
+    max_storage: 12
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  8:
+    production_speed: 14
+    max_storage: 14
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  9:
+    production_speed: 12
+    max_storage: 16
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 48
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  10:
+    production_speed: 10
+    max_storage: 18
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  11:
+    production_speed: 8
+    max_storage: 20
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 48
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  12:
+    production_speed: 6
+    max_storage: 24
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: QUARTZ_BLOCK
+          display: "&fQuartz Block"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 64
+        2:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+

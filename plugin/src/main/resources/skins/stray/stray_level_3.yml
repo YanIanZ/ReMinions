@@ -1,0 +1,30 @@
+category: "stray_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The stray is resting..."
+  WORKING_PLACE:
+    - "&e🗡 &aStray hunting..."
+  WORKING_BREAK:
+    - "&e⚔ &aStray fighting..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvMmZlMDA5YzVjZmE0NGMwNWM4OGU1ZGYwNzBhZTI1MzNiZDY4MmE3MjhlMGIzM2JmYzkzZmQ5MmE2ZTVmM2Y2NCJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#a8e0f0"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#a8e0f0"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#a8e0f0"
+  HAND:
+    material: "STONE_SWORD"

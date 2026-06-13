@@ -13,7 +13,6 @@ gson              = "2.10.1"
 luckperms         = "5.4"
 vault             = "1.7.1"
 placeholderapi    = "2.11.6"
-auraskills        = "2.3.12"
 mmoitems          = "6.10.1-SNAPSHOT"
 mythiclib         = "1.7.1-SNAPSHOT"
 eco               = "7.6.5"
@@ -39,7 +38,6 @@ gson              = { module = "com.google.code.gson:gson",              version
 luckperms         = { module = "net.luckperms:api",                      version.ref = "luckperms" }
 vault             = { module = "com.github.MilkBowl:VaultAPI",           version.ref = "vault" }
 placeholderapi    = { module = "me.clip:placeholderapi",                 version.ref = "placeholderapi" }
-auraskills        = { module = "dev.aurelium:auraskills-api-bukkit",     version.ref = "auraskills" }
 mmoitems          = { module = "net.Indyuce:MMOItems-API",               version.ref = "mmoitems" }
 mythiclib         = { module = "io.lumine:MythicLib-dist",               version.ref = "mythiclib" }
 eco               = { module = "com.willfp:eco",                         version.ref = "eco" }

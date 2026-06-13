@@ -1,6 +1,5 @@
 package dev.yanianz.reminions;
 
-import dev.aurelium.auraskills.api.AuraSkillsApi;
 import java.io.File;
 import java.util.Objects;
 import dev.yanianz.reminions.api.BoboAPI;
@@ -21,7 +20,6 @@ import dev.yanianz.reminions.database.DatabaseMeta;
 import dev.yanianz.reminions.database.impl.CachedDatabase;
 import dev.yanianz.reminions.database.impl.MySQLDatabase;
 import dev.yanianz.reminions.database.impl.SQLDatabase;
-import dev.yanianz.reminions.listener.AuraSkillListener;
 import dev.yanianz.reminions.listener.BlockChangeListener;
 import dev.yanianz.reminions.listener.EcoSkillListener;
 import dev.yanianz.reminions.listener.EntityListener;
@@ -97,7 +95,6 @@ public final class ReMinions extends JavaPlugin {
 
         loadVault();
         loadLuckperms();
-        loadAuraSkills();
         loadEcoSkills();
         loadPlaceholderAPI();
 
@@ -199,25 +196,6 @@ public final class ReMinions extends JavaPlugin {
             DebugLogger.info("PlaceholderAPI successfully hooked.");
         } catch (Throwable e) {
             DebugLogger.warn("Failed to hook into PlaceholderAPI: " + e.getMessage());
-        }
-    }
-
-    private void loadAuraSkills() {
-        if (this.getServer().getPluginManager().getPlugin("AuraSkills") == null) {
-            DebugLogger.info("AuraSkills not found, skipping integration.");
-            return;
-        }
-        try {
-            AuraSkillsApi auraApi = AuraSkillsApi.get();
-            if (auraApi == null) {
-                DebugLogger.warn("AuraSkills API not available, integration skipped.");
-                return;
-            }
-            this.getServer().getPluginManager()
-                    .registerEvents(new AuraSkillListener(this.minionManager, this.modifierManager, this.config0, auraApi), this);
-            DebugLogger.info("AuraSkills successfully hooked.");
-        } catch (Throwable e) {
-            DebugLogger.warn("Failed to hook into AuraSkills: " + e.getMessage());
         }
     }
 

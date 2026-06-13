@@ -12,7 +12,6 @@ commands:
       - minions
 softdepend:
   - Vault
-  - AuraSkills
   - MMOItems
   - PlaceholderAPI
   - EcoItems

@@ -37,7 +37,6 @@ dependencies {
     compileOnly(libs.placeholderapi)
 
     // Optional soft deps
-    compileOnly(libs.auraskills)
     compileOnly(libs.mmoitems)   { isTransitive = false }
     compileOnly(libs.mythiclib)
     compileOnly(libs.eco)

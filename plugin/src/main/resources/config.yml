@@ -42,6 +42,7 @@ settings:
   minions_recipes: true
 
   superiorskyblock_integration: true
+  swm_integration: true
 
 database:
   # Database type: choose one of the following

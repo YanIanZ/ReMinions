@@ -2,6 +2,7 @@ package dev.yanianz.reminions.listener;
 
 import dev.iyanz.sourbycraft.swm.api.events.LoadSlimeWorldEvent;
 import dev.yanianz.reminions.ReMinions;
+import dev.yanianz.reminions.config.Config;
 import dev.yanianz.reminions.config.MinionSkinConfig;
 import dev.yanianz.reminions.core.minion.Minion;
 import dev.yanianz.reminions.managers.PlayerManager;
@@ -24,6 +25,8 @@ public class SwmWorldListener implements Listener {
 
     @EventHandler
     public void onSlimeWorldLoad(LoadSlimeWorldEvent event) {
+        Config config = this.plugin.getConfig0();
+        if (!config.getBoolean("settings.swm_integration", true)) return;
         String worldName = event.getSlimeWorld().getName();
         Bukkit.getScheduler().runTask(this.plugin, () -> {
             for (Minion minion : this.playerManager.getAllMinions()) {

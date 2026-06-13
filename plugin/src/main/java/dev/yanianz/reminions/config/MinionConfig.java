@@ -591,11 +591,10 @@ public record MinionConfig(
                 produced |= this.autoSellUpgrade(minion, autoSellMod, upgrade, multiplier);
             }
         }
-        // Bonus-drop path: upgrade_products with no required_product — roll chance and insert directly.
+        // Bonus-drop path: upgrade_products with no required_product — Product.getAmount() handles the chance roll internally.
         for (Product upgrade : new ArrayList<>(productMap.values())) {
             if (upgrade.getRequiredProduct() != null) continue;
             if (upgrade.getChance() <= 0.0) continue;
-            if (Math.random() > upgrade.getChance()) continue;
             ItemStack item = upgrade.buildItem();
             int inserted = this.tryInsert(minion, item, upgrade.getAmount(), minion.getInventory(), storageInv,
                     useAutoSellTarget, autoSellMod, upgrade);

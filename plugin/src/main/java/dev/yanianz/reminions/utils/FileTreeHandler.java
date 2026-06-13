@@ -1,12 +1,18 @@
 package dev.yanianz.reminions.utils;
 
 import java.io.File;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.util.Collection;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.function.BiConsumer;
+import java.util.jar.JarEntry;
+import java.util.jar.JarFile;
 import dev.yanianz.reminions.ReMinions;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -44,6 +50,33 @@ public abstract class FileTreeHandler<T> {
     public abstract T load(ConfigurationSection section, String id);
 
     private void copyDefaults() {
+        // Auto-discover all .yml resources under resourcePath in the plugin jar and copy them to disk.
+        // Falls back to the hardcoded defaultResources list if jar walking fails.
+        boolean discovered = false;
+        try {
+            File jarFile = new File(plugin.getClass().getProtectionDomain().getCodeSource().getLocation().toURI());
+            if (jarFile.isFile()) {
+                try (JarFile jar = new JarFile(jarFile)) {
+                    Enumeration<JarEntry> entries = jar.entries();
+                    while (entries.hasMoreElements()) {
+                        JarEntry entry = entries.nextElement();
+                        String name = entry.getName();
+                        if (entry.isDirectory() || !name.startsWith(this.resourcePath) || !name.endsWith(".yml")) continue;
+                        String rel = name.substring(this.resourcePath.length());
+                        File target = new File(this.rootFolder, rel);
+                        if (target.exists()) continue;
+                        target.getParentFile().mkdirs();
+                        try (InputStream is = jar.getInputStream(entry); OutputStream os = new FileOutputStream(target)) {
+                            is.transferTo(os);
+                        }
+                    }
+                    discovered = true;
+                }
+            }
+        } catch (Exception e) {
+            DebugLogger.warn("Auto-discovery of resources failed, falling back to defaults list: " + e.getMessage());
+        }
+        if (discovered) return;
         for (String resource : this.defaultResources) {
             File target = new File(this.rootFolder, resource);
             if (!target.exists()) {

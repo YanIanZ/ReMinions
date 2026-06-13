@@ -67,8 +67,8 @@ products:
 
 upgrades:
   1:
-    production_speed: 20
-    max_storage: 5
+    production_speed: 14
+    max_storage: 64
     requirement:
       items:
         0:
@@ -83,8 +83,8 @@ upgrades:
         - "000"
 
   2:
-    production_speed: 18
-    max_storage: 6
+    production_speed: 13
+    max_storage: 192
     requirement:
       items:
         0:
@@ -99,8 +99,8 @@ upgrades:
         - "000"
 
   3:
-    production_speed: 16
-    max_storage: 7
+    production_speed: 12
+    max_storage: 192
     requirement:
       items:
         0:
@@ -115,8 +115,8 @@ upgrades:
         - "010"
 
   4:
-    production_speed: 14
-    max_storage: 8
+    production_speed: 11
+    max_storage: 384
     requirement:
       items:
         0:
@@ -131,8 +131,8 @@ upgrades:
         - "010"
 
   5:
-    production_speed: 12
-    max_storage: 9
+    production_speed: 10
+    max_storage: 384
     requirement:
       items:
         0:
@@ -147,8 +147,8 @@ upgrades:
         - "010"
 
   6:
-    production_speed: 10
-    max_storage: 10
+    production_speed: 9
+    max_storage: 576
     requirement:
       items:
         0:
@@ -163,8 +163,8 @@ upgrades:
         - "010"
 
   7:
-    production_speed: 9
-    max_storage: 12
+    production_speed: 8
+    max_storage: 576
     requirement:
       items:
         0:
@@ -191,8 +191,8 @@ upgrades:
         - "012"
 
   8:
-    production_speed: 8
-    max_storage: 14
+    production_speed: 7
+    max_storage: 768
     requirement:
       items:
         0:
@@ -219,8 +219,8 @@ upgrades:
         - "012"
 
   9:
-    production_speed: 7
-    max_storage: 16
+    production_speed: 6
+    max_storage: 768
     requirement:
       items:
         0:
@@ -248,7 +248,7 @@ upgrades:
 
   10:
     production_speed: 6
-    max_storage: 18
+    max_storage: 960
     requirement:
       items:
         0:
@@ -276,7 +276,7 @@ upgrades:
 
   11:
     production_speed: 5
-    max_storage: 20
+    max_storage: 960
     requirement:
       items:
         0:
@@ -303,8 +303,8 @@ upgrades:
         - "012"
 
   12:
-    production_speed: 4
-    max_storage: 24
+    production_speed: 5
+    max_storage: 1152
     requirement:
       items:
         0:

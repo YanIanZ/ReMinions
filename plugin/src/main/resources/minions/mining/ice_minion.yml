@@ -1,0 +1,367 @@
+name: "&bIce Minion &7%roman_level%"
+item:
+  name: "&bIce Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating ice."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: MINER
+category_skin: "ice_mining"
+properties:
+  base_radius: 2
+  block_check_around: "ICE;PACKED_ICE;SNOW_BLOCK"
+  animations:
+    block: ICE
+
+skin_levels:
+  1:
+    path: "ice_level_1"
+  2:
+    path: "ice_level_2"
+  3:
+    path: "ice_level_3"
+  4:
+    path: "ice_level_4"
+  5:
+    path: "ice_level_5"
+  6:
+    path: "ice_level_6"
+  7:
+    path: "ice_level_7"
+  8:
+    path: "ice_level_8"
+  9:
+    path: "ice_level_9"
+  10:
+    path: "ice_level_10"
+  11:
+    path: "ice_level_11"
+  12:
+    path: "ice_level_12"
+
+products:
+  ice:
+    type: vanilla
+    material: ICE
+    chance: 1.0
+    amount: 1-2
+    price: 1.0
+    source_exp:
+      skill: MINING
+      exp: 1.0
+  packed_ice:
+    type: vanilla
+    material: PACKED_ICE
+    chance: 0.1
+    amount: 1
+    price: 3.0
+  blue_ice:
+    type: vanilla
+    material: BLUE_ICE
+    chance: 0.01
+    amount: 1
+    price: 12.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: ICE
+          display: "&bIce"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: PACKED_ICE
+          display: "&3Packed Ice"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

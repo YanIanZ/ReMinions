@@ -1,0 +1,30 @@
+category: "inferno_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The inferno is resting..."
+  WORKING_PLACE:
+    - "&e🗡 &aInferno is hunting..."
+  WORKING_BREAK:
+    - "&e⚔ &aInferno is fighting..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTEzZjhlZDQ0ZmIyZjgyYWRlOTJiYjU2YTYwNmJlM2I1OTVjZDcxNmIxYmJmMDk1MGYwODY2Y2M2MzkzZDI1YiJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#d4500a"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#d4500a"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#d4500a"
+  HAND:
+    material: "GOLDEN_SWORD"

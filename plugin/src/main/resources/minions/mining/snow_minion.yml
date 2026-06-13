@@ -1,0 +1,361 @@
+name: "&fSnow Minion &7%roman_level%"
+item:
+  name: "&fSnow Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating snow."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: MINER
+category_skin: "snow_mining"
+properties:
+  base_radius: 2
+  block_check_around: "SNOW_BLOCK;SNOW;ICE"
+  animations:
+    block: SNOW_BLOCK
+
+skin_levels:
+  1:
+    path: "snow_level_1"
+  2:
+    path: "snow_level_2"
+  3:
+    path: "snow_level_3"
+  4:
+    path: "snow_level_4"
+  5:
+    path: "snow_level_5"
+  6:
+    path: "snow_level_6"
+  7:
+    path: "snow_level_7"
+  8:
+    path: "snow_level_8"
+  9:
+    path: "snow_level_9"
+  10:
+    path: "snow_level_10"
+  11:
+    path: "snow_level_11"
+  12:
+    path: "snow_level_12"
+
+products:
+  snowball:
+    type: vanilla
+    material: SNOWBALL
+    chance: 1.0
+    amount: 4-8
+    price: 0.15
+    source_exp:
+      skill: MINING
+      exp: 0.5
+  snow_block:
+    type: vanilla
+    material: SNOW_BLOCK
+    chance: 0.2
+    amount: 1
+    price: 0.8
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: SNOWBALL
+          display: "&fSnowball"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: SNOW_BLOCK
+          display: "&fSnow Block"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

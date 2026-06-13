@@ -1,0 +1,30 @@
+category: "slime_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The slime is resting..."
+  WORKING_PLACE:
+    - "&e🗡 &aSlime is hunting..."
+  WORKING_BREAK:
+    - "&e⚔ &aSlime is fighting..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZmU1ZTExNmVjNzM0NmNkZWQyOTYzMzQ1YWViOTZjZmRlOTYxZWI4ZDNlYzNkYTVjYjA3YjU0ZTc1YzAzNGQwZiJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#4d7a4d"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#4d7a4d"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#4d7a4d"
+  HAND:
+    material: "STONE_SWORD"

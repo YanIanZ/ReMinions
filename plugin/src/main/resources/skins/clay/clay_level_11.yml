@@ -1,0 +1,30 @@
+category: "clay_fisherman"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The fisherman is resting..."
+  WORKING_PLACE:
+    - "&e🎣 &aCasting line..."
+  WORKING_BREAK:
+    - "&e🐟 &aReeling in clay..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion must be placed in water"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvY2FiOTRjMzYzOWUxZThlNGMwYzM0MTAyNmUxMGZiNDE3ZTBmYzE2YTJjMjY1Nzg3ZmIzMDI2ZjY3ODZiZGI5MiJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#c8c5b8"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#c8c5b8"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#c8c5b8"
+  HAND:
+    material: "FISHING_ROD"

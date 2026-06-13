@@ -1,0 +1,363 @@
+name: "&cMagma Cube Minion &7%roman_level%"
+item:
+  name: "&cMagma Cube Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7hunting magma cubes."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: KILLER
+category_skin: "magma_cube_combat"
+properties:
+  base_radius: 3
+  block_check_around: "GRASS_BLOCK"
+  bypass_location_check: true
+  animations:
+    entity: MAGMA_CUBE
+    entity_particle: FLAME
+
+skin_levels:
+  1:
+    path: "magma_cube_level_1"
+  2:
+    path: "magma_cube_level_2"
+  3:
+    path: "magma_cube_level_3"
+  4:
+    path: "magma_cube_level_4"
+  5:
+    path: "magma_cube_level_5"
+  6:
+    path: "magma_cube_level_6"
+  7:
+    path: "magma_cube_level_7"
+  8:
+    path: "magma_cube_level_8"
+  9:
+    path: "magma_cube_level_9"
+  10:
+    path: "magma_cube_level_10"
+  11:
+    path: "magma_cube_level_11"
+  12:
+    path: "magma_cube_level_12"
+
+products:
+  magma_cream:
+    type: vanilla
+    material: MAGMA_CREAM
+    chance: 1.0
+    amount: 1-2
+    price: 2.0
+    source_exp:
+      skill: COMBAT
+      exp: 2.0
+  magma_block:
+    type: vanilla
+    material: MAGMA_BLOCK
+    chance: 0.05
+    amount: 1
+    price: 1.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: MAGMA_CREAM
+          display: "&cMagma Cream"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: MAGMA_BLOCK
+          display: "&4Magma Block"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

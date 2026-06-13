@@ -1,0 +1,367 @@
+name: "&3Mithril Minion &7%roman_level%"
+item:
+  name: "&3Mithril Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7generating mithril."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: MINER
+category_skin: "mithril_mining"
+properties:
+  base_radius: 2
+  block_check_around: "STONE;DEEPSLATE;PRISMARINE"
+  animations:
+    block: PRISMARINE
+
+skin_levels:
+  1:
+    path: "mithril_level_1"
+  2:
+    path: "mithril_level_2"
+  3:
+    path: "mithril_level_3"
+  4:
+    path: "mithril_level_4"
+  5:
+    path: "mithril_level_5"
+  6:
+    path: "mithril_level_6"
+  7:
+    path: "mithril_level_7"
+  8:
+    path: "mithril_level_8"
+  9:
+    path: "mithril_level_9"
+  10:
+    path: "mithril_level_10"
+  11:
+    path: "mithril_level_11"
+  12:
+    path: "mithril_level_12"
+
+products:
+  prismarine_crystals:
+    type: vanilla
+    material: PRISMARINE_CRYSTALS
+    chance: 1.0
+    amount: 1-2
+    price: 2.5
+    source_exp:
+      skill: MINING
+      exp: 2.5
+  prismarine_shard:
+    type: vanilla
+    material: PRISMARINE_SHARD
+    chance: 0.5
+    amount: 1-2
+    price: 1.5
+  iron_ingot:
+    type: vanilla
+    material: IRON_INGOT
+    chance: 0.05
+    amount: 1
+    price: 2.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_CRYSTALS
+          display: "&3Mithril Crystals"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

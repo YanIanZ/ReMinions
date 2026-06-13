@@ -1,0 +1,362 @@
+name: "&fClay Minion &7%roman_level%"
+item:
+  name: "&fClay Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7catching clay."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FISHERMAN
+category_skin: "clay_fisherman"
+properties:
+  base_radius: 3
+  block_check_around: "WATER"
+  animations:
+    entity_catch: SQUID
+    entity_particle_catch: BUBBLE_POP
+
+skin_levels:
+  1:
+    path: "clay_level_1"
+  2:
+    path: "clay_level_2"
+  3:
+    path: "clay_level_3"
+  4:
+    path: "clay_level_4"
+  5:
+    path: "clay_level_5"
+  6:
+    path: "clay_level_6"
+  7:
+    path: "clay_level_7"
+  8:
+    path: "clay_level_8"
+  9:
+    path: "clay_level_9"
+  10:
+    path: "clay_level_10"
+  11:
+    path: "clay_level_11"
+  12:
+    path: "clay_level_12"
+
+products:
+  clay_ball:
+    type: vanilla
+    material: CLAY_BALL
+    chance: 1.0
+    amount: 2-4
+    price: 0.4
+    source_exp:
+      skill: FISHING
+      exp: 1.0
+  clay:
+    type: vanilla
+    material: CLAY
+    chance: 0.1
+    amount: 1
+    price: 2.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: CLAY_BALL
+          display: "&fClay Ball"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: CLAY
+          display: "&fClay Block"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

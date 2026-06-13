@@ -1,0 +1,30 @@
+category: "pig_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The pig is resting..."
+  WORKING_PLACE:
+    - "&e🐾 &aPig is grazing..."
+  WORKING_BREAK:
+    - "&e⚔ &aCollecting pig drops..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjJhNTMxYzYwMjQ0MmI4NWUwODg1NjRmZDg3MjkxNWU5OTA3MmJjNjAwNDI3ZGM2NzJlMTE5NGY0NzMwMmNiYyJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#f0a8b8"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#f0a8b8"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#f0a8b8"
+  HAND:
+    material: "STONE_SWORD"

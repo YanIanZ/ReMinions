@@ -44,6 +44,25 @@ settings:
   superiorskyblock_integration: true
   swm_integration: true
 
+# Worth (sell-price) resolution chain.
+# When a minion auto-sells items, ReMinions walks this list of providers in order and uses
+# the first one that returns a price for the item. If none match, it falls back to the
+# 'price:' field configured on the product in the minion YAML.
+#
+# Available providers:
+#   - shopguiplus      : Reads sell prices from ShopGUI+ (plugin "ShopGUIPlus")
+#   - economyshopgui   : Reads sell prices from EconomyShopGUI / EconomyShopGUI-Premium
+#   - essentials       : Reads worth.yml via EssentialsX (plugin "Essentials")
+#   - yaml             : Sentinel that triggers the per-product 'price' field fallback
+#
+# Reorder freely to control precedence; remove an entry to disable that source.
+worth:
+  providers:
+    - shopguiplus
+    - economyshopgui
+    - essentials
+    - yaml
+
 database:
   # Database type: choose one of the following
   # - sqlite → local .db file (default, no external setup required)

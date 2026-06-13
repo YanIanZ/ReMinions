@@ -90,6 +90,9 @@ public class ReloadCommand extends CommandHolder {
         plugin.getConfig0().reload();
         DebugLogger.setEnabled(plugin.getConfig0().getBoolean("settings.debug_enabled"));
         ReMinions.setRecipesEnabled(plugin.getConfig0().getBoolean("settings.minions_recipes"));
+        if (plugin.getWorthService() != null) {
+            plugin.getWorthService().reload(plugin.getConfig0());
+        }
     }
 
     private void reloadSkins(ReMinions plugin) {

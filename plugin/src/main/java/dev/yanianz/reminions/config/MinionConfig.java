@@ -637,7 +637,8 @@ public record MinionConfig(
                                     Product upgrade, int multiplier) {
         int amount = multiplier * upgrade.getAmount();
         if (autoSellMod != null) {
-            double revenue = upgrade.getPrice() * amount;
+            double revenue = ReMinions.getPlugin().getWorthService()
+                    .resolveTotal(upgrade, upgrade.buildItem(), amount);
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, upgrade, revenue, amount);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {
@@ -848,7 +849,8 @@ public record MinionConfig(
 
         remaining = totalAmount - placed;
         if (remaining > 0 && autoSellMod != null && product != null) {
-            double revenue = product.getPrice() * remaining;
+            double revenue = ReMinions.getPlugin().getWorthService()
+                    .resolveTotal(product, item, remaining);
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, product, revenue, remaining);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {

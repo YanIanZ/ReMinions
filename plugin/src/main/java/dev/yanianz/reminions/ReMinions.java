@@ -37,6 +37,7 @@ import dev.yanianz.reminions.managers.PlayerManager;
 import dev.yanianz.reminions.managers.SkinManager;
 import dev.yanianz.reminions.managers.StorageManager;
 import dev.yanianz.reminions.nms.NMSHandlerProvider;
+import dev.yanianz.reminions.economy.WorthService;
 import dev.yanianz.reminions.placeholder.ReMinionsExpansion;
 import dev.yanianz.reminions.task.MinionThreadTask;
 import dev.yanianz.reminions.utils.DebugLogger;
@@ -64,6 +65,7 @@ public final class ReMinions extends JavaPlugin {
     private Economy economy;
     private LuckPerms luckPerms;
     private BoboAPI api;
+    private WorthService worthService;
     private boolean superiorSkyblockEnabled = false;
     private boolean swmEnabled = false;
 
@@ -96,6 +98,9 @@ public final class ReMinions extends JavaPlugin {
         this.minionThreadTask.runTaskTimer(this, 0L, 1L);
 
         this.api = new BoboAPI(this.config0, this.playerManager, this.minionManager, this.skinManager);
+
+        this.worthService = new WorthService();
+        this.worthService.reload(this.config0);
 
         loadVault();
         loadLuckperms();
@@ -277,6 +282,7 @@ public final class ReMinions extends JavaPlugin {
     }
 
     public static ReMinions getPlugin() { return plugin; }
+    public WorthService getWorthService() { return this.worthService; }
     public static boolean isRecipesEnabled()   { return recipesEnabled; }
     public static void setRecipesEnabled(boolean enabled) { recipesEnabled = enabled; }
 }

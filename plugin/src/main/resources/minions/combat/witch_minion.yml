@@ -1,0 +1,381 @@
+name: "&5Witch Minion &7%roman_level%"
+item:
+  name: "&5Witch Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7hunting witchs."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: KILLER
+category_skin: "witch_combat"
+properties:
+  base_radius: 3
+  block_check_around: "GRASS_BLOCK"
+  bypass_location_check: true
+  animations:
+    entity: WITCH
+    entity_particle: WITCH
+
+skin_levels:
+  1:
+    path: "witch_level_1"
+  2:
+    path: "witch_level_2"
+  3:
+    path: "witch_level_3"
+  4:
+    path: "witch_level_4"
+  5:
+    path: "witch_level_5"
+  6:
+    path: "witch_level_6"
+  7:
+    path: "witch_level_7"
+  8:
+    path: "witch_level_8"
+  9:
+    path: "witch_level_9"
+  10:
+    path: "witch_level_10"
+  11:
+    path: "witch_level_11"
+  12:
+    path: "witch_level_12"
+
+products:
+  glass_bottle:
+    type: vanilla
+    material: GLASS_BOTTLE
+    chance: 1.0
+    amount: 1-2
+    price: 0.5
+    source_exp:
+      skill: COMBAT
+      exp: 1.8
+  redstone:
+    type: vanilla
+    material: REDSTONE
+    chance: 0.4
+    amount: 1-2
+    price: 0.4
+  sugar:
+    type: vanilla
+    material: SUGAR
+    chance: 0.3
+    amount: 1
+    price: 0.3
+  glowstone_dust:
+    type: vanilla
+    material: GLOWSTONE_DUST
+    chance: 0.2
+    amount: 1
+    price: 0.6
+  spider_eye:
+    type: vanilla
+    material: SPIDER_EYE
+    chance: 0.1
+    amount: 1
+    price: 2.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 32
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 4
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 64
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 128
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 12
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 192
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 256
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 20
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 320
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 384
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 28
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 448
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 32
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 512
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 36
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 576
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 40
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLASS_BOTTLE
+          display: "&fGlass Bottle"
+          amount: 640
+        1:
+          product:
+            type: vanilla
+            material: REDSTONE
+          display: "&cRedstone"
+          amount: 44
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "123"
+        - "2?3"
+        - "121"
+

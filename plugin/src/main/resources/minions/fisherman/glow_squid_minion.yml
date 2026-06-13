@@ -1,0 +1,296 @@
+name: "&bGlow Squid Minion &7%roman_level%"
+item:
+  name: "&bGlow Squid Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  lore:
+    - "&7Place this minion to start"
+    - "&7catching glow squids."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FISHERMAN
+category_skin: "glow_squid_fisherman"
+properties:
+  base_radius: 3
+  block_check_around: "WATER"
+  animations:
+    entity_catch: GLOW_SQUID
+    entity_particle_catch: BUBBLE_POP
+
+skin_levels:
+  1:
+    path: "glow_squid_level_1"
+  2:
+    path: "glow_squid_level_2"
+  3:
+    path: "glow_squid_level_3"
+  4:
+    path: "glow_squid_level_4"
+  5:
+    path: "glow_squid_level_5"
+  6:
+    path: "glow_squid_level_6"
+  7:
+    path: "glow_squid_level_7"
+  8:
+    path: "glow_squid_level_8"
+  9:
+    path: "glow_squid_level_9"
+  10:
+    path: "glow_squid_level_10"
+  11:
+    path: "glow_squid_level_11"
+  12:
+    path: "glow_squid_level_12"
+
+products:
+  glow_ink_sac:
+    type: vanilla
+    material: GLOW_INK_SAC
+    chance: 1.0
+    amount: 1-2
+    price: 2.0
+    source_exp:
+      skill: FISHING
+      exp: 2.0
+  glow_berries:
+    type: vanilla
+    material: GLOW_BERRIES
+    chance: 0.05
+    amount: 1
+    price: 3.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 64
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 128
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 192
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 256
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 320
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 384
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 448
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 512
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 576
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "010"
+        - "0?1"
+        - "000"
+
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: GLOW_INK_SAC
+          display: "&bGlow Ink Sac"
+          amount: 640
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "010"
+

@@ -23,7 +23,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 
 /**
- * Mirror of {@link AuraSkillListener} for the EcoSkills plugin. Unlike AuraSkills, EcoSkills
+ * Listener for the EcoSkills plugin integration. Unlike legacy skill systems, EcoSkills
  * needs an online {@link Player} reference (not just a UUID) to award XP, so this listener
  * skips minions whose owner is offline.
  */

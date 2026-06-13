@@ -1,0 +1,26 @@
+category: UPGRADE
+type: ITEM_UPGRADES
+duration: -1
+multiplier: 1
+unbreakable: true
+
+item:
+  material: DIAMOND
+  name: "&b💎 &3Diamond Spreading"
+  lore:
+    - "&7Each action your minion takes"
+    - "&7has a chance to produce a bonus diamond."
+    - ""
+    - "&b✦ &310% Chance per action"
+    - "&8(Place inside the minion)"
+
+upgrade_products:
+  bonus_diamond:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 0.1
+    material: DIAMOND
+    name: "&bBonus Diamond"
+    lore:
+      - "&3Lucky drop from Diamond Spreading"

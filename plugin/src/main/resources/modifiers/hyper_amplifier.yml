@@ -1,0 +1,18 @@
+category: UPGRADE
+type: PRODUCTION_BOOST
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: BEACON
+  name: "#FF00FF⚙ &dHyper Production Amplifier"
+  lore:
+    - "&7Doubles your minion's output."
+    - "&7"
+    - "#FF00FF✦ &d+100% Production"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "fortune:5"
+    - "luck_of_the_sea:3"

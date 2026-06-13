@@ -1,0 +1,17 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 960
+unbreakable: true
+
+item:
+  material: SHULKER_BOX
+  name: "&b📦 &dEnchanted Storage Upgrade"
+  lore:
+    - "&7Mythical storage expansion."
+    - "&7"
+    - "&b✦ &d+960 Storage Slots"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:1"

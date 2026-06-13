@@ -1,0 +1,15 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.25
+unbreakable: true
+
+item:
+  material: EXPERIENCE_BOTTLE
+  name: "&a✨ &2Experience Booster"
+  lore:
+    - "&7Boosts EcoSkills XP gained."
+    - "&7"
+    - "&a✦ &2+25% Skill XP"
+    - "&8(Place inside the minion)"
+  unbreakable: true

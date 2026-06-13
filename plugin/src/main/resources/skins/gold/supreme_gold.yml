@@ -1,0 +1,39 @@
+category: "gold_mining"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The supreme gold is resting..."
+  WORKING_PLACE:
+    - "&e🏆 &aSupreme power activating..."
+  WORKING_BREAK:
+    - "&e⚡ &aSupreme power working..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+    - "&7The minion cannot be placed here"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvZjZkYTA0ZWQ4YzgxMGJlMjliYmE1M2M2MmU3MTJkNjVjZmIyNTIzODExN2I5NGQ3ZTg1YTQ2MTU3NzViZjE0ZiJ9fX0="
+    name: "#ffd700🏆 #ffd700Supreme &7Gold #ffd700🏆"
+    lore:
+      - "#ffd700⚒ &7Forged in the legendary"
+      - "#ffd700⛰ &7realms of mastery."
+      - ""
+      - "#ffd700✨ &fA mythical minion skin"
+      - "#ffd700💎 &7that radiates raw power."
+      - ""
+      - "#ffd700🔥 &fUnbreakable determination."
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#d4a017"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#d4a017"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#d4a017"
+  HAND:
+    material: "NETHERITE_PICKAXE"

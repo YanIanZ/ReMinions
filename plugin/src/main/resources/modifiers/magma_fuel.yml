@@ -1,0 +1,18 @@
+category: FUEL
+type: SPEED
+duration: 3600
+multiplier: 0.2
+unbreakable: true
+
+item:
+  material: MAGMA_CREAM
+  name: "&c🔥 &6Magma Fuel"
+  lore:
+    - "&7Hot magmatic fuel for serious boost."
+    - "&7"
+    - "&c✦ &6+20% Speed"
+    - "&7Duration: &a1 hour"
+    - "&8(Right-click on minion to activate)"
+  unbreakable: true
+  enchants:
+    - "fire_aspect:1"

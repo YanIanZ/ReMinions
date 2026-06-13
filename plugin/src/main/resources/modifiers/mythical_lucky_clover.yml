@@ -1,0 +1,19 @@
+category: UPGRADE
+type: LUCK
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: NETHER_STAR
+  name: "#FFD700🍀 &6Mythical Lucky Clover"
+  lore:
+    - "&7A legendary clover — double"
+    - "&7your rare drops."
+    - "&7"
+    - "#FFD700✦ &6+100% Rare Drop Chance"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:3"
+    - "fortune:5"

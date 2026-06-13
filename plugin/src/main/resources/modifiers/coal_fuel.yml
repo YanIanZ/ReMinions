@@ -1,0 +1,16 @@
+category: FUEL
+type: SPEED
+duration: 1800
+multiplier: 0.05
+unbreakable: true
+
+item:
+  material: COAL
+  name: "&8⚫ &7Coal Fuel"
+  lore:
+    - "&7Cheap fuel for a small speed boost."
+    - "&7"
+    - "&8✦ &7+5% Speed"
+    - "&7Duration: &a30 minutes"
+    - "&8(Right-click on minion to activate)"
+  unbreakable: true

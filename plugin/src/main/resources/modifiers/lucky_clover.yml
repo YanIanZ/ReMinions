@@ -1,0 +1,16 @@
+category: UPGRADE
+type: LUCK
+duration: -1
+multiplier: 0.2
+unbreakable: true
+
+item:
+  material: GREEN_DYE
+  name: "&a🍀 &2Lucky Clover"
+  lore:
+    - "&7A four-leaf clover that boosts"
+    - "&7your minion's rare drop chance."
+    - "&7"
+    - "&a✦ &2+20% Rare Drop Chance"
+    - "&8(Place inside the minion)"
+  unbreakable: true

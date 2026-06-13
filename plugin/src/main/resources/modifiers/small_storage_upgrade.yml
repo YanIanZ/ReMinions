@@ -1,0 +1,15 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 64
+unbreakable: true
+
+item:
+  material: CHEST
+  name: "&7📦 &fSmall Storage Upgrade"
+  lore:
+    - "&7Adds extra inventory slots."
+    - "&7"
+    - "&7✦ &f+64 Storage Slots"
+    - "&8(Place inside the minion)"
+  unbreakable: true

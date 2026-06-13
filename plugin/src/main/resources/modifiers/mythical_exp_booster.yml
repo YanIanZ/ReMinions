@@ -1,0 +1,18 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: ENCHANTED_BOOK
+  name: "#FF00FF✨ &dMythical Experience Booster"
+  lore:
+    - "&7Doubles XP gained from minion drops."
+    - "&7"
+    - "#FF00FF✦ &d+100% Skill XP"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:3"
+    - "lure:3"

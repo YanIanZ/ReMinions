@@ -1,0 +1,15 @@
+category: UPGRADE
+type: PRODUCTION_BOOST
+duration: -1
+multiplier: 0.2
+unbreakable: true
+
+item:
+  material: REDSTONE_BLOCK
+  name: "&c⚙ &4Production Amplifier"
+  lore:
+    - "&7Boosts your minion's output."
+    - "&7"
+    - "&c✦ &4+20% Production"
+    - "&8(Place inside the minion)"
+  unbreakable: true

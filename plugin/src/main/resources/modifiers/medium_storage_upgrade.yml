@@ -1,0 +1,15 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 192
+unbreakable: true
+
+item:
+  material: BARREL
+  name: "&6📦 &eMedium Storage Upgrade"
+  lore:
+    - "&7Significantly expands minion storage."
+    - "&7"
+    - "&6✦ &e+192 Storage Slots"
+    - "&8(Place inside the minion)"
+  unbreakable: true

@@ -1,0 +1,17 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: EXPERIENCE_BOTTLE
+  name: "&a✨ &2Enchanted Experience Booster"
+  lore:
+    - "&7Enhanced XP boost."
+    - "&7"
+    - "&a✦ &2+50% Skill XP"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:2"

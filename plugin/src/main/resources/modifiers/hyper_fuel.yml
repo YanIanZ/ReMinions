@@ -1,0 +1,19 @@
+category: FUEL
+type: SPEED
+duration: 21600
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: BLAZE_POWDER
+  name: "&4🔥 &cHyper Fuel"
+  lore:
+    - "&7Premium fuel — extreme speed."
+    - "&7"
+    - "&4✦ &c+50% Speed"
+    - "&7Duration: &a6 hours"
+    - "&8(Right-click on minion to activate)"
+  unbreakable: true
+  enchants:
+    - "fire_aspect:2"
+    - "luck_of_the_sea:1"

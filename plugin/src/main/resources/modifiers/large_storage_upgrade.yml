@@ -1,0 +1,15 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 576
+unbreakable: true
+
+item:
+  material: ENDER_CHEST
+  name: "&5📦 &dLarge Storage Upgrade"
+  lore:
+    - "&7Massive inventory expansion."
+    - "&7"
+    - "&5✦ &d+576 Storage Slots"
+    - "&8(Place inside the minion)"
+  unbreakable: true

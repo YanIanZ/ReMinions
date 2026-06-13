@@ -1,0 +1,17 @@
+category: UPGRADE
+type: PRODUCTION_BOOST
+duration: -1
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: RESPAWN_ANCHOR
+  name: "&c⚙ &4Enchanted Production Amplifier"
+  lore:
+    - "&7Magically amplified production."
+    - "&7"
+    - "&c✦ &4+50% Production"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "fortune:3"

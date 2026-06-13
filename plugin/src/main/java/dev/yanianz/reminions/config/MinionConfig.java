@@ -69,6 +69,7 @@ public record MinionConfig(
         int baseRadius,
         List<Product> products,
         Set<Material> blocksCheckAround,
+        boolean bypassLocationCheck,
         AnimationConfig animation,
         Map<Integer, String> skinLevels,
         Map<Integer, MinionUpgrade> upgrades,

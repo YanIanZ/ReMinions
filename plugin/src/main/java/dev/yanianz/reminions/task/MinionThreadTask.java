@@ -14,6 +14,7 @@ import dev.yanianz.reminions.core.minion.MinionModifierData;
 import dev.yanianz.reminions.core.minion.MinionSkinModel;
 import dev.yanianz.reminions.core.minion.MinionStatus;
 import dev.yanianz.reminions.core.minion.MinionStorage;
+import dev.yanianz.reminions.core.minion.MinionType;
 import dev.yanianz.reminions.core.modifier.ModifierType;
 import dev.yanianz.reminions.managers.MinionManager;
 import dev.yanianz.reminions.managers.ModifierManager;
@@ -196,11 +197,24 @@ public class MinionThreadTask extends BukkitRunnable {
         }
 
         int workRadius = minion.getBaseRadius() + (int) this.modifierManager.getModifierNumber(minion, ModifierType.RADIUS);
-        boolean isValid = this.computeIsValidWithCache(minion, config, minionLoc, workRadius);
+        boolean isValid;
+        if (config.bypassLocationCheck()) {
+            isValid = true;
+        } else {
+            isValid = this.computeIsValidWithCache(minion, config, minionLoc, workRadius);
+            // KILLER and LUMBERJACK treat areAllBlocksAllowed as a hard gate (not a phase
+            // selector). Their handlers enforce it with-viewer, but we must also block
+            // the offline workOffline path when the terrain isn't fully set.
+            if (isValid && (minion.getType() == MinionType.KILLER || minion.getType() == MinionType.LUMBERJACK)) {
+                isValid = config.areAllBlocksAllowed(minionLoc, workRadius);
+            }
+        }
 
-        if (hasViewers && !isValid) {
+        if (!isValid) {
             minion.setStatus(MinionStatus.POSITION_INVALID);
-            minion.getSkinModel().addHolograms(MinionStatus.POSITION_INVALID, -1);
+            if (hasViewers && minion.getSkinModel() != null) {
+                minion.getSkinModel().addHolograms(MinionStatus.POSITION_INVALID, -1);
+            }
             return;
         }
 
@@ -338,16 +352,12 @@ public class MinionThreadTask extends BukkitRunnable {
     // Two-phase work loops shared by miner / farmer / lumberjack / fisherman
     // ─────────────────────────────────────────────────────────────────────────────
 
-    /**
-     * Toggles a minion between BREAK and PLACE phases. {@code canPerform=false} just
-     * advances the state machine without animating (e.g. nothing to harvest).
-     */
     private void handleWork(Minion minion, MinionConfig config,
                             boolean primaryFull, boolean storageFull,
                             boolean canPerform, boolean hasViewers,
                             Supplier<Location> breakTarget, Supplier<Location> placeTarget,
                             Consumer<Block> breakAction, Consumer<Block> placeAction) {
-        if (!canPerform) {
+        if (!hasViewers) {
             if (minion.getStatus() != MinionStatus.POSITION_INVALID) {
                 if (minion.getStatus() == MinionStatus.WORKING_BREAK) {
                     minion.setStatus(MinionStatus.WORKING_PLACE);
@@ -356,53 +366,51 @@ public class MinionThreadTask extends BukkitRunnable {
                     this.updateInventoryView(minion, config, primaryFull, storageFull);
                 }
             }
-            return;
-        }
-        if (primaryFull) {
-            minion.setStatus(MinionStatus.WORKING_BREAK);
-            this.updateInventoryView(minion, config, primaryFull, storageFull);
-            this.performBlockAction(minion, MinionStatus.WORKING_BREAK, breakTarget, breakAction, true);
         } else {
-            minion.setStatus(MinionStatus.WORKING_PLACE);
-            this.performBlockAction(minion, MinionStatus.WORKING_PLACE, placeTarget, placeAction, true);
-        }
-    }
-
-    /** Fishing variant: the place phase does not snap-back so the line stays drawn. */
-    private void handleWorkFish(Minion minion, MinionConfig config,
-                                boolean primaryFull, boolean storageFull,
-                                boolean canPerform, boolean hasViewers,
-                                Supplier<Location> breakTarget, Supplier<Location> placeTarget,
-                                Consumer<Block> breakAction, Consumer<Block> placeAction) {
-        if (primaryFull) {
-            minion.setStatus(MinionStatus.WORKING_BREAK);
-            this.updateInventoryView(minion, config, primaryFull, storageFull);
-            if (hasViewers && canPerform) {
-                this.performBlockAction(minion, MinionStatus.WORKING_BREAK, breakTarget, breakAction, false);
-            }
-        } else {
-            minion.setStatus(MinionStatus.WORKING_PLACE);
-            if (hasViewers && canPerform) {
+            if (canPerform) {
+                minion.setStatus(MinionStatus.WORKING_BREAK);
+                this.updateInventoryView(minion, config, primaryFull, storageFull);
+                this.performBlockAction(minion, MinionStatus.WORKING_BREAK, breakTarget, breakAction, true);
+            } else {
+                minion.setStatus(MinionStatus.WORKING_PLACE);
                 this.performBlockAction(minion, MinionStatus.WORKING_PLACE, placeTarget, placeAction, true);
             }
         }
     }
 
-    /** Killer variant: BREAK phase calls {@code performEntityAction} instead of block edit. */
+    private void handleWorkFish(Minion minion, MinionConfig config,
+                                boolean primaryFull, boolean storageFull,
+                                boolean canPerform, boolean hasViewers,
+                                Supplier<Location> breakTarget, Supplier<Location> placeTarget,
+                                Consumer<Block> breakAction, Consumer<Block> placeAction) {
+        if (canPerform) {
+            minion.setStatus(MinionStatus.WORKING_BREAK);
+            this.updateInventoryView(minion, config, primaryFull, storageFull);
+            if (hasViewers) {
+                this.performBlockAction(minion, MinionStatus.WORKING_BREAK, breakTarget, breakAction, false);
+            }
+        } else {
+            minion.setStatus(MinionStatus.WORKING_PLACE);
+            if (hasViewers) {
+                this.performBlockAction(minion, MinionStatus.WORKING_PLACE, placeTarget, placeAction, true);
+            }
+        }
+    }
+
     private void handleWorkEntity(Minion minion, MinionConfig config,
                                   boolean primaryFull, boolean storageFull,
                                   boolean canPerform, boolean hasViewers,
                                   Supplier<LivingEntity> entityTarget, Supplier<Location> spawnTarget,
                                   Consumer<LivingEntity> attack, Consumer<Location> spawn) {
-        if (primaryFull) {
+        if (canPerform) {
             minion.setStatus(MinionStatus.WORKING_BREAK);
             this.updateInventoryView(minion, config, primaryFull, storageFull);
-            if (hasViewers && canPerform) {
+            if (hasViewers) {
                 this.performEntityAction(minion, entityTarget, attack);
             }
         } else {
             minion.setStatus(MinionStatus.WORKING_PLACE);
-            if (hasViewers && canPerform) {
+            if (hasViewers) {
                 this.performBlockAction(minion, MinionStatus.WORKING_PLACE, () -> {
                     Location spot = spawnTarget.get();
                     return spot != null ? spot.getBlock().getRelative(BlockFace.UP).getLocation() : null;
@@ -474,13 +482,6 @@ public class MinionThreadTask extends BukkitRunnable {
 
     private void handleFarmer(Minion minion, MinionConfig config, Location loc, int radius,
                               AnimationConfig anim, boolean hasViewers, boolean primaryFull, boolean storageFull) {
-        if (this.isFarmerSleeping(loc)) {
-            minion.setStatus(MinionStatus.IDLE);
-            if (hasViewers && minion.getSkinModel() != null) {
-                minion.getSkinModel().addHolograms(MinionStatus.IDLE, -1);
-            }
-            return;
-        }
         this.handleWork(
                 minion, config, primaryFull, storageFull,
                 config.areAllBlockSpecific(loc, radius, anim.crop(), false, new int[]{0, 0, 0}, this.notStorageBlock(minion)),
@@ -644,17 +645,16 @@ public class MinionThreadTask extends BukkitRunnable {
                     return;
                 }
                 Location current = stand.getLocation();
-                current.setYaw(current.getYaw() + yawStep);
-                current.setPitch(current.getPitch() + pitchStep);
-                stand.teleport(current);
+                float newYaw   = current.getYaw()   + yawStep;
+                float newPitch = current.getPitch() + pitchStep;
                 if (++this.step >= LOOK_INTERPOLATION_STEPS) {
-                    current.setYaw(targetYaw);
-                    current.setPitch(targetPitch);
-                    stand.teleport(current);
+                    stand.setRotation(targetYaw, targetPitch);
                     this.cancel();
                     if (afterLook != null) {
                         afterLook.run();
                     }
+                } else {
+                    stand.setRotation(newYaw, newPitch);
                 }
             }
         }.runTaskTimer(ReMinions.getPlugin(), 0L, LOOK_INTERPOLATION_PERIOD_TICKS);

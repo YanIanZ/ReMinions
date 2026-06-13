@@ -123,11 +123,13 @@ public class MinionManager extends FileTreeHandler<MinionConfig> {
             return null;
         }
 
+        boolean bypassLocationCheck = properties.getBoolean("bypass_location_check", false);
+
         Map<Integer, String> skinLevels = this.loadSkinLevels(root.getConfigurationSection("skin_levels"), minionId);
         Map<Integer, MinionUpgrade> upgrades = this.loadUpgrades(root.getConfigurationSection("upgrades"), minionId);
 
         MinionConfig config = new MinionConfig(minionId, name, type, itemBuilder, baseRadius,
-                products, blocksCheckAround, animationConfig, skinLevels, upgrades, categorySkin);
+                products, blocksCheckAround, bypassLocationCheck, animationConfig, skinLevels, upgrades, categorySkin);
         this.registerUpgradeRecipes(config, minionId);
         return config;
     }

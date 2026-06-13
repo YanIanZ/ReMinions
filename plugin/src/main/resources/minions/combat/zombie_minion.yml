@@ -17,6 +17,7 @@ category_skin: "zombie_combat"
 properties:
   base_radius: 3
   block_check_around: "GRASS_BLOCK"
+  bypass_location_check: true
   animations:
     entity: ZOMBIE
     entity_particle: ANGRY_VILLAGER

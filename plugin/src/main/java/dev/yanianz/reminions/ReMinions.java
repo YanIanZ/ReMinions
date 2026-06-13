@@ -204,14 +204,14 @@ public final class ReMinions extends JavaPlugin {
     }
 
     private void loadSwm() {
-        if (getServer().getPluginManager().getPlugin("SourbyCraftSWM") == null) {
+        if (this.getServer().getPluginManager().getPlugin("SourbyCraftSWM") == null) {
             DebugLogger.info("SourbyCraftSWM not found, skipping integration.");
             return;
         }
         this.swmEnabled = true;
-        getServer().getPluginManager()
-                .registerEvents(new SwmWorldListener(this.playerManager, this.skinManager), this);
-        DebugLogger.info("SourbyCraft SWM integration loaded.");
+        this.getServer().getPluginManager()
+                .registerEvents(new SwmWorldListener(this, this.playerManager, this.skinManager), this);
+        DebugLogger.info("SourbyCraftSWM successfully hooked.");
     }
 
     private void loadPlaceholderAPI() {

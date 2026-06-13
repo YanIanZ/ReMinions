@@ -29,6 +29,7 @@ import dev.yanianz.reminions.listener.RecipeBookListener;
 import dev.yanianz.reminions.listener.RecipeListener;
 import dev.yanianz.reminions.listener.StorageListener;
 import dev.yanianz.reminions.listener.SuperiorSkyblockListener;
+import dev.yanianz.reminions.listener.SwmWorldListener;
 import dev.yanianz.reminions.managers.MenuManager;
 import dev.yanianz.reminions.managers.MinionManager;
 import dev.yanianz.reminions.managers.ModifierManager;
@@ -64,6 +65,7 @@ public final class ReMinions extends JavaPlugin {
     private LuckPerms luckPerms;
     private BoboAPI api;
     private boolean superiorSkyblockEnabled = false;
+    private boolean swmEnabled = false;
 
     @Override
     public void onEnable() {
@@ -99,6 +101,7 @@ public final class ReMinions extends JavaPlugin {
         loadLuckperms();
         loadEcoSkills();
         loadSuperiorSkyblock();
+        loadSwm();
         loadPlaceholderAPI();
 
         CommandManager commandManager = new CommandManager(this);
@@ -200,6 +203,17 @@ public final class ReMinions extends JavaPlugin {
         DebugLogger.info("SuperiorSkyblock2 successfully hooked.");
     }
 
+    private void loadSwm() {
+        if (getServer().getPluginManager().getPlugin("SourbyCraftSWM") == null) {
+            DebugLogger.info("SourbyCraftSWM not found, skipping integration.");
+            return;
+        }
+        this.swmEnabled = true;
+        getServer().getPluginManager()
+                .registerEvents(new SwmWorldListener(this.playerManager, this.skinManager), this);
+        DebugLogger.info("SourbyCraft SWM integration loaded.");
+    }
+
     private void loadPlaceholderAPI() {
         if (this.getServer().getPluginManager().getPlugin("PlaceholderAPI") == null) {
             DebugLogger.info("PlaceholderAPI not found, skipping integration.");
@@ -256,6 +270,10 @@ public final class ReMinions extends JavaPlugin {
 
     public boolean isSuperiorSkyblockEnabled() {
         return this.superiorSkyblockEnabled;
+    }
+
+    public boolean isSwmEnabled() {
+        return this.swmEnabled;
     }
 
     public static ReMinions getPlugin() { return plugin; }

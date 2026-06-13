@@ -1,0 +1,88 @@
+category: UPGRADE
+type: ITEM_UPGRADES
+duration: -1
+multiplier: 1
+unbreakable: true
+
+item:
+  material: PISTON
+  name: "&8⚙ &7Super Compactor 3000"
+  lore:
+    - "&7Compresses 64 resources into"
+    - "&7a single compact block."
+    - ""
+    - "&8✦ &764 items → 1 block"
+    - "&8(Place inside the minion)"
+
+upgrade_products:
+  cobblestone_to_stone_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: cobblestone
+    required_product_amount: 64
+    material: STONE
+    name: "&7Super Compacted Stone"
+    lore:
+      - "&7Created from 64 Cobblestone"
+
+  iron_ingot_to_block_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: iron_ingot
+    required_product_amount: 64
+    material: IRON_BLOCK
+    name: "&fSuper Compacted Iron"
+    lore:
+      - "&7Created from 64 Iron Ingots"
+
+  gold_ingot_to_block_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: gold_ingot
+    required_product_amount: 64
+    material: GOLD_BLOCK
+    name: "&6Super Compacted Gold"
+    lore:
+      - "&7Created from 64 Gold Ingots"
+
+  diamond_to_block_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: diamond
+    required_product_amount: 64
+    material: DIAMOND_BLOCK
+    name: "&bSuper Compacted Diamond"
+    lore:
+      - "&7Created from 64 Diamonds"
+
+  coal_to_block_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: coal
+    required_product_amount: 64
+    material: COAL_BLOCK
+    name: "&8Super Compacted Coal"
+    lore:
+      - "&7Created from 64 Coal"
+
+  lapis_to_block_64:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: lapis_lazuli
+    required_product_amount: 64
+    material: LAPIS_BLOCK
+    name: "&9Super Compacted Lapis"
+    lore:
+      - "&7Created from 64 Lapis Lazuli"

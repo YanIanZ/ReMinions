@@ -93,6 +93,9 @@ public class ReloadCommand extends CommandHolder {
         if (plugin.getWorthService() != null) {
             plugin.getWorthService().reload(plugin.getConfig0());
         }
+        if (plugin.getBoosterService() != null) {
+            plugin.getBoosterService().reload(plugin.getConfig0());
+        }
     }
 
     private void reloadSkins(ReMinions plugin) {

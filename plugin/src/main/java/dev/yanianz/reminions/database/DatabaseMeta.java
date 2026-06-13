@@ -10,6 +10,7 @@ public class DatabaseMeta {
     private String redisHost;
     private int redisPort;
     private String redisPassword;
+    private String mongoUri;
 
     public String getFileName()    { return this.fileName; }
     public String getHost()        { return this.host; }
@@ -20,6 +21,7 @@ public class DatabaseMeta {
     public String getRedisHost()   { return this.redisHost; }
     public int getRedisPort()      { return this.redisPort; }
     public String getRedisPassword(){ return this.redisPassword; }
+    public String getMongoUri()    { return this.mongoUri; }
 
     public void setFileName(String fileName)        { this.fileName = fileName; }
     public void setHost(String host)                { this.host = host; }
@@ -30,4 +32,5 @@ public class DatabaseMeta {
     public void setRedisHost(String host)           { this.redisHost = host; }
     public void setRedisPort(int port)              { this.redisPort = port; }
     public void setRedisPassword(String password)   { this.redisPassword = password; }
+    public void setMongoUri(String uri)              { this.mongoUri = uri; }
 }

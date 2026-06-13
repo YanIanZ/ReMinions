@@ -18,6 +18,7 @@ import dev.yanianz.reminions.core.minion.Minion;
 import dev.yanianz.reminions.database.Database;
 import dev.yanianz.reminions.database.DatabaseMeta;
 import dev.yanianz.reminions.database.impl.CachedDatabase;
+import dev.yanianz.reminions.database.impl.MongoDatabase;
 import dev.yanianz.reminions.database.impl.MySQLDatabase;
 import dev.yanianz.reminions.database.impl.SQLDatabase;
 import dev.yanianz.reminions.listener.BlockChangeListener;
@@ -37,6 +38,7 @@ import dev.yanianz.reminions.managers.PlayerManager;
 import dev.yanianz.reminions.managers.SkinManager;
 import dev.yanianz.reminions.managers.StorageManager;
 import dev.yanianz.reminions.nms.NMSHandlerProvider;
+import dev.yanianz.reminions.booster.BoosterService;
 import dev.yanianz.reminions.economy.WorthService;
 import dev.yanianz.reminions.placeholder.ReMinionsExpansion;
 import dev.yanianz.reminions.task.MinionThreadTask;
@@ -66,6 +68,7 @@ public final class ReMinions extends JavaPlugin {
     private LuckPerms luckPerms;
     private BoboAPI api;
     private WorthService worthService;
+    private BoosterService boosterService;
     private boolean superiorSkyblockEnabled = false;
     private boolean swmEnabled = false;
 
@@ -101,6 +104,8 @@ public final class ReMinions extends JavaPlugin {
 
         this.worthService = new WorthService();
         this.worthService.reload(this.config0);
+        this.boosterService = new BoosterService();
+        this.boosterService.reload(this.config0);
 
         loadVault();
         loadLuckperms();
@@ -144,6 +149,7 @@ public final class ReMinions extends JavaPlugin {
         if (type.equalsIgnoreCase("sqlite")) return new SQLDatabase();
         if (type.equalsIgnoreCase("mysql"))  return new MySQLDatabase();
         if (type.equalsIgnoreCase("redis"))  return new CachedDatabase();
+        if (type.equalsIgnoreCase("mongo") || type.equalsIgnoreCase("mongodb")) return new MongoDatabase();
         this.getServer().getPluginManager().disablePlugin(this);
         throw new IllegalArgumentException("Unknown database type: " + type);
     }
@@ -159,6 +165,7 @@ public final class ReMinions extends JavaPlugin {
         meta.setRedisHost(section.getString("redis.host", "localhost"));
         meta.setRedisPort(section.getInt("redis.port", 3306));
         meta.setRedisPassword(section.getString("redis.password", ""));
+        meta.setMongoUri(section.getString("mongo.uri", ""));
         return meta;
     }
 
@@ -283,6 +290,7 @@ public final class ReMinions extends JavaPlugin {
 
     public static ReMinions getPlugin() { return plugin; }
     public WorthService getWorthService() { return this.worthService; }
+    public BoosterService getBoosterService() { return this.boosterService; }
     public static boolean isRecipesEnabled()   { return recipesEnabled; }
     public static void setRecipesEnabled(boolean enabled) { recipesEnabled = enabled; }
 }

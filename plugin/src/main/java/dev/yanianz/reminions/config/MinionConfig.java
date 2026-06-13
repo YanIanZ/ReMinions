@@ -637,8 +637,10 @@ public record MinionConfig(
                                     Product upgrade, int multiplier) {
         int amount = multiplier * upgrade.getAmount();
         if (autoSellMod != null) {
+            double sellBoost = ReMinions.getPlugin().getBoosterService()
+                    .multiplier(minion.getOwner(), dev.yanianz.reminions.booster.BoostKind.SELL_PRICE);
             double revenue = ReMinions.getPlugin().getWorthService()
-                    .resolveTotal(upgrade, upgrade.buildItem(), amount);
+                    .resolveTotal(upgrade, upgrade.buildItem(), amount) * sellBoost;
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, upgrade, revenue, amount);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {
@@ -849,8 +851,10 @@ public record MinionConfig(
 
         remaining = totalAmount - placed;
         if (remaining > 0 && autoSellMod != null && product != null) {
+            double sellBoost = ReMinions.getPlugin().getBoosterService()
+                    .multiplier(minion.getOwner(), dev.yanianz.reminions.booster.BoostKind.SELL_PRICE);
             double revenue = ReMinions.getPlugin().getWorthService()
-                    .resolveTotal(product, item, remaining);
+                    .resolveTotal(product, item, remaining) * sellBoost;
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, product, revenue, remaining);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {

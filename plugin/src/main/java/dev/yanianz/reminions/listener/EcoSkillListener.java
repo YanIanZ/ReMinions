@@ -62,6 +62,13 @@ public class EcoSkillListener implements Listener {
         if (config == null) return;
         List<Product> products = this.getAllProducts(minion, config);
 
+        // EXP_BOOST modifier (item-based) + external booster plugin multiplier (BoosterService).
+        double modBoost = 1.0
+                + this.modifierManager.getModifierNumber(minion, dev.yanianz.reminions.core.modifier.ModifierType.EXP_BOOST);
+        double extBoost = dev.yanianz.reminions.ReMinions.getPlugin().getBoosterService()
+                .multiplier(owner.getUniqueId(), dev.yanianz.reminions.booster.BoostKind.EXP);
+        double expMultiplier = modBoost * extBoost;
+
         for (MinionInventory.ItemData item : producedItems) {
             products.stream()
                     .filter(p -> p.matches(item.getItem()) && p.getExpConfig() != null)
@@ -70,7 +77,7 @@ public class EcoSkillListener implements Listener {
                         SourceExpConfig expConfig = p.getExpConfig();
                         Skill skill = (Skill) Skills.INSTANCE.getByID(expConfig.skillId());
                         if (skill != null) {
-                            EcoSkillsAPI.giveSkillXP(owner, skill, expConfig.exp() * item.getAmount());
+                            EcoSkillsAPI.giveSkillXP(owner, skill, expConfig.exp() * item.getAmount() * expMultiplier);
                         }
                     });
         }

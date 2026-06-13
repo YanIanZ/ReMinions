@@ -284,7 +284,11 @@ public class Minion {
             this.cachedSpeedMultiplier += modifierMgr.getModifierNumber(this, ModifierType.SPEED);
             this.dirtyCache = false;
         }
-        return this.cachedSpeedMultiplier;
+        // Booster plugins are queried each call so live activations apply immediately —
+        // there's no cache invalidation path for external booster state changes.
+        double boost = dev.yanianz.reminions.ReMinions.getPlugin().getBoosterService()
+                .multiplier(this.getOwner(), dev.yanianz.reminions.booster.BoostKind.SPEED);
+        return this.cachedSpeedMultiplier * boost;
     }
 
     // ─────────────────────────────────────────────────────────────────────────────

@@ -30,6 +30,7 @@ dependencies {
     compileOnly(libs.hikari)
     compileOnly(libs.jedis)
     compileOnly(libs.gson)
+    compileOnly(libs.mongo)
 
     // Required soft deps
     compileOnly(libs.luckperms)

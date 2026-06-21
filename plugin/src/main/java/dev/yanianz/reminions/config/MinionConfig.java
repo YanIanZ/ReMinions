@@ -14,7 +14,7 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.function.Predicate;
-import javax.annotation.Nullable;
+import org.jetbrains.annotations.Nullable;
 import dev.yanianz.reminions.ReMinions;
 import dev.yanianz.reminions.api.events.MinionItemsProduceEvent;
 import dev.yanianz.reminions.api.events.MinionSellItemsEvent;

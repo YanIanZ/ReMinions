@@ -101,7 +101,8 @@ public final class ReMinions extends JavaPlugin {
                 this.playerManager, this.minionManager, this.modifierManager, this.skinManager);
         this.minionThreadTask.runTaskTimer(this, 0L, 1L);
 
-        this.api = new BoboAPI(this.config0, this.playerManager, this.minionManager, this.skinManager);
+        this.api = new BoboAPI(this.config0, this.playerManager, this.minionManager, this.skinManager,
+                this.modifierManager);
 
         this.worthService = new WorthService();
         this.worthService.reload(this.config0);

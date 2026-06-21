@@ -2,11 +2,11 @@
 
 # ⚙️ ReMinions
 
-**High-performance Paper minion plugin for Minecraft 1.21.11+**
+**High-performance Paper minion plugin for Minecraft 1.21.11 – 1.22+**
 
 [![License](https://img.shields.io/badge/License-PolyForm%20Perimeter-blue?style=flat-square)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk)](https://adoptium.net)
-[![Paper](https://img.shields.io/badge/Paper-1.21.11+-white?style=flat-square&logo=data:image/png;base64,)](https://papermc.io)
+[![Paper](https://img.shields.io/badge/Paper-26.1%20%E2%80%93%2026.2+-white?style=flat-square)](https://papermc.io/downloads/paper)
 [![Version](https://img.shields.io/badge/Version-1.0.0-green?style=flat-square)](https://github.com/YanIanZ/ReMinions/releases)
 
 </div>
@@ -15,12 +15,13 @@
 
 ## Features
 
-- **5 minion categories** — Farming, Mining, Combat, Lumberjack, Fisherman
-- **Modifier system** — Compactor, Auto-Sell, Orb of Expansion (x3), Enchanted Lava Bucket
+- **5 minion categories** — Farming, Mining, Combat, Lumberjack, Fisherman (135 bundled)
+- **Modifier system** — 39 modifiers including Compactor (24 vanilla recipes), Auto-Sell (price boost up to 1.5×), Lucky Clover tiers, Speed Amplifier tiers, Radius Expander tiers
 - **Skin system** — per-minion cosmetic skins with level progression
-- **Multi-database** — SQLite / MySQL / Redis
-- **PlaceholderAPI** — `%reminions_<placeholder>%`
-- **Soft integrations** — Vault, LuckPerms, AuraSkills, EcoSkills, MMOItems, ItemsAdder, CraftEngine
+- **Multi-database** — SQLite · MySQL · Redis · MongoDB
+- **PlaceholderAPI** — `%reminions_<placeholder>%` — full list below
+- **Public API** — `BoboAPI` (see [`BoboAPI`](plugin/src/main/java/dev/yanianz/reminions/api/BoboAPI.java))
+- **Soft integrations** — Vault · LuckPerms · AuraSkills · EcoSkills · MMOItems · ItemsAdder · CraftEngine · SuperiorSkyblock2 · SourbyCraftSWM · ShopGUIPlus · EconomyShopGUI · Essentials
 
 ---
 
@@ -28,8 +29,11 @@
 
 | Requirement | Version |
 |-------------|---------|
-| Paper | 1.21.11+ |
+| Paper | 26.1.x · **26.2.x** (latest tested) |
+| Minecraft | 1.21.11 – 1.22.x |
 | Java | 21+ |
+
+> The shaded jar bundles two NMS adapters (`v1_21_11`, `v26_1_2`) and probes at boot — drop the same jar onto any supported Paper build.
 
 ---
 
@@ -53,15 +57,107 @@ Output: `plugin/build/libs/ReMinions-1.0.0.jar`
 
 ## PlaceholderAPI
 
-| Placeholder | Description |
-|-------------|-------------|
+### Server-wide
+| Placeholder | Returns |
+|-------------|---------|
+| `%reminions_server_total_minions%` | All active minions across all players |
+| `%reminions_server_total_players%` | Players with at least one minion |
+| `%reminions_server_total_minion_configs%` | Loaded minion yml count |
+| `%reminions_server_total_modifier_configs%` | Loaded modifier yml count |
+| `%reminions_server_total_skin_configs%` | Loaded skin yml count |
+| `%reminions_server_total_storage_configs%` | Loaded storage yml count |
+
+### Per-player slot & progression
+| Placeholder | Returns |
+|-------------|---------|
 | `%reminions_player_current_minions%` | Active minion count |
-| `%reminions_player_max_minions%` | Max allowed minions |
-| `%reminions_player_unique_minions%` | Total unique minion types |
-| `%reminions_player_total_earnings%` | Total earnings |
-| `%reminions_player_needed_unique_minions%` | Needed for next reward |
-| `%reminions_player_progress_next_reward%` | Progress % to next reward |
-| `%reminions_player_minion_index_<n>_<field>%` | Minion at index n (status/id/owner/display) |
+| `%reminions_player_max_minions%` | Slot cap |
+| `%reminions_player_slots_available%` | Remaining free slots |
+| `%reminions_player_slots_percent%` | `current/max` as `XX%` |
+| `%reminions_player_unique_minions%` | Distinct minion ids ever placed |
+| `%reminions_player_needed_unique_minions%` | Unique-minion count needed for next reward |
+| `%reminions_player_progress_next_reward%` | `XX.X%` toward next reward |
+
+### Per-player aggregates
+| Placeholder | Returns |
+|-------------|---------|
+| `%reminions_player_total_earnings%` | Lifetime auto-sell revenue (raw) |
+| `%reminions_player_total_earnings_formatted%` | `1.2M` / `8.4K` / `123` |
+| `%reminions_player_total_collected%` | Sum of `collected` across all minions |
+| `%reminions_player_total_modifiers%` | Total modifier items placed |
+| `%reminions_player_total_storage_used%` | Items sitting in all minion storages |
+| `%reminions_player_total_storage_max%` | Combined storage capacity |
+| `%reminions_player_total_storage_percent%` | Used vs max as `XX.X%` |
+| `%reminions_player_total_active_minions%` | Minions not in `POSITION_INVALID` / `FULLY` |
+| `%reminions_player_minion_count_<TYPE>%` | Count for `MINER`/`FARMER`/`LUMBERJACK`/`KILLER`/`FISHERMAN` |
+| `%reminions_player_minion_id_count_<id>%` | Count of a specific minion id (e.g. `diamond`) |
+
+### Per-minion (lookup by index)
+Format: `%reminions_player_minion_index_<n>_<field>%`
+
+| `<field>` | Returns |
+|-----------|---------|
+| `status` | `IDLE` / `WORKING_BREAK` / `WORKING_PLACE` / `POSITION_INVALID` / `FULLY` |
+| `id` | Minion yml id (e.g. `diamond_minion`) |
+| `type` | Minion type enum |
+| `level` | Numeric level |
+| `level_roman` | `IV`, `XII`, etc. |
+| `display` | Coloured display name with roman level filled in |
+| `owner` | Owner player name |
+| `collected` | Items collected lifetime |
+| `production_speed` | Seconds between actions |
+| `base_radius` | Work radius (blocks) |
+| `modifier_count` | Modifiers currently placed |
+| `world` / `x` / `y` / `z` | Location parts |
+| `skin` | Skin id currently equipped |
+| `storage_name` | Storage type id (empty when no storage block) |
+| `storage_used` / `storage_max` / `storage_percent` | Storage fill |
+| `has_auto_sell` | `true` / `false` |
+| `auto_sell_multiplier` | Effective price multiplier (capped at 1.5×) |
+| `auto_sell_total_sold` | Lifetime items auto-sold |
+| `auto_sell_total_earned` | Lifetime auto-sell revenue |
+
+---
+
+## Public API (`BoboAPI`)
+
+Access from your plugin:
+
+```java
+ReMinions plugin = (ReMinions) Bukkit.getPluginManager().getPlugin("ReMinions");
+BoboAPI api = plugin.getApi();
+```
+
+Surface (selected):
+
+| Method | Purpose |
+|--------|---------|
+| `createMinion(skinId, ownerId, location, meta)` | Spawn a new minion programmatically |
+| `removeMinion(ownerId, minionId)` | Despawn + delete |
+| `applySkin(minionId, skinId)` | Hot-swap the cosmetic skin |
+| `setMinionLevel(minionId, level)` | Set level (validated against config) |
+| `getMinion(minionId)` / `findMinion(minionId)` | Lookup (nullable / Optional) |
+| `getAllMinions()` / `getMinionsByOwner(ownerId)` | Bulk queries |
+| `getMinionsInWorld(world)` | World-scoped query |
+| `getMinionsByType(ownerId, type)` | Per-type filter |
+| `getMinionsByConfigId(ownerId, id)` | Filter by yml id |
+| `getAutoSellPriceMultiplier(minionId)` | Effective auto-sell price (≤ 1.5×) |
+| `removeModifier(minionId, modifierId)` | Detach a specific modifier |
+| `getMinionStorage(minionId)` / `hasStorage(minionId)` | Storage block lookup |
+| `getCollectedCount(minionId)` / `addCollected(...)` | Counter access |
+| `getMinionConfig(id)` / `getAllMinionConfigs()` | Catalog reads |
+| `getModifierConfig(id)` / `getAllModifierConfigs()` | Catalog reads |
+| `getSkin(id)` / `getAvailableSkins()` | Catalog reads |
+| `getMaxMinions(ownerId)` / `getCurrentMinions(ownerId)` / `canPlaceMinion(ownerId)` | Slot checks |
+| `getTotalEarnings(ownerId)` / `getUniqueMinionsCount(ownerId)` | Player stats |
+
+`null` returns indicate "no such entity"; void mutators are no-ops when the target is missing.
+
+---
+
+## Events
+
+`MinionItemsProduceEvent` · `MinionItemsRemoveEvent` · `MinionSellItemsEvent` · `MinionPlaceEvent` — all under `dev.yanianz.reminions.api.events`.
 
 ---
 
@@ -74,7 +170,8 @@ ReMinions/
 │   ├── src/main/resources/                    # plugin.yml + configs
 │   └── src/stubs/java/                        # Legacy import migration stubs
 ├── nms/
-│   └── v1_21_11/                              # NMS adapter (Mojang-mapped)
+│   ├── v1_21_11/                              # NMS adapter (Mojang-mapped, Paper 1.21.11)
+│   └── v26_1_2/                               # NMS adapter (Paper 26.1.x / 26.2.x)
 ├── build.gradle.kts
 ├── settings.gradle.kts
 └── gradle.properties

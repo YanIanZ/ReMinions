@@ -7,6 +7,10 @@ public class NMSHandlerProvider {
     // Candidate adapter packages, in the order they're probed at runtime. The first one whose
     // classes link successfully wins. Order: newest first, so a 26.1.x server picks v26_1_2 even
     // though v1_21_11 classes are also bundled in the shaded jar.
+    // Probe order is newest first so a Paper 26.2.x server prefers v26_1_2 over the 1.21.11
+    // legacy adapter; 26.2 keeps the same craftbukkit/NMS surface so the v26_1_2 classes link
+    // cleanly there too (the adapter group is intentionally named after the lowest 26.x build
+    // it targets, not the highest one it's known to work on).
     private static final String[] VERSION_GROUPS = { "26_1_2", "1_21_11" };
 
     private static NMSHandler handler;

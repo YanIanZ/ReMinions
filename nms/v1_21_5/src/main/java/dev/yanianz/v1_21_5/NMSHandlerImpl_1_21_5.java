@@ -10,7 +10,7 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.Recipe;
 
 /** Adapter group for Paper builds in the 1.21.5 range. Delegates to the shared API-only impl. */
-public final class NMSHandlerImpl_v1_21_5 implements NMSHandler {
+public final class NMSHandlerImpl_1_21_5 implements NMSHandler {
 
     @Override
     public void sendGhostRecipe(PlayerRecipeBookClickEvent event, Config config, MinionManager minionManager,

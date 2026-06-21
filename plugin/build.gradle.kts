@@ -84,15 +84,20 @@ tasks.processResources {
 
 // ── Shadow JAR ───────────────────────────────────────────────────────────────
 
+// Modules whose Paper dev bundle targets the Spigot-mapped runtime (pre-1.20.5). Their jar
+// task emits Mojang-mapped bytecode; the shaded jar must consume reobfJar instead so the
+// classes link on the obfuscated server runtime.
+val spigotMappedNmsModules = setOf(":nms:v1_20", ":nms:v1_20_2", ":nms:v1_20_3")
+
 tasks.shadowJar {
     archiveClassifier.set("")
     archiveFileName.set("${rootProject.name}-${project.version}.jar")
 
-    // Bundle each active NMS adapter's reobfuscated jar
     nmsModules.forEach { path ->
         val sub = project(path)
-        dependsOn(sub.tasks.named("jar"))
-        from(sub.tasks.named("jar").map { zipTree(it.outputs.files.singleFile) })
+        val taskName = if (path in spigotMappedNmsModules) "reobfJar" else "jar"
+        dependsOn(sub.tasks.named(taskName))
+        from(sub.tasks.named(taskName).map { zipTree(it.outputs.files.singleFile) })
     }
 }
 

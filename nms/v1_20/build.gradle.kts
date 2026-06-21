@@ -1,13 +1,13 @@
 plugins {
     `java-library`
+    alias(libs.plugins.paperweight)
 }
 
-// Pure API-only adapter — no paperweight dev bundle. Shared {@code ApiBackedNmsAdapter}
-// in the plugin module provides the actual behaviour; the per-version classes here exist so
-// NMSHandlerProvider can report which bucket resolved at boot.
-// Supported server range: 1.20.0 – 1.20.1.
+// Real NMS adapter for 1.20.0 – 1.20.1. Paper used the Spigot-mapped runtime here, so the shadowJar
+// pulls the {@code reobfJar} output of this module (Mojang names relocated back to versioned
+// org.bukkit.craftbukkit.v_*).
 
 dependencies {
-    compileOnly(libs.paper.api)
+    paperweight.paperDevBundle("1.20.1-R0.1-SNAPSHOT")
     compileOnly(project(":plugin"))
 }

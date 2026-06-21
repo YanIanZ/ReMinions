@@ -48,13 +48,13 @@ The shaded jar contains a per-bucket adapter probed at boot. Order is newest-fir
 | `v1_21_2`   | 1.21.2 – 1.21.3 | Real NMS · paperweight |
 | `v1_21`     | 1.21.0 – 1.21.1 | Real NMS · paperweight · legacy recipe-id ghost packet |
 | `v1_20_5`   | 1.20.5 – 1.20.6 | Real NMS · paperweight · legacy recipe-id ghost packet |
-| `v1_20_3`   | 1.20.3 – 1.20.4 | API-only · Spigot-mapped runtime, no paperweight |
-| `v1_20_2`   | 1.20.2 | API-only · Spigot-mapped runtime |
-| `v1_20`     | 1.20.0 – 1.20.1 | API-only · Spigot-mapped runtime |
+| `v1_20_3`   | 1.20.3 – 1.20.4 | Real NMS · paperweight `reobfJar` (Spigot-mapped runtime · `v1_20_R3`) |
+| `v1_20_2`   | 1.20.2 | Real NMS · paperweight `reobfJar` (Spigot-mapped runtime · `v1_20_R2`) |
+| `v1_20`     | 1.20.0 – 1.20.1 | Real NMS · paperweight `reobfJar` (Spigot-mapped runtime · `v1_20_R1`) |
 
 > The 1.21.6 – 1.21.10 buckets compile against the 1.21.4 dev bundle because the codebook tool inside the current paperweight release (2.0.0-beta.21) can't read class-file v69 entries shipped inside newer Paper bundles. The SlotDisplay packet shape used by the impl is stable across 1.21.2 – 1.21.10, so runtime linkage is verified by `NMSHandlerProvider`'s `LinkageError` fallback.
 >
-> Pre-1.20.5 buckets stay API-only because Paper's runtime was Spigot-mapped there; running real NMS would need an additional `reobfJar` task per bucket. Ghost-recipe preview degrades to a no-op on those three versions only — everything else works.
+> Pre-1.20.5 buckets use paperweight's `reobfJar` task because Paper's runtime was Spigot-mapped there. The Mojang-mapped source is reobfuscated into versioned `org.bukkit.craftbukkit.v1_20_R*` packages before the shaded jar consumes it.
 >
 > All buckets share `ParticleResolver` for the 1.20.5 particle rename (e.g. `VILLAGER_HAPPY` → `HAPPY_VILLAGER`).
 

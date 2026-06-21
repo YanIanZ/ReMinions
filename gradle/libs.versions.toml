@@ -3,9 +3,9 @@
 java              = "21"
 # JDK toolchain used to compile — Paper 26.1.x+ API jars are class-file v69 (Java 25), so the compiler must be 25+.
 javaToolchain     = "25"
-# Primary Paper API the plugin compiles against. Floats across the entire 26.x line (currently
-# resolves to the newest 26.2.x build — see https://papermc.io/downloads/paper).
-paper             = "26.+"
+# Primary Paper API the plugin compiles against. Pinned to 26.2.x so the v26_1_2 adapter
+# compiles against the latest Paper CalVer surface. See https://papermc.io/downloads/paper.
+paper             = "26.2.+"
 # Legacy Paper dev bundle used only by the v1_21_11 NMS adapter (still targets Minecraft 1.21.11 internals).
 paperLegacy       = "1.21.11-R0.1-SNAPSHOT"
 paperweight       = "2.0.0-beta.21"

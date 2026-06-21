@@ -16,7 +16,7 @@ public class NMSHandlerProvider {
     // resolve particle names per-era via ParticleResolver, and degrade ghost-recipe / title-
     // update operations to no-ops on versions where the NMS protocol isn't bundled.
     private static final String[] VERSION_GROUPS = {
-            "26_1_2",   // Paper 26.x (1.22+)
+            "26_1_2",   // Paper CalVer 26.1.x / 26.2.x
             "1_21_11",  // Paper 1.21.11 (paperweight-mapped)
             "1_21_8",   // 1.21.8 – 1.21.10
             "1_21_6",   // 1.21.6 – 1.21.7

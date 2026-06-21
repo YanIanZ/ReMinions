@@ -2,7 +2,7 @@
 
 # ⚙️ ReMinions
 
-**High-performance Paper minion plugin for Minecraft 1.20.0 – 1.22+**
+**High-performance Paper minion plugin for Minecraft 1.20.0 – Paper 26.2+**
 
 [![License](https://img.shields.io/badge/License-PolyForm%20Perimeter-blue?style=flat-square)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk)](https://adoptium.net)
@@ -31,7 +31,7 @@
 | Requirement | Version |
 |-------------|---------|
 | Paper | 1.20.x · 1.21.0 – 1.21.11 · **26.1.x / 26.2.x** (latest tested) |
-| Minecraft | 1.20.0 – 1.22.x |
+| Minecraft | 1.20.0 – 1.21.11 (Paper CalVer 26.1.x / 26.2.x for the newest builds) |
 | Java | 21+ |
 
 ### Bundled NMS adapter groups
@@ -40,7 +40,7 @@ The shaded jar contains a per-bucket adapter probed at boot. Order is newest-fir
 
 | Group | Minecraft range | Implementation |
 |-------|-----------------|----------------|
-| `v26_1_2`   | 1.22.x (Paper 26.1–26.2+) | Real NMS · paperweight |
+| `v26_1_2`   | Paper 26.1.x – 26.2.x (CalVer; supersedes the 1.21.11 line) | Real NMS · paperweight |
 | `v1_21_11`  | 1.21.11 | Real NMS · paperweight |
 | `v1_21_8`   | 1.21.8 – 1.21.10 | Real NMS · paperweight (compiled against 1.21.4 bundle, SlotDisplay API stable since 1.21.2) |
 | `v1_21_6`   | 1.21.6 – 1.21.7 | Real NMS · paperweight (compiled against 1.21.4 bundle) |

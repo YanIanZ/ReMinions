@@ -39,20 +39,24 @@ The shaded jar contains a per-bucket adapter probed at boot. Order is newest-fir
 
 | Group | Minecraft range | Implementation |
 |-------|-----------------|----------------|
-| `v26_1_2`   | 1.22.x (Paper 26.1–26.2+) | Real NMS via paperweight |
-| `v1_21_11`  | 1.21.11 | Real NMS via paperweight |
-| `v1_21_8`   | 1.21.8 – 1.21.10 | API-only (shared) |
-| `v1_21_6`   | 1.21.6 – 1.21.7 | API-only (shared) |
-| `v1_21_5`   | 1.21.5 | API-only (shared) |
-| `v1_21_4`   | 1.21.4 | API-only (shared) |
-| `v1_21_2`   | 1.21.2 – 1.21.3 | API-only (shared) |
-| `v1_21`     | 1.21.0 – 1.21.1 | API-only (shared) |
-| `v1_20_5`   | 1.20.5 – 1.20.6 | API-only (post-rename particle names) |
-| `v1_20_3`   | 1.20.3 – 1.20.4 | API-only (pre-rename particle names) |
-| `v1_20_2`   | 1.20.2 | API-only (pre-rename particle names) |
-| `v1_20`     | 1.20.0 – 1.20.1 | API-only (pre-rename particle names) |
+| `v26_1_2`   | 1.22.x (Paper 26.1–26.2+) | Real NMS · paperweight |
+| `v1_21_11`  | 1.21.11 | Real NMS · paperweight |
+| `v1_21_8`   | 1.21.8 – 1.21.10 | Real NMS · paperweight (compiled against 1.21.4 bundle, SlotDisplay API stable since 1.21.2) |
+| `v1_21_6`   | 1.21.6 – 1.21.7 | Real NMS · paperweight (compiled against 1.21.4 bundle) |
+| `v1_21_5`   | 1.21.5 | Real NMS · paperweight |
+| `v1_21_4`   | 1.21.4 | Real NMS · paperweight |
+| `v1_21_2`   | 1.21.2 – 1.21.3 | Real NMS · paperweight |
+| `v1_21`     | 1.21.0 – 1.21.1 | Real NMS · paperweight · legacy recipe-id ghost packet |
+| `v1_20_5`   | 1.20.5 – 1.20.6 | Real NMS · paperweight · legacy recipe-id ghost packet |
+| `v1_20_3`   | 1.20.3 – 1.20.4 | API-only · Spigot-mapped runtime, no paperweight |
+| `v1_20_2`   | 1.20.2 | API-only · Spigot-mapped runtime |
+| `v1_20`     | 1.20.0 – 1.20.1 | API-only · Spigot-mapped runtime |
 
-> API-only buckets share `ApiBackedNmsAdapter` and resolve particle enum names via `ParticleResolver` — the 1.20.5 rename (e.g. `VILLAGER_HAPPY` → `HAPPY_VILLAGER`) is handled transparently. Ghost-recipe preview is a no-op on these buckets (the rest of the plugin works fully).
+> The 1.21.6 – 1.21.10 buckets compile against the 1.21.4 dev bundle because the codebook tool inside the current paperweight release (2.0.0-beta.21) can't read class-file v69 entries shipped inside newer Paper bundles. The SlotDisplay packet shape used by the impl is stable across 1.21.2 – 1.21.10, so runtime linkage is verified by `NMSHandlerProvider`'s `LinkageError` fallback.
+>
+> Pre-1.20.5 buckets stay API-only because Paper's runtime was Spigot-mapped there; running real NMS would need an additional `reobfJar` task per bucket. Ghost-recipe preview degrades to a no-op on those three versions only — everything else works.
+>
+> All buckets share `ParticleResolver` for the 1.20.5 particle rename (e.g. `VILLAGER_HAPPY` → `HAPPY_VILLAGER`).
 
 ---
 

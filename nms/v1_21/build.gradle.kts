@@ -1,13 +1,13 @@
 plugins {
     `java-library`
+    alias(libs.plugins.paperweight)
 }
 
-// Pure API-only adapter — no paperweight dev bundle. Shared {@code ApiBackedNmsAdapter}
-// in the plugin module provides the actual behaviour; the per-version classes here exist so
-// NMSHandlerProvider can report which bucket resolved at boot.
-// Supported server range: 1.21.0 – 1.21.1.
+// Real NMS adapter for the 1.21.0 - 1.21.1 range. Compiled against Paper 1.21.1 so the impl can
+// address Mojang-mapped net.minecraft.* classes. NMSHandlerProvider's LinkageError fallback
+// routes the adapter on adjacent server builds that share the same NMS surface.
 
 dependencies {
-    compileOnly(libs.paper.api)
+    paperweight.paperDevBundle("1.21.1-R0.1-SNAPSHOT")
     compileOnly(project(":plugin"))
 }

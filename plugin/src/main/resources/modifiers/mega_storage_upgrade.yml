@@ -1,0 +1,13 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 256
+unbreakable: true
+
+item:
+  material: SHULKER_BOX
+  name: "&a📦 &aMega Storage Upgrade"
+  lore:
+    - "&7Adds &e+256 &7slot capacity to the minion."
+    - ""
+    - "&8(Place inside the minion)"

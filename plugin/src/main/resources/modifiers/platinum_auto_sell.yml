@@ -1,0 +1,17 @@
+category: SELL
+type: AUTO_SELL
+duration: -1
+multiplier: 0.45
+unbreakable: true
+
+item:
+  material: HOPPER
+  name: "&b⚙ &bPlatinum Auto-Sell"
+  lore:
+    - "&7Sells items automatically."
+    - ""
+    - "&b✨ &b+45% sell price"
+    - "&8(Place inside the minion)"
+    - ""
+    - "&8📦 &7Total Items Sold: &a%items_sold%"
+    - "&8💰 &7Total Money Earned: &6$%money_earned%"

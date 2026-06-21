@@ -62,6 +62,16 @@ public class ModifierManager extends FileTreeHandler<ModifierConfig> {
         int    duration    = section.getInt("duration", -1);
         boolean unbreakable = section.getBoolean("unbreakable");
 
+        // FUEL is the only category where "permanent" doesn't make sense — every fuel item must
+        // burn out at some point. Anything that ships with a non-positive duration is clamped
+        // to a configurable default so the lore continues to count down and the modifier
+        // eventually expires, matching the player-visible "no unlimited fuel" contract.
+        if (category == ModifierCategory.FUEL && duration <= 0) {
+            DebugLogger.warn("FUEL modifier '" + modifierId + "' had non-positive duration (" + duration
+                    + "); clamping to 3600s. Edit the yml to set a finite duration explicitly.");
+            duration = 3600;
+        }
+
         List<Product> upgradeProducts = loadUpgradeProducts(section.getConfigurationSection("upgrade_products"), modifierId);
 
         ConfigurationSection itemSection = section.getConfigurationSection("item");

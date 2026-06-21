@@ -1,0 +1,13 @@
+category: UPGRADE
+type: STORAGE
+duration: -1
+multiplier: 1024
+unbreakable: true
+
+item:
+  material: BUNDLE
+  name: "&6📦 &6Supreme Storage Upgrade"
+  lore:
+    - "&7Adds &e+1024 &7slot capacity to the minion."
+    - ""
+    - "&8(Place inside the minion)"

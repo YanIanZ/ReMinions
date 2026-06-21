@@ -1,0 +1,14 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.25
+unbreakable: true
+
+item:
+  material: EXPERIENCE_BOTTLE
+  name: "&a⚗ &aApprentice EXP Booster"
+  lore:
+    - "&7A solid boost to skill XP gains."
+    - ""
+    - "&a✨ &a+25% Skill XP"
+    - "&8(Place inside the minion)"

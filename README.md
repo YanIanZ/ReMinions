@@ -15,8 +15,9 @@
 
 ## Features
 
-- **5 minion categories** — Farming, Mining, Combat, Lumberjack, Fisherman (135 bundled)
-- **Modifier system** — 39 modifiers including Compactor (24 vanilla recipes), Auto-Sell (price boost up to 1.5×), Lucky Clover tiers, Speed Amplifier tiers, Radius Expander tiers
+- **5 minion categories** — Farming, Mining, Combat, Lumberjack, Fisherman (155 bundled)
+- **Modifier system** — 54 modifiers including Compactor (24 vanilla recipes), Auto-Sell (price boost up to 1.5×), Lucky Clover tiers, Speed Amplifier tiers, Radius Expander tiers, XP Booster ladder, Storage tiers
+- **Live fuel duration** — fuel items carry an absolute expiry timestamp; the lore counts down in real time even while the item sits in a player's inventory. Infinite-duration FUEL modifiers are rejected at config load
 - **Skin system** — per-minion cosmetic skins with level progression
 - **Multi-database** — SQLite · MySQL · Redis · MongoDB
 - **PlaceholderAPI** — `%reminions_<placeholder>%` — full list below
@@ -114,6 +115,10 @@ Output: `plugin/build/libs/ReMinions-1.0.0.jar`
 | `%reminions_player_total_active_minions%` | Minions not in `POSITION_INVALID` / `FULLY` |
 | `%reminions_player_minion_count_<TYPE>%` | Count for `MINER`/`FARMER`/`LUMBERJACK`/`KILLER`/`FISHERMAN` |
 | `%reminions_player_minion_id_count_<id>%` | Count of a specific minion id (e.g. `diamond`) |
+| `%reminions_player_recent_production_hourly%` | Items produced in last 60 minutes (rolling window) |
+| `%reminions_player_recent_production_daily%` | Hourly rate × 24 (approximation) |
+| `%reminions_player_estimated_items_per_hour%` | Sum of expected drops × actions-per-hour across all owned minions |
+| `%reminions_player_estimated_items_per_day%` | Hourly estimate × 24 |
 
 ### Per-minion (lookup by index)
 Format: `%reminions_player_minion_index_<n>_<field>%`
@@ -139,6 +144,7 @@ Format: `%reminions_player_minion_index_<n>_<field>%`
 | `auto_sell_multiplier` | Effective price multiplier (capped at 1.5×) |
 | `auto_sell_total_sold` | Lifetime items auto-sold |
 | `auto_sell_total_earned` | Lifetime auto-sell revenue |
+| `modifier_<TYPE>_count` | Active modifier count on this minion for the given type (e.g. `modifier_SPEED_count`). Excludes expired modifiers. |
 
 ---
 

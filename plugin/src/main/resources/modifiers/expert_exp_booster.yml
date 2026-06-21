@@ -1,0 +1,14 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.75
+unbreakable: true
+
+item:
+  material: ENCHANTED_BOOK
+  name: "&9⚗ &9Expert EXP Booster"
+  lore:
+    - "&7Substantial XP gains."
+    - ""
+    - "&9✨ &9+75% Skill XP"
+    - "&8(Place inside the minion)"

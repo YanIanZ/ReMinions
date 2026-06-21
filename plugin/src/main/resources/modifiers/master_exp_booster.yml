@@ -1,0 +1,14 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 1.25
+unbreakable: true
+
+item:
+  material: ENCHANTED_GOLDEN_APPLE
+  name: "&5⚗ &dMaster EXP Booster"
+  lore:
+    - "&7Mastery-grade XP infusion."
+    - ""
+    - "&5✨ &d+125% Skill XP"
+    - "&8(Place inside the minion)"

@@ -1,0 +1,17 @@
+category: SELL
+type: AUTO_SELL
+duration: -1
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: HOPPER
+  name: "#00FFFF⚙ &bDiamond Auto-Sell"
+  lore:
+    - "&7Peak auto-sell tier — caps at 1.5× price."
+    - ""
+    - "#00FFFF✨ &b+50% sell price (max)"
+    - "&8(Place inside the minion)"
+    - ""
+    - "&8📦 &7Total Items Sold: &a%items_sold%"
+    - "&8💰 &7Total Money Earned: &6$%money_earned%"

@@ -41,6 +41,7 @@ import dev.yanianz.reminions.managers.StorageManager;
 import dev.yanianz.reminions.nms.NMSHandlerProvider;
 import dev.yanianz.reminions.booster.BoosterService;
 import dev.yanianz.reminions.economy.WorthService;
+import dev.yanianz.reminions.placeholder.RecentProductionTracker;
 import dev.yanianz.reminions.placeholder.ReMinionsExpansion;
 import dev.yanianz.reminions.task.MinionThreadTask;
 import dev.yanianz.reminions.utils.DebugLogger;
@@ -249,7 +250,13 @@ public final class ReMinions extends JavaPlugin {
             return;
         }
         try {
-            new ReMinionsExpansion(this).register();
+            // RecentProductionTracker doubles as an event listener and a tick consumer, so it
+            // has to be registered + scheduled before the expansion that reads its counters.
+            RecentProductionTracker tracker = new RecentProductionTracker();
+            this.getServer().getPluginManager().registerEvents(tracker, this);
+            // Rolling window rotates one bucket per minute; 20 ticks/sec × 60 = 1200 ticks.
+            this.getServer().getScheduler().runTaskTimer(this, tracker::tick, 1200L, 1200L);
+            new ReMinionsExpansion(this, tracker).register();
             DebugLogger.info("PlaceholderAPI successfully hooked.");
         } catch (Throwable e) {
             DebugLogger.warn("Failed to hook into PlaceholderAPI: " + e.getMessage());

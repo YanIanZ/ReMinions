@@ -483,16 +483,31 @@ public class MinionMenu extends MenuHolder {
         if (slotOccupied) return;
         ItemStack cursorItem = player.getItemOnCursor();
         if (cursorItem == null || cursorItem.getType().isAir() || cursorItem.getAmount() <= 0) return;
+        long durationMillis = calculateDurationMillis(modConfig, cursorItem, getAmountToConsume(category, modConfig, cursorItem));
+        // A returned fuel item that ticked down to zero in the player's inventory must not be
+        // re-applied as a free no-op — drop the placement and let the player throw it away.
+        if (category == ModifierCategory.FUEL && durationMillis == 0L) {
+            this.plugin.getConfig0().sendMessage(player, "fuel_expired");
+            return;
+        }
         int amount = getAmountToConsume(category, modConfig, cursorItem);
         consumeCursorItems(player, cursorItem, amount);
         minion.addModifier(new MinionModifierData(
                 UUID.randomUUID(), modConfig.id(), modConfig.type(), slot,
-                System.currentTimeMillis(), calculateDurationMillis(modConfig, cursorItem, amount)));
+                System.currentTimeMillis(), durationMillis));
         updateModifiersSection(minion, minionConfig);
     }
 
     private int getAmountToConsume(ModifierCategory category, ModifierConfig modConfig, ItemStack cursorItem) {
-        return category == ModifierCategory.FUEL && modConfig.duration() > 0 ? cursorItem.getAmount() : 1;
+        if (category != ModifierCategory.FUEL || modConfig.duration() <= 0) return 1;
+        // Carried-back fuel already encodes its own remaining lifetime on the item — eating
+        // the whole stack would multiply the same residual time by N, which is not what the
+        // player expects. Fresh catalog fuel still consumes the stack and adds N × duration.
+        if (ItemBuilder.getPersistentKey(cursorItem, "modifier_expiry") != null
+                || ItemBuilder.getPersistentKey(cursorItem, "modifier_duration") != null) {
+            return 1;
+        }
+        return cursorItem.getAmount();
     }
 
     private void consumeCursorItems(Player player, ItemStack cursorItem, int amount) {
@@ -507,36 +522,62 @@ public class MinionMenu extends MenuHolder {
 
     private ItemStack buildReturnableModifierItem(ModifierConfig modConfig, MinionModifierData modData,
                                                    long soldItems, double moneyEarned) {
-        long remaining = getRemainingDurationMillis(modData);
+        // FUEL modifiers track an absolute expiry epoch on the item PDC so the lore continues
+        // to decrement in real time while the player is carrying the item back to a chest.
+        // The applied modifier is still removed from the minion as before — only the
+        // "remaining duration" display is what stays live in the player's inventory.
+        long expiry = computeAbsoluteExpiry(modData);
+        long remaining = expiry < 0L ? -1L : Math.max(0L, expiry - System.currentTimeMillis());
         return modConfig.item().toBuild(
-                List.of(new ItemKey("modifier_duration", String.valueOf(remaining))),
+                List.of(new ItemKey("modifier_expiry", String.valueOf(expiry))),
                 "%duration%", Text.getFormattedDurationLeft(System.currentTimeMillis(), remaining),
                 "%items_sold%", Text.format1(soldItems),
                 "%money_earned%", Text.format1(moneyEarned));
     }
 
-    private long getRemainingDurationMillis(MinionModifierData modData) {
+    /** Wall-clock epoch when {@code modData} runs out, or {@code -1L} if it has no duration cap. */
+    private long computeAbsoluteExpiry(MinionModifierData modData) {
         if (modData.getDuration() < 0L) return -1L;
-        long remaining = modData.getAppliedAt() + modData.getDuration() - System.currentTimeMillis();
-        return Math.max(0L, remaining);
+        long expiry = modData.getAppliedAt() + modData.getDuration();
+        return expiry > 0L ? expiry : 0L;
     }
 
     private long calculateDurationMillis(ModifierConfig modConfig, ItemStack item, int amount) {
         if (modConfig.duration() < 0) return -1L;
-        long baseDuration = readDurationMillisFromItem(item, modConfig);
+        long carriedRemaining = readRemainingFromItem(item);
+        if (carriedRemaining >= 0L) {
+            // Item came from a previous placement; honour whatever clock has already ticked
+            // down while it sat in the player's inventory. `amount` is forced to 1 upstream
+            // for fuel items that carry a live PDC entry.
+            return carriedRemaining;
+        }
+        long baseDuration = modConfig.duration() * 1000L;
         long qty = Math.max(1, amount);
         return baseDuration > Long.MAX_VALUE / qty ? Long.MAX_VALUE : baseDuration * qty;
     }
 
-    private long readDurationMillisFromItem(ItemStack item, ModifierConfig modConfig) {
-        ItemKey durationKey = ItemBuilder.getPersistentKey(item, "modifier_duration");
-        if (durationKey != null) {
+    /**
+     * Returns the live "remaining millis" encoded on the item's PDC, or {@code -1L} when the
+     * item has no expiry mark (i.e. it's a fresh fuel straight off the catalog). Supports
+     * legacy {@code modifier_duration} (relative) entries as a backwards-compat fallback.
+     */
+    private long readRemainingFromItem(ItemStack item) {
+        ItemKey expiryKey = ItemBuilder.getPersistentKey(item, "modifier_expiry");
+        if (expiryKey != null) {
             try {
-                long parsed = Long.parseLong(durationKey.value());
-                if (parsed >= 0L) return parsed;
+                long expiry = Long.parseLong(expiryKey.value());
+                if (expiry < 0L) return -1L;
+                return Math.max(0L, expiry - System.currentTimeMillis());
             } catch (NumberFormatException ignored) {}
         }
-        return modConfig.duration() * 1000L;
+        ItemKey legacyKey = ItemBuilder.getPersistentKey(item, "modifier_duration");
+        if (legacyKey != null) {
+            try {
+                long stored = Long.parseLong(legacyKey.value());
+                if (stored >= 0L) return stored;
+            } catch (NumberFormatException ignored) {}
+        }
+        return -1L;
     }
 
     private boolean isInventoryFull(Player player) {

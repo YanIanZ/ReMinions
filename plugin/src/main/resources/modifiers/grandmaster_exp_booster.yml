@@ -1,0 +1,14 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 2.0
+unbreakable: true
+
+item:
+  material: NETHER_STAR
+  name: "#FFD700⚗ &eGrandmaster EXP Booster"
+  lore:
+    - "&7Legendary XP infusion."
+    - ""
+    - "#FFD700✨ &e+200% Skill XP"
+    - "&8(Place inside the minion)"

@@ -1,0 +1,15 @@
+category: FUEL
+type: SPEED
+duration: 259200
+multiplier: 0.35
+unbreakable: true
+
+item:
+  material: HEART_OF_THE_SEA
+  name: "#FF1493⚡ &dPlasma Core"
+  lore:
+    - "&7Concentrated plasma energy."
+    - ""
+    - "#FF1493✨ &d+35% Speed"
+    - "&7Remaining: &a%duration%"
+    - "&8(Place inside the minion)"

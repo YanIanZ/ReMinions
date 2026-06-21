@@ -1,0 +1,17 @@
+category: SELL
+type: AUTO_SELL
+duration: -1
+multiplier: 0.1
+unbreakable: true
+
+item:
+  material: HOPPER
+  name: "#CD7F32⚙ &6Bronze Auto-Sell"
+  lore:
+    - "&7Sells items automatically."
+    - ""
+    - "#CD7F32✨ &7+10% sell price"
+    - "&8(Place inside the minion)"
+    - ""
+    - "&8📦 &7Total Items Sold: &a%items_sold%"
+    - "&8💰 &7Total Money Earned: &6$%money_earned%"

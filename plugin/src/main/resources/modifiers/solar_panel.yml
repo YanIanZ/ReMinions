@@ -1,6 +1,8 @@
 category: FUEL
 type: SPEED
-duration: -1
+# Sunlight is finite — the panel lasts 12 in-game days (~24h real wall-clock) before it
+# burns out. Mirrors the new "no unlimited fuel" contract enforced by ModifierManager.
+duration: 86400
 multiplier: 0.15
 unbreakable: true
 
@@ -8,9 +10,9 @@ item:
   material: DAYLIGHT_DETECTOR
   name: "&e☀ &aSolar Panel"
   lore:
-    - "&7Harnesses sunlight to permanently"
-    - "&7boost your minion's speed."
+    - "&7Harnesses sunlight for a long-lasting"
+    - "&7minion speed boost."
     - ""
     - "&a✦ &e+15% Speed"
-    - "&7Duration: &aPermanent"
+    - "&7Remaining: &a%duration%"
     - "&8(Place inside the minion)"

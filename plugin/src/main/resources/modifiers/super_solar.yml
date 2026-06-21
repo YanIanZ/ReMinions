@@ -1,0 +1,15 @@
+category: FUEL
+type: SPEED
+duration: 172800
+multiplier: 0.25
+unbreakable: true
+
+item:
+  material: BEACON
+  name: "&e☀ &eSuper Solar Array"
+  lore:
+    - "&7A reinforced solar array."
+    - ""
+    - "&a✨ &e+25% Speed"
+    - "&7Remaining: &a%duration%"
+    - "&8(Place inside the minion)"

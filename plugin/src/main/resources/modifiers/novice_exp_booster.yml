@@ -1,0 +1,14 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.1
+unbreakable: true
+
+item:
+  material: EXPERIENCE_BOTTLE
+  name: "&f⚗ &7Novice EXP Booster"
+  lore:
+    - "&7Tiny boost to skill XP gains."
+    - ""
+    - "&f✨ &7+10% EcoSkills/AuraSkills XP"
+    - "&8(Place inside the minion)"

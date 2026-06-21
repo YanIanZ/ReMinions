@@ -12,6 +12,7 @@ import dev.yanianz.reminions.core.minion.MinionType;
 import dev.yanianz.reminions.core.modifier.AutoSellPricing;
 import dev.yanianz.reminions.core.modifier.ModifierType;
 import dev.yanianz.reminions.core.player.PlayerMinions;
+import dev.yanianz.reminions.core.product.Product;
 import dev.yanianz.reminions.utils.Text;
 import org.bukkit.OfflinePlayer;
 import org.jetbrains.annotations.NotNull;
@@ -31,9 +32,11 @@ import org.jetbrains.annotations.Nullable;
 public final class ReMinionsExpansion extends PlaceholderExpansion {
 
     private final ReMinions plugin;
+    private final RecentProductionTracker recentProduction;
 
-    public ReMinionsExpansion(ReMinions plugin) {
+    public ReMinionsExpansion(ReMinions plugin, RecentProductionTracker recentProduction) {
         this.plugin = plugin;
+        this.recentProduction = recentProduction;
     }
 
     @NotNull @Override public String getIdentifier() { return "reminions"; }
@@ -129,6 +132,22 @@ public final class ReMinionsExpansion extends PlaceholderExpansion {
                         .count();
                 return String.valueOf(active);
             }
+            // ── Time-based stats ────────────────────────────────────────────
+            case "player_recent_production_hourly" -> {
+                return String.valueOf(this.recentProduction.countLastHour(player.getUniqueId()));
+            }
+            case "player_recent_production_daily" -> {
+                // Rolling hour × 24 is the cheapest reasonable approximation that doesn't
+                // require us to keep a 24h-wide bucket array per player in memory.
+                return String.valueOf(this.recentProduction.countLastHour(player.getUniqueId()) * 24L);
+            }
+            // ── Production estimates (expected items per hour across all minions) ──
+            case "player_estimated_items_per_hour" -> {
+                return String.valueOf(Math.round(this.estimatedItemsPerHour(pm)));
+            }
+            case "player_estimated_items_per_day" -> {
+                return String.valueOf(Math.round(this.estimatedItemsPerHour(pm) * 24.0));
+            }
             default -> { /* fall through */ }
         }
 
@@ -144,8 +163,59 @@ public final class ReMinionsExpansion extends PlaceholderExpansion {
             long count = pm.getMinions().stream().filter(m -> configId.equals(m.getName())).count();
             return String.valueOf(count);
         }
+        // Per-modifier-type count on a specific minion:
+        //   %reminions_player_minion_index_<n>_modifier_<TYPE>_count%
+        if (key.startsWith("player_minion_index_") && key.endsWith("_count")) {
+            // Parsed inline so the index resolver below keeps the simple <field> path. We only
+            // hit this branch when the suffix really is `_count`.
+            String body = key.substring("player_minion_index_".length(), key.length() - "_count".length());
+            int sep = body.indexOf("_modifier_");
+            if (sep >= 0) {
+                try {
+                    int idx = Integer.parseInt(body.substring(0, sep));
+                    String typeName = body.substring(sep + "_modifier_".length()).toUpperCase();
+                    Minion minion = pm.getMinionByIndex(idx);
+                    if (minion == null) return "0";
+                    ModifierType type;
+                    try {
+                        type = ModifierType.valueOf(typeName);
+                    } catch (IllegalArgumentException invalid) {
+                        return "0";
+                    }
+                    long count = minion.getModifiers().stream()
+                            .filter(m -> m.getType() == type)
+                            .filter(m -> !m.isExpired())
+                            .count();
+                    return String.valueOf(count);
+                } catch (NumberFormatException ignored) {
+                    return "0";
+                }
+            }
+        }
 
         return null;
+    }
+
+    /**
+     * Expected items-per-hour rate aggregated over every minion the player owns. Uses each
+     * product's expected drop amount × the chance, divided by the minion's production speed
+     * (seconds per action), so the result reflects both base output and any speed modifiers
+     * applied to the minion at the moment the placeholder fires.
+     */
+    private double estimatedItemsPerHour(PlayerMinions pm) {
+        double total = 0.0;
+        for (Minion minion : pm.getMinions()) {
+            MinionConfig cfg = this.plugin.getMinionManager().get(minion.getName());
+            if (cfg == null) continue;
+            double secondsPerAction = Math.max(1.0, minion.getProductionSpeed());
+            double actionsPerHour = 3600.0 / secondsPerAction;
+            double perAction = 0.0;
+            for (Product p : cfg.products()) {
+                perAction += p.getExpectedAmount();
+            }
+            total += actionsPerHour * perAction;
+        }
+        return total;
     }
 
     private static @Nullable String resolveTypeCount(String typeStr, PlayerMinions pm) {

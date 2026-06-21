@@ -11,7 +11,24 @@ public class NMSHandlerProvider {
     // legacy adapter; 26.2 keeps the same craftbukkit/NMS surface so the v26_1_2 classes link
     // cleanly there too (the adapter group is intentionally named after the lowest 26.x build
     // it targets, not the highest one it's known to work on).
-    private static final String[] VERSION_GROUPS = { "26_1_2", "1_21_11" };
+    //
+    // The buckets below v1_21_11 are API-only — they share the plugin's ApiBackedNmsAdapter,
+    // resolve particle names per-era via ParticleResolver, and degrade ghost-recipe / title-
+    // update operations to no-ops on versions where the NMS protocol isn't bundled.
+    private static final String[] VERSION_GROUPS = {
+            "26_1_2",   // Paper 26.x (1.22+)
+            "1_21_11",  // Paper 1.21.11 (paperweight-mapped)
+            "1_21_8",   // 1.21.8 – 1.21.10
+            "1_21_6",   // 1.21.6 – 1.21.7
+            "1_21_5",   // 1.21.5
+            "1_21_4",   // 1.21.4
+            "1_21_2",   // 1.21.2 – 1.21.3
+            "1_21",     // 1.21.0 – 1.21.1
+            "1_20_5",   // 1.20.5 – 1.20.6 (new particle names)
+            "1_20_3",   // 1.20.3 – 1.20.4
+            "1_20_2",   // 1.20.2
+            "1_20"      // 1.20.0 – 1.20.1
+    };
 
     private static NMSHandler handler;
     private static ParticleBridge particleBridge;

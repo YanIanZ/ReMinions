@@ -19,7 +19,23 @@ sourceSets {
 
 // ── NMS modules to bundle ────────────────────────────────────────────────────
 
-val nmsModules = listOf(":nms:v1_21_11", ":nms:v26_1_2")
+// Bundled NMS adapter modules. Ordered newest-first so the shaded jar mirrors the runtime
+// probe order in NMSHandlerProvider. Real-NMS buckets (paperweight) sit at the bottom;
+// the rest are API-only and compile against the Paper API alone.
+val nmsModules = listOf(
+    ":nms:v26_1_2",
+    ":nms:v1_21_11",
+    ":nms:v1_21_8",
+    ":nms:v1_21_6",
+    ":nms:v1_21_5",
+    ":nms:v1_21_4",
+    ":nms:v1_21_2",
+    ":nms:v1_21",
+    ":nms:v1_20_5",
+    ":nms:v1_20_3",
+    ":nms:v1_20_2",
+    ":nms:v1_20",
+)
 nmsModules.forEach { evaluationDependsOn(it) }
 
 // ── Dependencies ─────────────────────────────────────────────────────────────

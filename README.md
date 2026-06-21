@@ -2,11 +2,11 @@
 
 # ⚙️ ReMinions
 
-**High-performance Paper minion plugin for Minecraft 1.21.11 – 1.22+**
+**High-performance Paper minion plugin for Minecraft 1.20.0 – 1.22+**
 
 [![License](https://img.shields.io/badge/License-PolyForm%20Perimeter-blue?style=flat-square)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk)](https://adoptium.net)
-[![Paper](https://img.shields.io/badge/Paper-26.1%20%E2%80%93%2026.2+-white?style=flat-square)](https://papermc.io/downloads/paper)
+[![Paper](https://img.shields.io/badge/Paper-1.20%20%E2%80%93%2026.2+-white?style=flat-square)](https://papermc.io/downloads/paper)
 [![Version](https://img.shields.io/badge/Version-1.0.0-green?style=flat-square)](https://github.com/YanIanZ/ReMinions/releases)
 
 </div>
@@ -29,11 +29,30 @@
 
 | Requirement | Version |
 |-------------|---------|
-| Paper | 26.1.x · **26.2.x** (latest tested) |
-| Minecraft | 1.21.11 – 1.22.x |
+| Paper | 1.20.x · 1.21.0 – 1.21.11 · **26.1.x / 26.2.x** (latest tested) |
+| Minecraft | 1.20.0 – 1.22.x |
 | Java | 21+ |
 
-> The shaded jar bundles two NMS adapters (`v1_21_11`, `v26_1_2`) and probes at boot — drop the same jar onto any supported Paper build.
+### Bundled NMS adapter groups
+
+The shaded jar contains a per-bucket adapter probed at boot. Order is newest-first; first one that links wins.
+
+| Group | Minecraft range | Implementation |
+|-------|-----------------|----------------|
+| `v26_1_2`   | 1.22.x (Paper 26.1–26.2+) | Real NMS via paperweight |
+| `v1_21_11`  | 1.21.11 | Real NMS via paperweight |
+| `v1_21_8`   | 1.21.8 – 1.21.10 | API-only (shared) |
+| `v1_21_6`   | 1.21.6 – 1.21.7 | API-only (shared) |
+| `v1_21_5`   | 1.21.5 | API-only (shared) |
+| `v1_21_4`   | 1.21.4 | API-only (shared) |
+| `v1_21_2`   | 1.21.2 – 1.21.3 | API-only (shared) |
+| `v1_21`     | 1.21.0 – 1.21.1 | API-only (shared) |
+| `v1_20_5`   | 1.20.5 – 1.20.6 | API-only (post-rename particle names) |
+| `v1_20_3`   | 1.20.3 – 1.20.4 | API-only (pre-rename particle names) |
+| `v1_20_2`   | 1.20.2 | API-only (pre-rename particle names) |
+| `v1_20`     | 1.20.0 – 1.20.1 | API-only (pre-rename particle names) |
+
+> API-only buckets share `ApiBackedNmsAdapter` and resolve particle enum names via `ParticleResolver` — the 1.20.5 rename (e.g. `VILLAGER_HAPPY` → `HAPPY_VILLAGER`) is handled transparently. Ghost-recipe preview is a no-op on these buckets (the rest of the plugin works fully).
 
 ---
 
@@ -170,6 +189,8 @@ ReMinions/
 │   ├── src/main/resources/                    # plugin.yml + configs
 │   └── src/stubs/java/                        # Legacy import migration stubs
 ├── nms/
+│   ├── v1_20*/                                # API-only buckets for 1.20.x
+│   ├── v1_21*/                                # API-only buckets for 1.21.0 – 1.21.10
 │   ├── v1_21_11/                              # NMS adapter (Mojang-mapped, Paper 1.21.11)
 │   └── v26_1_2/                               # NMS adapter (Paper 26.1.x / 26.2.x)
 ├── build.gradle.kts

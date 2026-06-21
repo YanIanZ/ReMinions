@@ -22,5 +22,18 @@ dependencyResolutionManagement {
 }
 
 include(":plugin")
+// NMS adapter modules — probed at runtime in order. API-only buckets (1.20.x, 1.21.0–1.21.10)
+// share the plugin's ApiBackedNmsAdapter; v1_21_11 + v26_1_2 use real NMS internals via
+// paperweight dev bundles.
+include(":nms:v1_20")
+include(":nms:v1_20_2")
+include(":nms:v1_20_3")
+include(":nms:v1_20_5")
+include(":nms:v1_21")
+include(":nms:v1_21_2")
+include(":nms:v1_21_4")
+include(":nms:v1_21_5")
+include(":nms:v1_21_6")
+include(":nms:v1_21_8")
 include(":nms:v1_21_11")
 include(":nms:v26_1_2")

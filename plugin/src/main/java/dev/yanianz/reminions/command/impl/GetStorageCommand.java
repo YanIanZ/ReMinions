@@ -5,6 +5,7 @@ import java.util.stream.Stream;
 import dev.yanianz.reminions.ReMinions;
 import dev.yanianz.reminions.command.CommandHolder;
 import dev.yanianz.reminions.config.StorageConfig;
+import dev.yanianz.reminions.utils.Text;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -47,7 +48,7 @@ public class GetStorageCommand extends CommandHolder {
 
         ItemStack storageItem = storageConfig.item().toBuild(
                 "%storage%", storageConfig.maxStorage(),
-                "%block_skin%", storageConfig.blockSkin().name());
+                "%block_skin%", Text.prettyMaterial(storageConfig.blockSkin()));
         storageItem.setAmount(amount);
         target.getInventory().addItem(storageItem);
 

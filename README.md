@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-PolyForm%20Perimeter-blue?style=flat-square)](LICENSE)
 [![Java](https://img.shields.io/badge/Java-21-orange?style=flat-square&logo=openjdk)](https://adoptium.net)
 [![Paper](https://img.shields.io/badge/Paper-1.21.11+-white?style=flat-square&logo=data:image/png;base64,)](https://papermc.io)
-[![Version](https://img.shields.io/badge/Version-2.0.7-green?style=flat-square)](https://github.com/YanIanZ/ReMinions/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-green?style=flat-square)](https://github.com/YanIanZ/ReMinions/releases)
 
 </div>
 
@@ -39,7 +39,7 @@
 ./gradlew :plugin:shadowJar
 ```
 
-Output: `plugin/build/libs/ReMinions-2.0.7.jar`
+Output: `plugin/build/libs/ReMinions-1.0.0.jar`
 
 ---
 

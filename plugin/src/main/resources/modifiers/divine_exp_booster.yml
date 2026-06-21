@@ -1,0 +1,18 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: ENCHANTED_BOOK
+  name: "#FFD700⚗ &eDivine EXP Booster"
+  lore:
+    - "&7A divine tome that doubles all"
+    - "&7experience the minion grants."
+    - "&7"
+    - "#FFD700✦ &e+100% EcoSkills XP"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "mending:1"

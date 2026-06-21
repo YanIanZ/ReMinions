@@ -1,0 +1,294 @@
+name: "&3Guardian Minion &7%roman_level%"
+item:
+  name: "&3Guardian Minion &7%roman_level%"
+  material: PLAYER_HEAD
+  head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvNTU1MWUyZTI2NWI5OGUwZjQxYjU0YjcwNzkxMDIwNzlmMjUxZjAyMzc1MWUwOTAyN2QwMjFlYTUxNTAxMWFlIn19fQ=="
+  lore:
+    - "&7Place this minion to start"
+    - "&7hunting guardians."
+    - "&7This minion works even in offline mode."
+    - "&7"
+    - "&8📦 &7Max Storage: &a%storage%"
+    - "&8⛏ &7Collected: &e%collected% &7Items"
+    - "&8⚡ &7Time Between Actions: &a%production_speed%s"
+  flags:
+    - HIDE_ATTRIBUTES
+
+type: FISHERMAN
+category_skin: "guardian_fisherman"
+properties:
+  base_radius: 3
+  block_check_around: "WATER"
+  animations:
+    entity_catch: GUARDIAN
+    entity_particle_catch: BUBBLE
+
+skin_levels:
+  1:
+    path: "guardian_level_1"
+  2:
+    path: "guardian_level_1"
+  3:
+    path: "guardian_level_1"
+  4:
+    path: "guardian_level_1"
+  5:
+    path: "guardian_level_1"
+  6:
+    path: "guardian_level_1"
+  7:
+    path: "guardian_level_1"
+  8:
+    path: "guardian_level_1"
+  9:
+    path: "guardian_level_1"
+  10:
+    path: "guardian_level_1"
+  11:
+    path: "guardian_level_1"
+  12:
+    path: "guardian_level_1"
+
+products:
+  prismarine_shard:
+    type: vanilla
+    material: PRISMARINE_SHARD
+    chance: 0.6
+    amount: 1-2
+    price: 2.0
+    source_exp:
+      skill: FISHING
+      exp: 1.5
+  prismarine_crystals:
+    type: vanilla
+    material: PRISMARINE_CRYSTALS
+    chance: 0.3
+    amount: 1
+    price: 3.0
+    source_exp:
+      skill: FISHING
+      exp: 2.5
+  cod:
+    type: vanilla
+    material: COD
+    chance: 0.4
+    amount: 1
+    price: 1.0
+
+upgrades:
+  1:
+    production_speed: 14
+    max_storage: 64
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 16
+      shape:
+        - "000"
+        - "0 0"
+        - "000"
+  2:
+    production_speed: 13
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 32
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  3:
+    production_speed: 12
+    max_storage: 192
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 64
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  4:
+    production_speed: 11
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 128
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  5:
+    production_speed: 10
+    max_storage: 384
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 192
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  6:
+    production_speed: 9
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 256
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  7:
+    production_speed: 8
+    max_storage: 576
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 320
+      shape:
+        - "000"
+        - "0?0"
+        - "000"
+  8:
+    production_speed: 7
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 384
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 8
+      shape:
+        - "010"
+        - "0?2"
+        - "000"
+  9:
+    production_speed: 6
+    max_storage: 768
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 448
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 16
+      shape:
+        - "010"
+        - "0?2"
+        - "000"
+  10:
+    production_speed: 6
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 512
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 24
+      shape:
+        - "010"
+        - "0?2"
+        - "000"
+  11:
+    production_speed: 5
+    max_storage: 960
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 576
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 32
+      shape:
+        - "010"
+        - "0?2"
+        - "000"
+  12:
+    production_speed: 5
+    max_storage: 1152
+    requirement:
+      items:
+        0:
+          product:
+            type: vanilla
+            material: PRISMARINE_SHARD
+          display: "&3Prismarine Shard"
+          amount: 640
+        2:
+          product:
+            type: vanilla
+            material: DIAMOND
+          display: "&bDiamond"
+          amount: 40
+        3:
+          product:
+            type: vanilla
+            material: EMERALD
+          display: "&aEmerald"
+          amount: 8
+      shape:
+        - "012"
+        - "1?2"
+        - "013"

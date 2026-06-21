@@ -21,7 +21,7 @@ public class ReMinionsExpansion extends PlaceholderExpansion {
 
     @NotNull @Override public String getIdentifier() { return "reminions"; }
     @NotNull @Override public String getAuthor()     { return "YanIanZ"; }
-    @NotNull @Override public String getVersion()    { return "2.0.7"; }
+    @NotNull @Override public String getVersion()    { return "1.0.0"; }
     @Override public boolean persist()               { return true; }
 
     @Nullable

@@ -13,6 +13,7 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.inventory.InventoryClickEvent;
 import org.bukkit.event.inventory.InventoryCloseEvent;
+import org.bukkit.event.inventory.InventoryDragEvent;
 import org.bukkit.scheduler.BukkitTask;
 
 /**
@@ -71,6 +72,24 @@ public class MenuListener implements Listener {
         this.lastCleanup = now;
         long staleThreshold = now - CLEANUP_INTERVAL_NS;
         this.lastClickTime.entrySet().removeIf(e -> e.getValue() < staleThreshold);
+    }
+
+    /**
+     * Blocks drags that touch the top inventory of any {@link MenuHolder}. The storage menu
+     * (and other custom menus) must remain read-only from the player side — only the plugin
+     * mutates these slots. Drags whose raw slots all fall in the player's own inventory pass
+     * through unchanged.
+     */
+    @EventHandler(ignoreCancelled = true)
+    public void onDrag(InventoryDragEvent event) {
+        if (!(event.getInventory().getHolder() instanceof MenuHolder)) return;
+        int topSize = event.getView().getTopInventory().getSize();
+        for (int rawSlot : event.getRawSlots()) {
+            if (rawSlot < topSize) {
+                event.setCancelled(true);
+                return;
+            }
+        }
     }
 
     @EventHandler

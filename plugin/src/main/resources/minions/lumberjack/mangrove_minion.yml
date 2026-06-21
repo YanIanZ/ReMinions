@@ -19,7 +19,7 @@ properties:
   base_radius: 3
   block_check_around: "GRASS_BLOCK;DIRT"
   animations:
-    before_place_tree: MANGROVE_SAPLING
+    before_place_tree: MANGROVE_PROPAGULE
     leave_tree: MANGROVE_LEAVES
     log_tree: MANGROVE_LOG
     log_tree_height: 5
@@ -60,9 +60,9 @@ products:
     source_exp:
       skill: FORAGING
       exp: 1.8
-  mangrove_sapling:
+  mangrove_propagule:
     type: vanilla
-    material: MANGROVE_SAPLING
+    material: MANGROVE_PROPAGULE
     chance: 0.3
     amount: 1-2
     price: 0.3
@@ -98,8 +98,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 4
       shape:
         - "010"
@@ -120,8 +120,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 8
       shape:
         - "010"
@@ -142,8 +142,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 12
       shape:
         - "010"
@@ -164,8 +164,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 16
       shape:
         - "010"
@@ -186,8 +186,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 20
       shape:
         - "010"
@@ -208,8 +208,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 24
       shape:
         - "010"
@@ -230,8 +230,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 28
         2:
           product:
@@ -258,8 +258,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 32
         2:
           product:
@@ -286,8 +286,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 36
         2:
           product:
@@ -314,8 +314,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 40
         2:
           product:
@@ -342,8 +342,8 @@ upgrades:
         1:
           product:
             type: vanilla
-            material: MANGROVE_SAPLING
-          display: "&aMangrove Sapling"
+            material: MANGROVE_PROPAGULE
+          display: "&aMangrove Propagule"
           amount: 44
         2:
           product:

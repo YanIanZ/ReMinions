@@ -324,7 +324,7 @@ public class MinionMenu extends MenuHolder {
             StorageConfig storageConfig = this.plugin.getStorageManager().get(storage.name());
             if (storageConfig == null) return;
             ItemStack storageItem = storageConfig.item().toBuild(
-                    "%storage%", storageConfig.maxStorage(), "%block_skin%", storageConfig.blockSkin().name());
+                    "%storage%", storageConfig.maxStorage(), "%block_skin%", Text.prettyMaterial(storageConfig.blockSkin()));
             List<ItemStack> dropPayload = InventoryTransfer.flattenWithExtra(storage.inventory(), storageItem);
             if (minionHead != null) {
                 dropPayload.add(minionHead);

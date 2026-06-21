@@ -1,0 +1,15 @@
+category: UPGRADE
+type: EXP_BOOST
+duration: -1
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: EXPERIENCE_BOTTLE
+  name: "#50C878⚗ &aUltra EXP Booster"
+  lore:
+    - "&7A potent flask of crystallised knowledge."
+    - "&7"
+    - "#50C878✦ &a+50% EcoSkills XP"
+    - "&8(Place inside the minion)"
+  unbreakable: true

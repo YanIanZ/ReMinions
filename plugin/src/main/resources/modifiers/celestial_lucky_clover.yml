@@ -1,0 +1,19 @@
+category: UPGRADE
+type: LUCK
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: NETHER_STAR
+  name: "#A020F0🍀 &dCelestial Lucky Clover"
+  lore:
+    - "&7A clover born of starlight — every"
+    - "&7rare roll is guaranteed once."
+    - "&7"
+    - "#A020F0✦ &d+100% Rare Drop Chance"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:5"
+    - "fortune:5"

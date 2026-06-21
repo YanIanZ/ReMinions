@@ -15,6 +15,7 @@ import dev.yanianz.reminions.core.minion.MinionStorage;
 import dev.yanianz.reminions.core.player.PlayerMinions;
 import dev.yanianz.reminions.utils.InventoryTransfer;
 import dev.yanianz.reminions.utils.Location3f;
+import dev.yanianz.reminions.utils.Text;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
@@ -131,6 +132,9 @@ public class StorageListener implements Listener {
         minion.setStorage(new MinionStorage(storageConfig.id(), player.getUniqueId(), inv,
                 new Location3f(storageBlock.getLocation())));
         storageBlock.setType(storageConfig.blockSkin());
+        // Storage adds a non-floor-list block to the minion's radius; force the next tick to
+        // re-evaluate validity rather than reuse a "valid" cache entry from before placement.
+        minion.invalidateValidCache();
         handItem.setAmount(handItem.getAmount() - 1);
     }
 
@@ -170,7 +174,7 @@ public class StorageListener implements Listener {
         }
         ItemStack storageItem = storageConfig.item().toBuild(
                 "%storage%", storageConfig.maxStorage(),
-                "%block_skin%", storageConfig.blockSkin().name());
+                "%block_skin%", Text.prettyMaterial(storageConfig.blockSkin()));
         List<ItemStack> dropPayload = InventoryTransfer.flattenWithExtra(storage.inventory(), storageItem);
         if (!InventoryTransfer.canFit(player.getInventory(), dropPayload)
                 || !InventoryTransfer.addAll(player.getInventory(), dropPayload)) {
@@ -181,6 +185,7 @@ public class StorageListener implements Listener {
         event.setDropItems(false);
         block.setType(Material.AIR);
         minion.setStorage(null);
+        minion.invalidateValidCache();
         this.plugin.getConfig0().sendMessage(player, "storage_removed");
     }
 

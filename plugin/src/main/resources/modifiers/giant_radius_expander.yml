@@ -1,0 +1,15 @@
+category: UPGRADE
+type: RADIUS
+duration: -1
+multiplier: 2.0
+unbreakable: true
+
+item:
+  material: ENDER_PEARL
+  name: "&5📐 &dGiant Radius Expander"
+  lore:
+    - "&7Reaches the next ring of blocks."
+    - "&7"
+    - "&5✦ &d+2 Block Radius"
+    - "&8(Place inside the minion)"
+  unbreakable: true

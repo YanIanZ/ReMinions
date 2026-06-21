@@ -7,6 +7,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+import org.bukkit.Keyed;
+import org.bukkit.Material;
 import dev.yanianz.reminions.placeholder.PlaceholderReplacer;
 import net.kyori.adventure.text.Component;
 import net.kyori.adventure.text.TextComponent.Builder;
@@ -136,6 +138,34 @@ public class Text {
         return value % 1.0 == 0.0
                 ? new DecimalFormat("#,###").format((long) value)
                 : DECIMAL_FORMAT.format(Math.floor(value * 10.0) / 10.0);
+    }
+
+    /**
+     * Converts an enum-style identifier ({@code DIAMOND_ORE}, {@code NETHER_QUARTZ_ORE}) into the
+     * title-case form players expect to read ({@code Diamond Ore}, {@code Nether Quartz Ore}).
+     * Accepts a {@link Material} (or any {@link Keyed} enum value), a {@link String}, or
+     * {@code null} (returns the empty string for {@code null}).
+     */
+    public static String prettyMaterial(Material material) {
+        return material == null ? "" : prettyEnum(material.name());
+    }
+
+    public static String prettyEnum(Enum<?> value) {
+        return value == null ? "" : prettyEnum(value.name());
+    }
+
+    public static String prettyEnum(String enumLikeName) {
+        if (enumLikeName == null || enumLikeName.isEmpty()) return "";
+        String[] parts = enumLikeName.toLowerCase().split("[_\\s]+");
+        StringBuilder sb = new StringBuilder(enumLikeName.length());
+        for (int i = 0; i < parts.length; i++) {
+            String part = parts[i];
+            if (part.isEmpty()) continue;
+            if (sb.length() > 0) sb.append(' ');
+            sb.append(Character.toUpperCase(part.charAt(0)));
+            if (part.length() > 1) sb.append(part, 1, part.length());
+        }
+        return sb.toString();
     }
 
     public static String getFormattedDurationLeft(long appliedAt, long duration) {

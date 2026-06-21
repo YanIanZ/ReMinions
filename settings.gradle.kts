@@ -14,7 +14,7 @@ dependencyResolutionManagement {
         maven("https://oss.sonatype.org/content/repositories/snapshots/")
         maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
         maven("https://jitpack.io")
-        maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
+        maven("https://repo.extendedclip.com/releases/")
         maven("https://repo.auxilor.io/repository/maven-public/")
         maven("https://nexus.phoenixdevt.fr/repository/maven-public/")
         maven("https://repo.momirealms.net/releases/")
@@ -23,3 +23,4 @@ dependencyResolutionManagement {
 
 include(":plugin")
 include(":nms:v1_21_11")
+include(":nms:v26_1_2")

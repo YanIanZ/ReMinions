@@ -1,0 +1,16 @@
+category: UPGRADE
+type: RADIUS
+duration: -1
+multiplier: 3.0
+unbreakable: true
+
+item:
+  material: ECHO_SHARD
+  name: "#00FFFF📐 &bColossal Radius Expander"
+  lore:
+    - "&7An echoing artifact that reshapes"
+    - "&7the minion's working field."
+    - "&7"
+    - "#00FFFF✦ &b+3 Block Radius"
+    - "&8(Place inside the minion)"
+  unbreakable: true

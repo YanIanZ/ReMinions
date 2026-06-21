@@ -16,6 +16,8 @@ softdepend:
   - MMOItems
   - PlaceholderAPI
   - EcoItems
+  - EcoSkills
+  - AuraSkills
   - LuckPerms
   - CraftEngine
   - SuperiorSkyblock2

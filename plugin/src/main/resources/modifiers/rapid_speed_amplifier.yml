@@ -1,0 +1,15 @@
+category: UPGRADE
+type: SPEED
+duration: -1
+multiplier: 0.22
+unbreakable: true
+
+item:
+  material: FEATHER
+  name: "&3⚡ &bRapid Speed Amplifier"
+  lore:
+    - "&7A feather charged with rapid motion."
+    - "&7"
+    - "&3✦ &b+22% Action Speed"
+    - "&8(Place inside the minion)"
+  unbreakable: true

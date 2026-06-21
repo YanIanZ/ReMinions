@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.shadow)
 }
 
+// JVM 25 compile-classpath attribute + Java 21 release target are configured in the root build.
+
 // ── Source sets ──────────────────────────────────────────────────────────────
 
 sourceSets {
@@ -17,7 +19,7 @@ sourceSets {
 
 // ── NMS modules to bundle ────────────────────────────────────────────────────
 
-val nmsModules = listOf(":nms:v1_21_11")
+val nmsModules = listOf(":nms:v1_21_11", ":nms:v26_1_2")
 nmsModules.forEach { evaluationDependsOn(it) }
 
 // ── Dependencies ─────────────────────────────────────────────────────────────

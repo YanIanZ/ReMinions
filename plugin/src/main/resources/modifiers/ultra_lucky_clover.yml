@@ -1,0 +1,19 @@
+category: UPGRADE
+type: LUCK
+duration: -1
+multiplier: 0.5
+unbreakable: true
+
+item:
+  material: EMERALD
+  name: "#50C878🍀 &aUltra Lucky Clover"
+  lore:
+    - "&7A vibrant four-leaf clover infused"
+    - "&7with raw fortune."
+    - "&7"
+    - "#50C878✦ &a+50% Rare Drop Chance"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:2"
+    - "fortune:3"

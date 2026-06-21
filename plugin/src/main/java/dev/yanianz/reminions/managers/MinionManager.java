@@ -25,6 +25,7 @@ import dev.yanianz.reminions.core.product.impl.VanillaProduct;
 import dev.yanianz.reminions.nms.NMSHandlerProvider;
 import dev.yanianz.reminions.utils.DebugLogger;
 import dev.yanianz.reminions.utils.FileTreeHandler;
+import dev.yanianz.reminions.utils.Text;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.bukkit.Particle;
@@ -361,13 +362,20 @@ public class MinionManager extends FileTreeHandler<MinionConfig> {
                                       String upgradeKey, String minionId) {
         try {
             if (itemSection == null) return;
-            String display = itemSection.getString("display", "&7Unknown");
             int amount = itemSection.getInt("amount", 1);
             ConfigurationSection productSection = itemSection.getConfigurationSection("product");
             if (productSection == null) return;
 
             String type = productSection.getString("type", "vanilla").toLowerCase();
             Product product = this.buildRequirementProduct(type, itemKey, productSection);
+            // If `display` is omitted, derive a title-case label from the product's vanilla
+            // material so "DIAMOND_ORE" renders as "Diamond Ore" in upgrade requirement lores.
+            String display = itemSection.getString("display");
+            if (display == null) {
+                String materialRaw = productSection.getString("material");
+                Material mat = materialRaw == null ? null : Material.matchMaterial(materialRaw);
+                display = mat != null ? "&7" + Text.prettyMaterial(mat) : "&7Unknown";
+            }
             if (product != null) {
                 requirementBySymbol.put(itemKey.charAt(0),
                         new MinionUpgrade.ItemRequirement(product, display, amount));

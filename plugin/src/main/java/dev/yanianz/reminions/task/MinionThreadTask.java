@@ -5,6 +5,7 @@ import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 import java.util.function.Consumer;
+import java.util.function.Predicate;
 import java.util.function.Supplier;
 import dev.yanianz.reminions.ReMinions;
 import dev.yanianz.reminions.config.AnimationConfig;
@@ -197,16 +198,17 @@ public class MinionThreadTask extends BukkitRunnable {
         }
 
         int workRadius = minion.getBaseRadius() + (int) this.modifierManager.getModifierNumber(minion, ModifierType.RADIUS);
+        Predicate<Location> skipStorage = this.storageSkipPredicate(minion);
         boolean isValid;
         if (config.bypassLocationCheck()) {
             isValid = true;
         } else {
-            isValid = this.computeIsValidWithCache(minion, config, minionLoc, workRadius);
+            isValid = this.computeIsValidWithCache(minion, config, minionLoc, workRadius, skipStorage);
             // KILLER and LUMBERJACK treat areAllBlocksAllowed as a hard gate (not a phase
             // selector). Their handlers enforce it with-viewer, but we must also block
             // the offline workOffline path when the terrain isn't fully set.
             if (isValid && (minion.getType() == MinionType.KILLER || minion.getType() == MinionType.LUMBERJACK)) {
-                isValid = config.areAllBlocksAllowed(minionLoc, workRadius);
+                isValid = config.areAllBlocksAllowed(minionLoc, workRadius, skipStorage);
             }
         }
 
@@ -260,7 +262,8 @@ public class MinionThreadTask extends BukkitRunnable {
      * nearby block edit fires, plus a soft TTL guards against external changes that did
      * not raise a Bukkit event.
      */
-    private boolean computeIsValidWithCache(Minion minion, MinionConfig config, Location loc, int radius) {
+    private boolean computeIsValidWithCache(Minion minion, MinionConfig config, Location loc, int radius,
+                                            Predicate<Location> skip) {
         long now = Bukkit.getCurrentTick();
         boolean cacheUsable = minion.validCacheState() != 0
                 && minion.validCacheRadius() == radius
@@ -268,9 +271,25 @@ public class MinionThreadTask extends BukkitRunnable {
         if (cacheUsable) {
             return minion.validCacheState() == 1;
         }
-        boolean valid = config.isValid(loc, radius);
+        boolean valid = config.isValid(loc, radius, skip);
         minion.recordValidCache(valid, radius, now);
         return valid;
+    }
+
+    /**
+     * Builds a predicate that returns {@code true} for the block coordinates currently occupied
+     * by the minion's storage block (if any). Used to exclude the storage from floor-row scans
+     * so a storage placed adjacent to the minion never falsely triggers {@code POSITION_INVALID}.
+     */
+    private Predicate<Location> storageSkipPredicate(Minion minion) {
+        MinionStorage storage = minion.getStorage();
+        if (storage == null) return null;
+        Location storageLoc = storage.location().toLocation();
+        if (storageLoc == null) return null;
+        int sx = storageLoc.getBlockX();
+        int sy = storageLoc.getBlockY();
+        int sz = storageLoc.getBlockZ();
+        return loc -> loc.getBlockX() == sx && loc.getBlockY() == sy && loc.getBlockZ() == sz;
     }
 
     /** Maximum wall-clock the minion is allowed to "catch up" while the owner was offline. */
@@ -425,9 +444,10 @@ public class MinionThreadTask extends BukkitRunnable {
 
     private void handleFisherman(Minion minion, MinionConfig config, Location loc, int radius,
                                  AnimationConfig anim, boolean hasViewers, boolean primaryFull, boolean storageFull) {
+        Predicate<Location> skipStorage = this.storageSkipPredicate(minion);
         this.handleWorkFish(
                 minion, config, primaryFull, storageFull,
-                config.areAllBlocksAllowed(loc, radius), hasViewers,
+                config.areAllBlocksAllowed(loc, radius, skipStorage), hasViewers,
                 () -> config.findFirstBlock(loc, radius, null, Material.WATER),
                 () -> config.findFirstBlock(loc, radius, null, Material.AIR),
                 waterBlock -> this.catchFish(minion.getSkinModel(), waterBlock, anim.entityParticleCatch()),
@@ -437,7 +457,8 @@ public class MinionThreadTask extends BukkitRunnable {
 
     private void handleKiller(Minion minion, MinionConfig config, Location loc, int radius,
                               AnimationConfig anim, boolean hasViewers, boolean primaryFull, boolean storageFull) {
-        if (hasViewers && !config.areAllBlocksAllowed(loc, radius)) {
+        Predicate<Location> skipStorage = this.storageSkipPredicate(minion);
+        if (hasViewers && !config.areAllBlocksAllowed(loc, radius, skipStorage)) {
             minion.setStatus(MinionStatus.POSITION_INVALID);
             minion.getSkinModel().addHolograms(MinionStatus.POSITION_INVALID, -1);
             return;
@@ -464,7 +485,8 @@ public class MinionThreadTask extends BukkitRunnable {
 
     private void handleLumberJack(Minion minion, MinionConfig config, Location loc, int radius,
                                   AnimationConfig anim, boolean hasViewers, boolean primaryFull, boolean storageFull) {
-        if (hasViewers && !config.areAllBlocksAllowed(loc, radius)) {
+        Predicate<Location> skipStorage = this.storageSkipPredicate(minion);
+        if (hasViewers && !config.areAllBlocksAllowed(loc, radius, skipStorage)) {
             minion.setStatus(MinionStatus.POSITION_INVALID);
             minion.getSkinModel().addHolograms(MinionStatus.POSITION_INVALID, -1);
             return;
@@ -496,9 +518,10 @@ public class MinionThreadTask extends BukkitRunnable {
 
     private void handleMiner(Minion minion, MinionConfig config, Location loc, int radius,
                              AnimationConfig anim, boolean hasViewers, boolean primaryFull, boolean storageFull) {
+        Predicate<Location> skipStorage = this.storageSkipPredicate(minion);
         this.handleWork(
                 minion, config, primaryFull, storageFull,
-                config.areAllBlocksAllowed(loc, radius), hasViewers,
+                config.areAllBlocksAllowed(loc, radius, skipStorage), hasViewers,
                 () -> config.findFirstBlock(loc, radius, null, anim.block()),
                 () -> config.findFirstBlock(loc, radius, null, Material.AIR),
                 blk -> blk.setType(Material.AIR),

@@ -6,8 +6,10 @@ import com.willfp.ecoskills.skills.Skills;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
+import dev.yanianz.reminions.ReMinions;
 import dev.yanianz.reminions.api.events.MinionItemsProduceEvent;
 import dev.yanianz.reminions.api.events.MinionItemsRemoveEvent;
+import dev.yanianz.reminions.booster.BoostKind;
 import dev.yanianz.reminions.config.Config;
 import dev.yanianz.reminions.config.MinionConfig;
 import dev.yanianz.reminions.config.SourceExpConfig;
@@ -63,10 +65,9 @@ public class EcoSkillListener implements Listener {
         List<Product> products = this.getAllProducts(minion, config);
 
         // EXP_BOOST modifier (item-based) + external booster plugin multiplier (BoosterService).
-        double modBoost = 1.0
-                + this.modifierManager.getModifierNumber(minion, dev.yanianz.reminions.core.modifier.ModifierType.EXP_BOOST);
-        double extBoost = dev.yanianz.reminions.ReMinions.getPlugin().getBoosterService()
-                .multiplier(owner.getUniqueId(), dev.yanianz.reminions.booster.BoostKind.EXP);
+        double modBoost = 1.0 + this.modifierManager.getModifierNumber(minion, ModifierType.EXP_BOOST);
+        double extBoost = ReMinions.getPlugin().getBoosterService()
+                .multiplier(owner.getUniqueId(), BoostKind.EXP);
         double expMultiplier = modBoost * extBoost;
 
         for (MinionInventory.ItemData item : producedItems) {

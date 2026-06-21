@@ -1,0 +1,16 @@
+category: UPGRADE
+type: RADIUS
+duration: -1
+multiplier: 1.0
+unbreakable: true
+
+item:
+  material: ENDER_EYE
+  name: "&a📐 &2Wide Radius Expander"
+  lore:
+    - "&7Extends the minion's work area"
+    - "&7by one block in every direction."
+    - "&7"
+    - "&a✦ &2+1 Block Radius"
+    - "&8(Place inside the minion)"
+  unbreakable: true

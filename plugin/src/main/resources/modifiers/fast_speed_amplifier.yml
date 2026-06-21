@@ -1,0 +1,15 @@
+category: UPGRADE
+type: SPEED
+duration: -1
+multiplier: 0.15
+unbreakable: true
+
+item:
+  material: SUGAR
+  name: "&b⚡ &fFast Speed Amplifier"
+  lore:
+    - "&7A pinch of pure speed."
+    - "&7"
+    - "&b✦ &f+15% Action Speed"
+    - "&8(Place inside the minion)"
+  unbreakable: true

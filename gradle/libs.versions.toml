@@ -1,30 +1,38 @@
 [versions]
+# Source/bytecode level — keep at 21 so the shaded jar still loads on Paper 1.21.11 (Java 21) servers.
 java              = "21"
-paper             = "1.21.11-R0.1-SNAPSHOT"
+# JDK toolchain used to compile — Paper 26.1.x API jars are class-file v69 (Java 25), so the compiler must be 25+.
+javaToolchain     = "25"
+# Primary Paper API the plugin compiles against. Floats to latest 26.1.2 stable build.
+paper             = "26.1.2.+"
+# Legacy Paper dev bundle used only by the v1_21_11 NMS adapter (still targets Minecraft 1.21.11 internals).
+paperLegacy       = "1.21.11-R0.1-SNAPSHOT"
 paperweight       = "2.0.0-beta.21"
-shadow            = "8.3.5"
+shadow            = "9.4.2"
 
 # Core deps (provided by server runtime)
-hikari            = "5.0.1"
-jedis             = "5.1.3"
-gson              = "2.10.1"
-mongo             = "5.1.4"
+hikari            = "7.1.0"
+jedis             = "7.5.2"
+gson              = "2.14.0"
+mongo             = "5.8.0"
 
 # Soft dependencies
-luckperms         = "5.4"
+luckperms         = "5.5"
 vault             = "1.7.1"
-placeholderapi    = "2.11.6"
+placeholderapi    = "2.12.2"
 mmoitems          = "6.10.1-SNAPSHOT"
 mythiclib         = "1.7.1-SNAPSHOT"
-eco               = "7.6.5"
-libreforge        = "5.7.0"
+eco               = "2026.24"
+libreforge        = "2026.24"
 ecoitems          = "6.8.0"
 ecoskills         = "4.9.0"
 itemsadder        = "3.6.1"
+# CraftEngine 26.x removed the `CustomItem<ItemStack>` API used by CraftEngineProduct.
+# Pinned to 0.0.62 until that integration is ported to the new ItemManager surface.
 craftengine       = "0.0.62"
 
 # Tooling
-jetbrains         = "24.1.0"
+jetbrains         = "26.1.0"
 
 [libraries]
 # Paper

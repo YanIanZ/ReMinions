@@ -11,22 +11,16 @@ item:
     - "&7Automatically compacts the"
     - "&7resources your minion collects."
     - ""
-    - "&8✦ &7Turns stacks into their block forms"
+    - "&8✦ &7Uses vanilla recipes — output"
+    - "&8✦ &7is a plain Minecraft item."
     - "&8(Place inside the minion)"
 
+# Each entry consumes N base products and produces 1 vanilla block.
+# `name` / `lore` are intentionally omitted so output is a stock Minecraft item
+# with no custom display or NBT (stackable with vanilla items of the same type).
 upgrade_products:
-  cobblestone_to_stone:
-    type: vanilla
-    price: 0.0
-    amount: 1
-    chance: 1.0
-    required_product: cobblestone
-    required_product_amount: 9
-    material: STONE
-    name: "&7Compacted Stone"
-    lore:
-      - "&7Created from 9 Cobblestone"
 
+  # ── 9 → 1 metal & gem blocks ────────────────────────────────────────────────
   iron_ingot_to_block:
     type: vanilla
     price: 0.0
@@ -35,9 +29,6 @@ upgrade_products:
     required_product: iron_ingot
     required_product_amount: 9
     material: IRON_BLOCK
-    name: "&fCompacted Iron"
-    lore:
-      - "&7Created from 9 Iron Ingots"
 
   gold_ingot_to_block:
     type: vanilla
@@ -47,6 +38,202 @@ upgrade_products:
     required_product: gold_ingot
     required_product_amount: 9
     material: GOLD_BLOCK
-    name: "&6Compacted Gold"
-    lore:
-      - "&7Created from 9 Gold Ingots"
+
+  diamond_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: diamond
+    required_product_amount: 9
+    material: DIAMOND_BLOCK
+
+  emerald_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: emerald
+    required_product_amount: 9
+    material: EMERALD_BLOCK
+
+  coal_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: coal
+    required_product_amount: 9
+    material: COAL_BLOCK
+
+  redstone_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: redstone
+    required_product_amount: 9
+    material: REDSTONE_BLOCK
+
+  lapis_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: lapis_lazuli
+    required_product_amount: 9
+    material: LAPIS_BLOCK
+
+  copper_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: copper_ingot
+    required_product_amount: 9
+    material: COPPER_BLOCK
+
+  netherite_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: netherite_ingot
+    required_product_amount: 9
+    material: NETHERITE_BLOCK
+
+  bone_meal_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: bone_meal
+    required_product_amount: 9
+    material: BONE_BLOCK
+
+  slime_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: slime_ball
+    required_product_amount: 9
+    material: SLIME_BLOCK
+
+  honey_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: honey_bottle
+    required_product_amount: 4
+    material: HONEY_BLOCK
+
+  honeycomb_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: honeycomb
+    required_product_amount: 4
+    material: HONEYCOMB_BLOCK
+
+  wheat_to_hay:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: wheat
+    required_product_amount: 9
+    material: HAY_BLOCK
+
+  ice_to_packed:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: ice
+    required_product_amount: 9
+    material: PACKED_ICE
+
+  packed_ice_to_blue:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: packed_ice
+    required_product_amount: 9
+    material: BLUE_ICE
+
+  dried_kelp_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: dried_kelp
+    required_product_amount: 9
+    material: DRIED_KELP_BLOCK
+
+  # ── 4 → 1 small blocks ──────────────────────────────────────────────────────
+  quartz_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: quartz
+    required_product_amount: 4
+    material: QUARTZ_BLOCK
+
+  glowstone_dust_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: glowstone_dust
+    required_product_amount: 4
+    material: GLOWSTONE
+
+  amethyst_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: amethyst_shard
+    required_product_amount: 4
+    material: AMETHYST_BLOCK
+
+  clay_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: clay_ball
+    required_product_amount: 4
+    material: CLAY
+
+  snowball_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: snowball
+    required_product_amount: 4
+    material: SNOW_BLOCK
+
+  brick_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: brick
+    required_product_amount: 4
+    material: BRICKS
+
+  nether_brick_to_block:
+    type: vanilla
+    price: 0.0
+    amount: 1
+    chance: 1.0
+    required_product: nether_brick
+    required_product_amount: 4
+    material: NETHER_BRICKS

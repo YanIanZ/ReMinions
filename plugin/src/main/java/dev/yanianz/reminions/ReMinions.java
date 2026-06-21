@@ -21,6 +21,7 @@ import dev.yanianz.reminions.database.impl.CachedDatabase;
 import dev.yanianz.reminions.database.impl.MongoDatabase;
 import dev.yanianz.reminions.database.impl.MySQLDatabase;
 import dev.yanianz.reminions.database.impl.SQLDatabase;
+import dev.yanianz.reminions.listener.AuraSkillsListener;
 import dev.yanianz.reminions.listener.BlockChangeListener;
 import dev.yanianz.reminions.listener.EcoSkillListener;
 import dev.yanianz.reminions.listener.EntityListener;
@@ -110,6 +111,7 @@ public final class ReMinions extends JavaPlugin {
         loadVault();
         loadLuckperms();
         loadEcoSkills();
+        loadAuraSkills();
         loadSuperiorSkyblock();
         loadSwm();
         loadPlaceholderAPI();
@@ -202,6 +204,20 @@ public final class ReMinions extends JavaPlugin {
         this.getServer().getPluginManager()
                 .registerEvents(new EcoSkillListener(this.minionManager, this.modifierManager, this.config0), this);
         DebugLogger.info("EcoSkills successfully hooked.");
+    }
+
+    private void loadAuraSkills() {
+        if (this.getServer().getPluginManager().getPlugin("AuraSkills") == null) {
+            DebugLogger.info("AuraSkills not found, skipping integration.");
+            return;
+        }
+        AuraSkillsListener listener = new AuraSkillsListener(this.minionManager, this.modifierManager, this.config0);
+        if (!listener.isUsable()) {
+            DebugLogger.warn("AuraSkills detected but API reflection failed — XP grants disabled.");
+            return;
+        }
+        this.getServer().getPluginManager().registerEvents(listener, this);
+        DebugLogger.info("AuraSkills successfully hooked.");
     }
 
     private void loadSuperiorSkyblock() {

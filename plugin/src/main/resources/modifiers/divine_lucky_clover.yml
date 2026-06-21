@@ -1,0 +1,19 @@
+category: UPGRADE
+type: LUCK
+duration: -1
+multiplier: 0.75
+unbreakable: true
+
+item:
+  material: TOTEM_OF_UNDYING
+  name: "#FFD700🍀 &eDivine Lucky Clover"
+  lore:
+    - "&7A clover blessed by divine luck."
+    - "&7Doubles your rare drop streak."
+    - "&7"
+    - "#FFD700✦ &e+75% Rare Drop Chance"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "luck_of_the_sea:3"
+    - "fortune:4"

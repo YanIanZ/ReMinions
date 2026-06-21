@@ -1,6 +1,9 @@
 category: SELL
 type: AUTO_SELL
 duration: -1
+# Bonus added on top of the base sell price. Effective price = min(1 + multiplier, 1.5).
+# 0.50 = +50% → caps at 1.5× the base price.
+multiplier: 0.5
 unbreakable: true
 
 item:
@@ -12,6 +15,7 @@ item:
     - ""
     - "&8✦ &7Sells items directly to the server"
     - "&8✦ &7Earnings go to your balance"
+    - "&8✦ &a+50% sell price &7(capped at 1.5×)"
     - "&8(Place inside the minion)"
     - ""
     - "&8📦 &7Total Items Sold: &a%items_sold%"

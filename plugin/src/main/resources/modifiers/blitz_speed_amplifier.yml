@@ -1,0 +1,17 @@
+category: UPGRADE
+type: SPEED
+duration: -1
+multiplier: 0.30
+unbreakable: true
+
+item:
+  material: PHANTOM_MEMBRANE
+  name: "#FF1493⚡ &dBlitz Speed Amplifier"
+  lore:
+    - "&7Time bends around the minion."
+    - "&7"
+    - "#FF1493✦ &d+30% Action Speed"
+    - "&8(Place inside the minion)"
+  unbreakable: true
+  enchants:
+    - "swift_sneak:3"

@@ -1,0 +1,30 @@
+category: "vex_combat"
+holograms:
+  IDLE:
+    - "&7⏳ &fWaiting for tasks..."
+    - "&7The vex is resting..."
+  WORKING_PLACE:
+    - "&f⚒ &aWorking..."
+  WORKING_BREAK:
+    - "&f⚒ &aWorking..."
+  POSITION_INVALID:
+    - "&c⚠ &fInvalid position!"
+  FULLY:
+    - "&c📦 &fInventory is full!"
+    - "&7Collect items to continue working"
+
+slots:
+  HEAD:
+    material: PLAYER_HEAD
+    head_texture: "eyJ0ZXh0dXJlcyI6eyJTS0lOIjp7InVybCI6Imh0dHA6Ly90ZXh0dXJlcy5taW5lY3JhZnQubmV0L3RleHR1cmUvODlmYjI4MzVmMjBmZGRkNTI4MGYxN2I0OGI2NGE5YjQ2NTUyZTNkMTcyNDk4MzM2YjRiMjcwYzYxNjg1NTU5MyJ9fX0="
+  CHEST:
+    material: LEATHER_CHESTPLATE
+    rgb: "#5a5a5a"
+  LEGS:
+    material: LEATHER_LEGGINGS
+    rgb: "#3d3d3d"
+  FEET:
+    material: LEATHER_BOOTS
+    rgb: "#5a5a5a"
+  HAND:
+    material: "DIAMOND_SWORD"

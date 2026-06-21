@@ -1,12 +1,19 @@
 package dev.yanianz.reminions.nms;
 
 import dev.yanianz.reminions.utils.DebugLogger;
+import org.bukkit.Bukkit;
 
 public class NMSHandlerProvider {
+    // Candidate adapter packages, in the order they're probed at runtime. The first one whose
+    // classes link successfully wins. Order: newest first, so a 26.1.x server picks v26_1_2 even
+    // though v1_21_11 classes are also bundled in the shaded jar.
+    private static final String[] VERSION_GROUPS = { "26_1_2", "1_21_11" };
+
     private static NMSHandler handler;
     private static ParticleBridge particleBridge;
     private static ItemBridge itemBridge;
     private static InventoryBridge inventoryBridge;
+    private static String resolvedGroup;
 
     public static NMSHandler getHandler() {
         if (handler == null) {
@@ -40,70 +47,57 @@ public class NMSHandlerProvider {
         return inventoryBridge;
     }
 
-    private static String resolveVersionGroup() {
-        // Project targets Minecraft 1.21.11+. Older versions degrade to the Bukkit-API
-        // FallbackBridges defined in this package — they keep menus/inventory working,
-        // only the recipe-book ghost-packet feature is suppressed.
-        return "1_21_11";
+    /**
+     * Probes each candidate adapter for {@code kind} in order until one loads cleanly. Caches the
+     * winning group so subsequent bridges (Particle/Item/Inventory) skip straight to that adapter.
+     */
+    @SuppressWarnings("unchecked")
+    private static <T> T tryLoad(String classPattern, Class<T> iface, String kind) {
+        if (resolvedGroup != null) {
+            String className = classPattern.replace("{V}", resolvedGroup);
+            try {
+                Class<T> cls = (Class<T>) Class.forName(className);
+                return cls.getDeclaredConstructor().newInstance();
+            } catch (Throwable t) {
+                DebugLogger.warn("⚠️ " + kind + " for resolved group " + resolvedGroup + " failed: " + t.getMessage());
+                return null;
+            }
+        }
+
+        for (String group : VERSION_GROUPS) {
+            String className = classPattern.replace("{V}", group);
+            try {
+                Class<T> cls = (Class<T>) Class.forName(className);
+                T instance = cls.getDeclaredConstructor().newInstance();
+                resolvedGroup = group;
+                DebugLogger.info("✅ NMS adapter resolved: " + group + " (server: " + Bukkit.getBukkitVersion() + ")");
+                return instance;
+            } catch (ClassNotFoundException e) {
+                DebugLogger.warn("❌ No " + kind + " implementation for group " + group);
+            } catch (LinkageError e) {
+                // Class loaded but its NMS references don't resolve on this server (e.g. running
+                // on Paper 26.1.x while v1_21_11 adapter was compiled against 1.21.11 internals).
+                DebugLogger.warn("⚠️ " + kind + " for " + group + " incompatible with this server: " + e.getMessage());
+            } catch (Exception e) {
+                DebugLogger.warn("⚠️ Error initializing " + kind + " for " + group + ": " + e.getMessage());
+            }
+        }
+        return null;
     }
 
-    @SuppressWarnings("unchecked")
     private static NMSHandler loadHandler() {
-        String versionGroup = resolveVersionGroup();
-        String className = "dev.yanianz.v" + versionGroup + ".NMSHandlerImpl_" + versionGroup;
-        try {
-            Class<NMSHandler> cls = (Class<NMSHandler>) Class.forName(className);
-            return cls.getDeclaredConstructor().newInstance();
-        } catch (ClassNotFoundException e) {
-            DebugLogger.warn("❌ No NMS implementation found for version: " + versionGroup);
-        } catch (Exception e) {
-            DebugLogger.warn("⚠️ Error initializing NMS implementation for version: " + versionGroup + " (" + e.getMessage() + ")");
-        }
-        return null;
+        return tryLoad("dev.yanianz.v{V}.NMSHandlerImpl_{V}", NMSHandler.class, "NMSHandler");
     }
 
-    @SuppressWarnings("unchecked")
     private static ParticleBridge loadParticleBridge() {
-        String versionGroup = resolveVersionGroup();
-        String className = "dev.yanianz.v" + versionGroup + ".ParticleBridge_v" + versionGroup;
-        try {
-            Class<ParticleBridge> cls = (Class<ParticleBridge>) Class.forName(className);
-            return cls.getDeclaredConstructor().newInstance();
-        } catch (ClassNotFoundException e) {
-            DebugLogger.warn("❌ No ParticleBridge implementation found for version: " + versionGroup);
-        } catch (Exception e) {
-            DebugLogger.warn("⚠️ Error initializing ParticleBridge for version: " + versionGroup + " (" + e.getMessage() + ")");
-        }
-        return null;
+        return tryLoad("dev.yanianz.v{V}.ParticleBridge_v{V}", ParticleBridge.class, "ParticleBridge");
     }
 
-    @SuppressWarnings("unchecked")
     private static ItemBridge loadItemBridge() {
-        String versionGroup = resolveVersionGroup();
-        String className = "dev.yanianz.v" + versionGroup + ".ItemBridge_v" + versionGroup;
-        try {
-            Class<ItemBridge> cls = (Class<ItemBridge>) Class.forName(className);
-            return cls.getDeclaredConstructor().newInstance();
-        } catch (ClassNotFoundException e) {
-            DebugLogger.warn("❌ No ItemBridge implementation found for version: " + versionGroup);
-        } catch (Exception e) {
-            DebugLogger.warn("⚠️ Error initializing ItemBridge for version: " + versionGroup + " (" + e.getMessage() + ")");
-        }
-        return null;
+        return tryLoad("dev.yanianz.v{V}.ItemBridge_v{V}", ItemBridge.class, "ItemBridge");
     }
 
-    @SuppressWarnings("unchecked")
     private static InventoryBridge loadInventoryBridge() {
-        String versionGroup = resolveVersionGroup();
-        String className = "dev.yanianz.v" + versionGroup + ".InventoryBridge_v" + versionGroup;
-        try {
-            Class<InventoryBridge> cls = (Class<InventoryBridge>) Class.forName(className);
-            return cls.getDeclaredConstructor().newInstance();
-        } catch (ClassNotFoundException e) {
-            DebugLogger.warn("❌ No InventoryBridge implementation found for version: " + versionGroup);
-        } catch (Exception e) {
-            DebugLogger.warn("⚠️ Error initializing InventoryBridge for version: " + versionGroup + " (" + e.getMessage() + ")");
-        }
-        return null;
+        return tryLoad("dev.yanianz.v{V}.InventoryBridge_v{V}", InventoryBridge.class, "InventoryBridge");
     }
 }

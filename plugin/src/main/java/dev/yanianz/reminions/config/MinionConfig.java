@@ -27,6 +27,7 @@ import dev.yanianz.reminions.core.minion.MinionModifierData;
 import dev.yanianz.reminions.core.minion.MinionType;
 import dev.yanianz.reminions.core.minion.MinionUpgrade;
 import dev.yanianz.reminions.booster.BoostKind;
+import dev.yanianz.reminions.core.modifier.AutoSellPricing;
 import dev.yanianz.reminions.core.modifier.ModifierType;
 import dev.yanianz.reminions.core.player.PlayerMinions;
 import dev.yanianz.reminions.core.product.Product;
@@ -191,17 +192,28 @@ public record MinionConfig(
     // Block-radius validators (used every tick by MinionThreadTask via the isValid cache)
     // ─────────────────────────────────────────────────────────────────────────────
 
-    /** Strict: every block in the radius below the minion must be in {@code blocksCheckAround} (air excluded). */
+    /** Strict: every non-air block in the radius below the minion must be in {@code blocksCheckAround}. */
     public boolean isValid(Location center, int radius) {
-        return this.areAllBlocksAllowed(center, radius, true);
+        return this.areAllBlocksAllowed(center, radius, true, null);
+    }
+
+    /** Strict + skip: as {@link #isValid(Location, int)} but skips locations matching {@code skip}. */
+    public boolean isValid(Location center, int radius, @Nullable Predicate<Location> skip) {
+        return this.areAllBlocksAllowed(center, radius, true, skip);
     }
 
     /** Loose: every non-air block in the radius below the minion must be in {@code blocksCheckAround}. */
     public boolean areAllBlocksAllowed(Location center, int radius) {
-        return this.areAllBlocksAllowed(center, radius, false);
+        return this.areAllBlocksAllowed(center, radius, false, null);
     }
 
-    private boolean areAllBlocksAllowed(Location center, int radius, boolean strict) {
+    /** Loose + skip: as {@link #areAllBlocksAllowed(Location, int)} but skips locations matching {@code skip}. */
+    public boolean areAllBlocksAllowed(Location center, int radius, @Nullable Predicate<Location> skip) {
+        return this.areAllBlocksAllowed(center, radius, false, skip);
+    }
+
+    private boolean areAllBlocksAllowed(Location center, int radius, boolean strict,
+                                        @Nullable Predicate<Location> skip) {
         if (center == null) return false;
         World world = center.getWorld();
         if (world == null || this.blocksCheckAround == null || this.blocksCheckAround.isEmpty()) {
@@ -216,9 +228,12 @@ public record MinionConfig(
         for (int bx = minX; bx <= maxX; bx++) {
             for (int bz = minZ; bz <= maxZ; bz++) {
                 if (bx == center.getBlockX() && bz == center.getBlockZ()) continue;
-                Material type = world.getBlockAt(bx, floorY, bz).getType();
-                boolean airAllowed = !strict || type != Material.AIR;
-                if (airAllowed && !this.blocksCheckAround.contains(type)) {
+                Block block = world.getBlockAt(bx, floorY, bz);
+                if (skip != null && skip.test(block.getLocation())) continue;
+                Material type = block.getType();
+                // AIR is always allowed (terrain gaps don't make a spot invalid).
+                if (type == Material.AIR) continue;
+                if (!this.blocksCheckAround.contains(type)) {
                     return false;
                 }
             }
@@ -662,9 +677,10 @@ public record MinionConfig(
         int amount = applyProductionBoost(multiplier * upgrade.getAmount(), minion);
         if (autoSellMod != null) {
             double sellBoost = ReMinions.getPlugin().getBoosterService()
-                    .multiplier(minion.getOwner(), dev.yanianz.reminions.booster.BoostKind.SELL_PRICE);
+                    .multiplier(minion.getOwner(), BoostKind.SELL_PRICE);
+            double modBoost = AutoSellPricing.effectiveMultiplier(autoSellMod);
             double revenue = ReMinions.getPlugin().getWorthService()
-                    .resolveTotal(upgrade, upgrade.buildItem(), amount) * sellBoost;
+                    .resolveTotal(upgrade, upgrade.buildItem(), amount) * sellBoost * modBoost;
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, upgrade, revenue, amount);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {
@@ -675,6 +691,7 @@ public record MinionConfig(
         DebugLogger.debug("[Work] Auto-sold upgrade product: " + upgrade.getId() + " x" + amount);
         return true;
     }
+
 
     /** Final pass: tries to ship any leftover buffered amounts (e.g. produced before inventory had room). */
     private boolean flushBufferedProducts(Minion minion, MinionModifierData autoSellMod,
@@ -882,9 +899,10 @@ public record MinionConfig(
         remaining = totalAmount - placed;
         if (remaining > 0 && autoSellMod != null && product != null) {
             double sellBoost = ReMinions.getPlugin().getBoosterService()
-                    .multiplier(minion.getOwner(), dev.yanianz.reminions.booster.BoostKind.SELL_PRICE);
+                    .multiplier(minion.getOwner(), BoostKind.SELL_PRICE);
+            double modBoost = AutoSellPricing.effectiveMultiplier(autoSellMod);
             double revenue = ReMinions.getPlugin().getWorthService()
-                    .resolveTotal(product, item, remaining) * sellBoost;
+                    .resolveTotal(product, item, remaining) * sellBoost * modBoost;
             MinionSellItemsEvent event = new MinionSellItemsEvent(minion, product, revenue, remaining);
             Bukkit.getPluginManager().callEvent(event);
             if (!event.isCancelled()) {
